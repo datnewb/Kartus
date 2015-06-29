@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 88166ef31e122ff4c8b79ce2532fb65a
+timeCreated: 1435194263
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: connector
+    100002: FL_Wheel
+    100004: FR_Wheel
+    100006: Front_Axis
+    100008: Gatling_base
+    100010: Gatling_gun
+    100012: //RootNode
+    100014: Genocide_Frame
+    100016: Gun_Barrel
+    100018: GUN_X
+    100020: GUN_Y
+    100022: Kart_Global4
+    100024: polySurface41
+    100026: polySurface42
+    100028: polySurface43
+    100030: polySurface44
+    100032: polySurface45
+    100034: polySurface46
+    100036: Rear_Axis
+    100038: RL_Wheel
+    100040: RR_Wheel
+    100042: Turret_ring
+    400000: connector
+    400002: FL_Wheel
+    400004: FR_Wheel
+    400006: Front_Axis
+    400008: Gatling_base
+    400010: Gatling_gun
+    400012: //RootNode
+    400014: Genocide_Frame
+    400016: Gun_Barrel
+    400018: GUN_X
+    400020: GUN_Y
+    400022: Kart_Global4
+    400024: polySurface41
+    400026: polySurface42
+    400028: polySurface43
+    400030: polySurface44
+    400032: polySurface45
+    400034: polySurface46
+    400036: Rear_Axis
+    400038: RL_Wheel
+    400040: RR_Wheel
+    400042: Turret_ring
+    2300000: connector
+    2300002: Gatling_base
+    2300004: Gatling_gun
+    2300006: Genocide_Frame
+    2300008: polySurface41
+    2300010: polySurface42
+    2300012: polySurface43
+    2300014: polySurface44
+    2300016: polySurface45
+    2300018: polySurface46
+    2300020: Turret_ring
+    3300000: connector
+    3300002: Gatling_base
+    3300004: Gatling_gun
+    3300006: Genocide_Frame
+    3300008: polySurface41
+    3300010: polySurface42
+    3300012: polySurface43
+    3300014: polySurface44
+    3300016: polySurface45
+    3300018: polySurface46
+    3300020: Turret_ring
+    4300000: polySurface41
+    4300002: polySurface42
+    4300004: polySurface43
+    4300006: polySurface44
+    4300008: polySurface45
+    4300010: Gatling_gun
+    4300012: Gatling_base
+    4300014: Turret_ring
+    4300016: Genocide_Frame
+    4300018: connector
+    4300020: polySurface46
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

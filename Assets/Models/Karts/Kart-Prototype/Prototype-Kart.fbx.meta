@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: 654ecda209391324ab4733428d88c00d
+timeCreated: 1427709100
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: axis_front
+    100002: axis_rear
+    100004: gun_pitch
+    100006: gun_yaw
+    100008: Kart
+    100010: mesh_axisPipe_front
+    100012: mesh_axisPipe_rear
+    100014: mesh_chassis
+    100016: mesh_gun
+    100018: mesh_gun_yaw1
+    100020: mesh_gun_yaw2
+    100022: mesh_tube
+    100024: mesh_wheel_frontLeft
+    100026: mesh_wheel_frontRight
+    100028: mesh_wheel_rearLeft
+    100030: mesh_wheel_rearRight
+    100032: //RootNode
+    100034: wheel_frontLeft
+    100036: wheel_frontRight
+    100038: wheel_rearLeft
+    100040: wheel_rearRight
+    400000: axis_front
+    400002: axis_rear
+    400004: gun_pitch
+    400006: gun_yaw
+    400008: Kart
+    400010: mesh_axisPipe_front
+    400012: mesh_axisPipe_rear
+    400014: mesh_chassis
+    400016: mesh_gun
+    400018: mesh_gun_yaw1
+    400020: mesh_gun_yaw2
+    400022: mesh_tube
+    400024: mesh_wheel_frontLeft
+    400026: mesh_wheel_frontRight
+    400028: mesh_wheel_rearLeft
+    400030: mesh_wheel_rearRight
+    400032: //RootNode
+    400034: wheel_frontLeft
+    400036: wheel_frontRight
+    400038: wheel_rearLeft
+    400040: wheel_rearRight
+    2300000: mesh_axisPipe_front
+    2300002: mesh_axisPipe_rear
+    2300004: mesh_chassis
+    2300006: mesh_gun
+    2300008: mesh_gun_yaw1
+    2300010: mesh_gun_yaw2
+    2300012: mesh_tube
+    2300014: mesh_wheel_frontLeft
+    2300016: mesh_wheel_frontRight
+    2300018: mesh_wheel_rearLeft
+    2300020: mesh_wheel_rearRight
+    3300000: mesh_axisPipe_front
+    3300002: mesh_axisPipe_rear
+    3300004: mesh_chassis
+    3300006: mesh_gun
+    3300008: mesh_gun_yaw1
+    3300010: mesh_gun_yaw2
+    3300012: mesh_tube
+    3300014: mesh_wheel_frontLeft
+    3300016: mesh_wheel_frontRight
+    3300018: mesh_wheel_rearLeft
+    3300020: mesh_wheel_rearRight
+    4300000: mesh_wheel_rearLeft
+    4300002: mesh_wheel_rearRight
+    4300004: mesh_axisPipe_rear
+    4300006: mesh_wheel_frontLeft
+    4300008: mesh_wheel_frontRight
+    4300010: mesh_axisPipe_front
+    4300012: mesh_gun
+    4300014: mesh_tube
+    4300016: mesh_gun_yaw1
+    4300018: mesh_gun_yaw2
+    4300020: mesh_chassis
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 40
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

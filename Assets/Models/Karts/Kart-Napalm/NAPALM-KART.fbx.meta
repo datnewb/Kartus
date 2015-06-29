@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 198c06d87cebcdf489a619610cb21e34
+timeCreated: 1433390442
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: BARREL
+    100002: Exhaust
+    100004: Exhaust2
+    100006: Exhaust7
+    100008: Exhaust8
+    100010: Exhaust9
+    100012: Exhaust_5_Exhaust
+    100014: FA1
+    100016: FL1
+    100018: FL_Wheel
+    100020: Flame_Tank
+    100022: FR1
+    100024: FR_Wheel
+    100026: Front_Axis
+    100028: GUN
+    100030: Gun_Barrel
+    100032: GUN_connector
+    100034: GUN_X
+    100036: GUN_Y
+    100038: Kart_Global2
+    100040: Napal__FRAME
+    100042: //RootNode
+    100044: RA1
+    100046: Rear_Axis
+    100048: RL1
+    100050: RL_Wheel
+    100052: Rotator_X
+    100054: RR1
+    100056: RR_Wheel
+    400000: BARREL
+    400002: Exhaust
+    400004: Exhaust2
+    400006: Exhaust7
+    400008: Exhaust8
+    400010: Exhaust9
+    400012: Exhaust_5_Exhaust
+    400014: FA1
+    400016: FL1
+    400018: FL_Wheel
+    400020: Flame_Tank
+    400022: FR1
+    400024: FR_Wheel
+    400026: Front_Axis
+    400028: GUN
+    400030: Gun_Barrel
+    400032: GUN_connector
+    400034: GUN_X
+    400036: GUN_Y
+    400038: Kart_Global2
+    400040: Napal__FRAME
+    400042: //RootNode
+    400044: RA1
+    400046: Rear_Axis
+    400048: RL1
+    400050: RL_Wheel
+    400052: Rotator_X
+    400054: RR1
+    400056: RR_Wheel
+    2300000: BARREL
+    2300002: Exhaust
+    2300004: Exhaust2
+    2300006: Exhaust7
+    2300008: Exhaust8
+    2300010: Exhaust9
+    2300012: Exhaust_5_Exhaust
+    2300014: FA1
+    2300016: FL1
+    2300018: Flame_Tank
+    2300020: FR1
+    2300022: GUN
+    2300024: GUN_connector
+    2300026: Napal__FRAME
+    2300028: RA1
+    2300030: RL1
+    2300032: Rotator_X
+    2300034: RR1
+    3300000: BARREL
+    3300002: Exhaust
+    3300004: Exhaust2
+    3300006: Exhaust7
+    3300008: Exhaust8
+    3300010: Exhaust9
+    3300012: Exhaust_5_Exhaust
+    3300014: FA1
+    3300016: FL1
+    3300018: Flame_Tank
+    3300020: FR1
+    3300022: GUN
+    3300024: GUN_connector
+    3300026: Napal__FRAME
+    3300028: RA1
+    3300030: RL1
+    3300032: Rotator_X
+    3300034: RR1
+    4300000: FA1
+    4300002: FR1
+    4300004: FL1
+    4300006: RL1
+    4300008: RR1
+    4300010: BARREL
+    4300012: GUN
+    4300014: Rotator_X
+    4300016: Napal__FRAME
+    4300018: GUN_connector
+    4300020: Flame_Tank
+    4300022: Exhaust
+    4300024: Exhaust_5_Exhaust
+    4300026: Exhaust2
+    4300028: Exhaust7
+    4300030: Exhaust8
+    4300032: Exhaust9
+    4300034: RA1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,53 @@
+Initialize engine version: 5.0.3f2 (c28c7860811c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960M     (ID=0x139b)
+    Vendor:   NVIDIA
+    VRAM:     4014 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.047 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1e74 -> priority: 1 
+  Thread -> id: b10 -> priority: 1 
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Shader 'Nature/Terrain/Specular': fallback shader 'Nature/Terrain/Diffuse' not found
+Shader 'Nature/Terrain/Standard': fallback shader 'Nature/Terrain/Diffuse' not found
+UnloadTime: 7.219338 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 11a4 -> priority: 1 
+  Thread -> id: 1380 -> priority: 1 
+
+Unloading 201 unused Assets to reduce memory usage. Loaded Objects now: 1196.
+Total: 0.497790 ms (FindLiveObjects: 0.059213 ms CreateObjectMapping: 0.045397 ms MarkObjects: 0.294884 ms  DeleteObjects: 0.097900 ms)
+
+View ID AllocatedID: 1062 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Couldn't destroy object because the associate network view was not found
+ 
+(Filename:  Line: 1398)
+
+View ID AllocatedID: 1378 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Couldn't destroy object because the associate network view was not found
+ 
+(Filename:  Line: 1398)
+

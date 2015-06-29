@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: b20d95961268f014eab062d6095c106a
+timeCreated: 1435194279
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: F_axis
+    100002: F_axis1
+    100004: FL_Wheel
+    100006: FR_Wheel
+    100008: Front_Axis
+    100010: gun_mantlet
+    100012: gun_mantlet1
+    100014: GUN_X
+    100016: GUN_Y
+    100018: Kart_Global6
+    100020: LWheel
+    100022: LWheel1
+    100024: //RootNode
+    100026: Minion_cannon
+    100028: Minion_cannon1
+    100030: minion_frame
+    100032: minion_frame1
+    100034: minion_turret
+    100036: minion_turret1
+    100038: R_Axis
+    100040: R_Axis1
+    100042: Rear_Axis
+    100044: RL_WHEEL
+    100046: RL_Wheel
+    100048: RL_WHEEL1
+    100050: RR_Wheel
+    100052: RRWheel
+    100054: RRWheel1
+    100056: RWheel
+    100058: RWheel1
+    100060: transform71
+    100062: transform72
+    100064: transform73
+    100066: transform74
+    100068: transform75
+    100070: transform76
+    100072: transform77
+    100074: transform78
+    100076: transform79
+    100078: transform80
+    400000: F_axis
+    400002: F_axis1
+    400004: FL_Wheel
+    400006: FR_Wheel
+    400008: Front_Axis
+    400010: gun_mantlet
+    400012: gun_mantlet1
+    400014: GUN_X
+    400016: GUN_Y
+    400018: Kart_Global6
+    400020: LWheel
+    400022: LWheel1
+    400024: //RootNode
+    400026: Minion_cannon
+    400028: Minion_cannon1
+    400030: minion_frame
+    400032: minion_frame1
+    400034: minion_turret
+    400036: minion_turret1
+    400038: R_Axis
+    400040: R_Axis1
+    400042: Rear_Axis
+    400044: RL_WHEEL
+    400046: RL_Wheel
+    400048: RL_WHEEL1
+    400050: RR_Wheel
+    400052: RRWheel
+    400054: RRWheel1
+    400056: RWheel
+    400058: RWheel1
+    400060: transform71
+    400062: transform72
+    400064: transform73
+    400066: transform74
+    400068: transform75
+    400070: transform76
+    400072: transform77
+    400074: transform78
+    400076: transform79
+    400078: transform80
+    2300000: F_axis
+    2300002: gun_mantlet
+    2300004: LWheel
+    2300006: Minion_cannon
+    2300008: minion_frame
+    2300010: minion_turret
+    2300012: R_Axis
+    2300014: RL_WHEEL
+    2300016: RRWheel
+    2300018: RWheel
+    3300000: F_axis
+    3300002: gun_mantlet
+    3300004: LWheel
+    3300006: Minion_cannon
+    3300008: minion_frame
+    3300010: minion_turret
+    3300012: R_Axis
+    3300014: RL_WHEEL
+    3300016: RRWheel
+    3300018: RWheel
+    4300000: LWheel
+    4300002: RWheel
+    4300004: F_axis
+    4300006: RRWheel
+    4300008: RL_WHEEL
+    4300010: R_Axis
+    4300012: gun_mantlet
+    4300014: Minion_cannon
+    4300016: minion_turret
+    4300018: minion_frame
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
