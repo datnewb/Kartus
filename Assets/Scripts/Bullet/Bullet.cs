@@ -11,6 +11,11 @@ public class Bullet : MonoBehaviour
         Invoke("DestroyBullet", bulletLife);
     }
 
+    void Update()
+    {
+        LookForward();
+    }
+
     void OnCollisionEnter (Collision collision)
     {
         if (collision.gameObject.GetComponent<CharacterTeam>() != null &&
@@ -29,6 +34,11 @@ public class Bullet : MonoBehaviour
         }
 
         DestroyBullet();
+    }
+
+    private void LookForward()
+    {
+        transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity);
     }
 
     internal void SetDamage(float damage)

@@ -20,7 +20,7 @@ public class CharacterHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             if (destroyEffect != null)
-                Network.Instantiate(destroyEffect, transform.position, transform.rotation, 0);
+                Instantiate(destroyEffect, transform.position, transform.rotation);
             Network.Destroy(gameObject);
         }
     }

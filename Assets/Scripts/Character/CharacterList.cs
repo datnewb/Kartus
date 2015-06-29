@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public enum Kart
+public enum KartEnum
 {
-    Napalm
+    Napalm,
+    Adventurer,
+    Genocide,
+    HighTech
 }
 
 public enum Gender
@@ -12,9 +15,15 @@ public enum Gender
     Female
 }
 
-
 public class CharacterList : MonoBehaviour
 {
     public List<GameObject> drivers;
-    public List<GameObject> kartObjects;
+    public List<Kart> karts;
+}
+
+[System.Serializable]
+public class Kart
+{
+    public KartEnum kartEnumValue;
+    public List<GameObject> variations;
 }

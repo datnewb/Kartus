@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(KartCamera))]
 public class KartGun : MonoBehaviour 
 {
     [SerializeField]

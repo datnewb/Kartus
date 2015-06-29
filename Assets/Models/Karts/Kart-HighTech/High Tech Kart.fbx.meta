@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: fcbcde523397ae844886493e0a9b6e10
+timeCreated: 1435573891
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: FL_Wheel
+    100002: FR_Wheel
+    100004: Front_Axis
+    100006: gun_s_light
+    100008: //RootNode
+    100010: High_Tech_Barrel
+    100012: High_Tech_Barrel1
+    100014: High_Tech_Frame
+    100016: Hight_tech__GUN_X
+    100018: Hight_tech_Gun_Barrel
+    100020: Hight_tech_GUN_Y
+    100022: Hight_tech_Turret
+    100024: Kart_Global3
+    100026: light_bakc
+    100028: LRWheel
+    100030: LWheel
+    100032: Pipes
+    100034: Rear_Axis
+    100036: RL_Wheel
+    100038: RR_Wheel
+    100040: RRWheel
+    100042: RWheel
+    400000: FL_Wheel
+    400002: FR_Wheel
+    400004: Front_Axis
+    400006: gun_s_light
+    400008: //RootNode
+    400010: High_Tech_Barrel
+    400012: High_Tech_Barrel1
+    400014: High_Tech_Frame
+    400016: Hight_tech__GUN_X
+    400018: Hight_tech_Gun_Barrel
+    400020: Hight_tech_GUN_Y
+    400022: Hight_tech_Turret
+    400024: Kart_Global3
+    400026: light_bakc
+    400028: LRWheel
+    400030: LWheel
+    400032: Pipes
+    400034: Rear_Axis
+    400036: RL_Wheel
+    400038: RR_Wheel
+    400040: RRWheel
+    400042: RWheel
+    2300000: gun_s_light
+    2300002: High_Tech_Barrel
+    2300004: High_Tech_Barrel1
+    2300006: High_Tech_Frame
+    2300008: Hight_tech_Turret
+    2300010: light_bakc
+    2300012: LRWheel
+    2300014: LWheel
+    2300016: Pipes
+    2300018: RRWheel
+    2300020: RWheel
+    3300000: gun_s_light
+    3300002: High_Tech_Barrel
+    3300004: High_Tech_Barrel1
+    3300006: High_Tech_Frame
+    3300008: Hight_tech_Turret
+    3300010: light_bakc
+    3300012: LRWheel
+    3300014: LWheel
+    3300016: Pipes
+    3300018: RRWheel
+    3300020: RWheel
+    4300000: LWheel
+    4300002: RWheel
+    4300004: LRWheel
+    4300006: RRWheel
+    4300008: High_Tech_Barrel1
+    4300010: High_Tech_Barrel
+    4300012: Hight_tech_Turret
+    4300014: gun_s_light
+    4300016: High_Tech_Frame
+    4300018: light_bakc
+    4300020: Pipes
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

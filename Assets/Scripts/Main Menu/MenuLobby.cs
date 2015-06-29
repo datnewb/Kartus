@@ -42,6 +42,7 @@ public class MenuLobby : MonoBehaviour
     private LobbyManager lobbyManager;
 
     internal bool leftGame;
+    internal bool kartSelected;
 
     void Start()
     {
@@ -73,7 +74,7 @@ public class MenuLobby : MonoBehaviour
             startGameButton.SetActive(false);
 
         leftGame = false;
-
+        kartSelected = false;
     }
 
     void Update()
@@ -90,7 +91,21 @@ public class MenuLobby : MonoBehaviour
                     break;
             }
         }
+        if (kartSelected)
+        {
+            PlayerInfo myPlayerInfo = null;
+            foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+            {
+                if (playerInfo.GetComponent<NetworkView>().isMine)
+                {
+                    myPlayerInfo = playerInfo;
+                    break;
+                }
+            }
+            myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
+        }
         SetPlayerListView();
+        SetPlayerTeam();
     }
 
     private void SetGameMode()
@@ -139,6 +154,22 @@ public class MenuLobby : MonoBehaviour
             ipAddress.text = Network.connections[0].ipAddress;
         else if (Network.isServer)
             ipAddress.text = Network.player.ipAddress;
+    }
+
+    private void SetPlayerTeam()
+    {
+        if (Network.isServer)
+        {
+            foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+            {
+                if (playerInfo.position == 1 || playerInfo.position == 2)
+                    playerInfo.GetComponent<CharacterTeam>().team = Team.Speedster;
+                else if (playerInfo.position == 3 || playerInfo.position == 4)
+                    playerInfo.GetComponent<CharacterTeam>().team = Team.Roadkill;
+                else
+                    playerInfo.GetComponent<CharacterTeam>().team = Team.NeutralHostile;
+            }
+        }
     }
 
     public void StartButton()
@@ -322,15 +353,15 @@ public class MenuLobby : MonoBehaviour
 
     public void ChangeTeamSpeedster()
     {
-        ChangeTeam(1, 2);
+        ChangeTeam(Team.Speedster, 1, 2);
     }
 
     public void ChangeTeamRoadkill()
     {
-        ChangeTeam(3, 4);
+        ChangeTeam(Team.Roadkill, 3, 4);
     }
 
-    private void ChangeTeam(int firstPosition, int secondPosition)
+    private void ChangeTeam(Team team, int firstPosition, int secondPosition)
     {
         int playersInTeam = 0;
         PlayerInfo myPlayerInfo = null;
@@ -362,6 +393,7 @@ public class MenuLobby : MonoBehaviour
                 }
             }
         }
+        myPlayerInfo.GetComponent<CharacterTeam>().team = team;
 
         UpdatePlayerListTeam(playerListWithTeamText, lobbyManager.playerInfos);
         UpdateReserveText();
@@ -400,5 +432,128 @@ public class MenuLobby : MonoBehaviour
             reservePlayersText.text = ReservesCount() + " player in reserve.";
         else
             reservePlayersText.text = "";
+    }
+
+    public void ChangeGenderMale()
+    {
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (playerInfo.GetComponent<NetworkView>().isMine)
+            {
+                if (playerInfo.gender != Gender.Male)
+                    playerInfo.gender = Gender.Male;
+                break;
+            }
+        }
+    }
+
+    public void ChangeGenderFemale()
+    {
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (playerInfo.GetComponent<NetworkView>().isMine)
+            {
+                if (playerInfo.gender != Gender.Female)
+                    playerInfo.gender = Gender.Female;
+                break;
+            }
+        }
+    }
+
+    public void SelectKart()
+    {
+        PlayerInfo myPlayerInfo = null;
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (playerInfo.GetComponent<NetworkView>().isMine)
+            {
+                myPlayerInfo = playerInfo;
+                break;
+            }
+        }
+
+        if (FindObjectOfType<GameModeHandler>() != null)
+        {
+            switch (FindObjectOfType<GameModeHandler>().teams)
+            {
+                case GameModeTeams.None:
+                    if (FindKartMatches(myPlayerInfo) < 2)
+                    {
+                        myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
+                        myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
+                    }
+                    break;
+                case GameModeTeams.Two:
+                    if (FindKartMatches(myPlayerInfo, myPlayerInfo.GetComponent<CharacterTeam>().team) < 1)
+                    {
+                        myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
+                        myPlayerInfo.kartVariation = (int)(myPlayerInfo.GetComponent<CharacterTeam>().team);
+                    }
+                    break;
+            }
+        }
+    }
+
+    private int FindKartMatches(PlayerInfo myPlayerInfo)
+    {
+        int matches = 0;
+
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (playerInfo != myPlayerInfo)
+            {
+                if (playerInfo.kart == myPlayerInfo.currentSelectedKart)
+                    matches++;
+            }
+        }
+
+        return matches;
+    }
+
+    private int FindKartMatches(PlayerInfo myPlayerInfo, Team team)
+    {
+        int matches = 0;
+
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (playerInfo != myPlayerInfo && 
+                playerInfo.GetComponent<CharacterTeam>().team == myPlayerInfo.GetComponent<CharacterTeam>().team)
+            {
+                if (playerInfo.kart == myPlayerInfo.currentSelectedKart)
+                    matches++;
+            }
+        }
+
+        return matches;
+    }
+
+    public void SelectKartLeft()
+    {
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (playerInfo.GetComponent<NetworkView>().isMine)
+            {
+                if (playerInfo.currentSelectedKart > 0)
+                    playerInfo.currentSelectedKart--;
+                else
+                    playerInfo.currentSelectedKart = (KartEnum)(System.Enum.GetValues(typeof(KartEnum)).Length - 1);
+                break;
+            }
+        }
+    }
+
+    public void SelectKartRight()
+    {
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (playerInfo.GetComponent<NetworkView>().isMine)
+            {
+                if ((int)(playerInfo.currentSelectedKart) < System.Enum.GetValues(typeof(KartEnum)).Length - 1)
+                    playerInfo.currentSelectedKart++;
+                else
+                    playerInfo.currentSelectedKart = 0;
+                break;
+            }
+        }
     }
 }

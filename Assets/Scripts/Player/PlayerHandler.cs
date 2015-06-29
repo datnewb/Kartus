@@ -10,7 +10,6 @@ public class PlayerHandler : MonoBehaviour
     public GameObject driver;
     internal GameObject kartInstance;
 
-
     internal int kills;
     internal int deaths;
 

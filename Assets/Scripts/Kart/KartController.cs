@@ -12,8 +12,6 @@ public class KartController : MonoBehaviour
     [SerializeField]
     private float steerAngle;
     [SerializeField]
-    private Vector3 centerOfMass;
-    [SerializeField]
     private List<KartWheel> wheels;
 
     internal float inputHorizontalValue;
@@ -24,7 +22,7 @@ public class KartController : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = centerOfMass;
+        GetComponent<Rigidbody>().centerOfMass = Vector3.zero;
 
         inputHorizontalValue = 0;
         inputVerticalValue = 0;

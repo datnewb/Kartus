@@ -7,8 +7,6 @@ public class KartCamera : MonoBehaviour
     [SerializeField]
     private Transform cameraTransform;
     [SerializeField]
-    private float mouseSensitivity;
-    [SerializeField]
     private float maxHorizontalAngle;
 
     private float maxCameraDistance;

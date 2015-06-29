@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\Network\LobbyManager.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkStarter.cs" />
+     <Compile Include="Assets\Scripts\Others\ObjectRotator.cs" />
      <Compile Include="Assets\Scripts\Player\InputManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHandler.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerInfo.cs" />
