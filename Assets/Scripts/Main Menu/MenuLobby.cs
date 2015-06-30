@@ -37,12 +37,22 @@ public class MenuLobby : MonoBehaviour
     [SerializeField]
     internal GameObject reserveButton;
 
+    [SerializeField]
+    internal GameObject selectKartButton;
+    [SerializeField]
+    internal GameObject selectKartLeftButton;
+    [SerializeField]
+    internal GameObject selectKartRightButton;
+    [SerializeField]
+    internal GameObject cancelSelectKartButton;
+    [SerializeField]
+    internal Text selectedKartText;
+
     private MainMenuHandler mainMenuHandler;
     private Canvas lobbyCanvas;
     private LobbyManager lobbyManager;
 
     internal bool leftGame;
-    internal bool kartSelected;
 
     void Start()
     {
@@ -73,8 +83,9 @@ public class MenuLobby : MonoBehaviour
         else if (Network.isClient)
             startGameButton.SetActive(false);
 
+        EnableKartSelection();
+
         leftGame = false;
-        kartSelected = false;
     }
 
     void Update()
@@ -91,21 +102,16 @@ public class MenuLobby : MonoBehaviour
                     break;
             }
         }
-        if (kartSelected)
+        if (GetLocalPlayerInfo() != null &&
+            GetLocalPlayerInfo().kartSelected)
         {
-            PlayerInfo myPlayerInfo = null;
-            foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
-            {
-                if (playerInfo.GetComponent<NetworkView>().isMine)
-                {
-                    myPlayerInfo = playerInfo;
-                    break;
-                }
-            }
+            PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
             myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
         }
         SetPlayerListView();
         SetPlayerTeam();
+
+        ChangeKartPreview();
     }
 
     private void SetGameMode()
@@ -185,12 +191,24 @@ public class MenuLobby : MonoBehaviour
             };
 
             mainMenuHandler.ShowErrorDialog(title, message, okAction);
+            return;
         }
-        else
+        if (!CheckIfAllSelected())
         {
-            MainMenuHandler.DisableInputReceive();
-            StartCoroutine(CountDownToStart());
+            string title = "ERROR";
+            string message = "Not all players have selected a kart. Wait for them to choose a kart.";
+            UnityAction okAction = () =>
+            {
+                MainMenuHandler.EnableInputReceive();
+                Destroy(mainMenuHandler.dialogInstance);
+            };
+
+            mainMenuHandler.ShowErrorDialog(title, message, okAction);
+            return;
         }
+
+        MainMenuHandler.DisableInputReceive();
+        StartCoroutine(CountDownToStart());
     }
 
     IEnumerator CountDownToStart()
@@ -401,14 +419,8 @@ public class MenuLobby : MonoBehaviour
 
     public void ChangeTeamReserve()
     {
-        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
-        {
-            if (playerInfo.GetComponent<NetworkView>().isMine)
-            {
-                playerInfo.position = 0;
-                break;
-            }
-        }
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        myPlayerInfo.position = 0;
 
         UpdateReserveText();
     }
@@ -436,41 +448,25 @@ public class MenuLobby : MonoBehaviour
 
     public void ChangeGenderMale()
     {
-        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if (myPlayerInfo.gender != Gender.Male)
         {
-            if (playerInfo.GetComponent<NetworkView>().isMine)
-            {
-                if (playerInfo.gender != Gender.Male)
-                    playerInfo.gender = Gender.Male;
-                break;
-            }
+            myPlayerInfo.gender = Gender.Male;
         }
     }
 
     public void ChangeGenderFemale()
     {
-        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if (myPlayerInfo.gender != Gender.Female)
         {
-            if (playerInfo.GetComponent<NetworkView>().isMine)
-            {
-                if (playerInfo.gender != Gender.Female)
-                    playerInfo.gender = Gender.Female;
-                break;
-            }
+            myPlayerInfo.gender = Gender.Female;
         }
     }
 
     public void SelectKart()
     {
-        PlayerInfo myPlayerInfo = null;
-        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
-        {
-            if (playerInfo.GetComponent<NetworkView>().isMine)
-            {
-                myPlayerInfo = playerInfo;
-                break;
-            }
-        }
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
 
         if (FindObjectOfType<GameModeHandler>() != null)
         {
@@ -481,6 +477,7 @@ public class MenuLobby : MonoBehaviour
                     {
                         myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
                         myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
+                        goto default;
                     }
                     break;
                 case GameModeTeams.Two:
@@ -488,10 +485,21 @@ public class MenuLobby : MonoBehaviour
                     {
                         myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
                         myPlayerInfo.kartVariation = (int)(myPlayerInfo.GetComponent<CharacterTeam>().team);
+                        goto default;
                     }
+                    break;
+                default:
+                    myPlayerInfo.kartSelected = true;
+                    DisableKartSelection();
                     break;
             }
         }
+    }
+
+    public void CancelSelectKart()
+    {
+        GetLocalPlayerInfo().kartSelected = false;
+        EnableKartSelection();
     }
 
     private int FindKartMatches(PlayerInfo myPlayerInfo)
@@ -529,31 +537,71 @@ public class MenuLobby : MonoBehaviour
 
     public void SelectKartLeft()
     {
-        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
-        {
-            if (playerInfo.GetComponent<NetworkView>().isMine)
-            {
-                if (playerInfo.currentSelectedKart > 0)
-                    playerInfo.currentSelectedKart--;
-                else
-                    playerInfo.currentSelectedKart = (KartEnum)(System.Enum.GetValues(typeof(KartEnum)).Length - 1);
-                break;
-            }
-        }
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if (myPlayerInfo.currentSelectedKart > 0)
+            myPlayerInfo.currentSelectedKart--;
+        else
+            myPlayerInfo.currentSelectedKart = (KartEnum)(System.Enum.GetValues(typeof(KartEnum)).Length - 1);
+        ChangeKartPreview();
     }
 
     public void SelectKartRight()
     {
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if ((int)(myPlayerInfo.currentSelectedKart) < System.Enum.GetValues(typeof(KartEnum)).Length - 1)
+            myPlayerInfo.currentSelectedKart++;
+        else
+            myPlayerInfo.currentSelectedKart = 0;
+        ChangeKartPreview();
+    }
+
+    private PlayerInfo GetLocalPlayerInfo()
+    {
+        PlayerInfo myPlayerInfo = null;
         foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
         {
             if (playerInfo.GetComponent<NetworkView>().isMine)
             {
-                if ((int)(playerInfo.currentSelectedKart) < System.Enum.GetValues(typeof(KartEnum)).Length - 1)
-                    playerInfo.currentSelectedKart++;
-                else
-                    playerInfo.currentSelectedKart = 0;
+                myPlayerInfo = playerInfo;
                 break;
             }
+        }
+        return myPlayerInfo;
+    }
+
+    private void EnableKartSelection()
+    {
+        selectKartButton.SetActive(true);
+        selectKartLeftButton.SetActive(true);
+        selectKartRightButton.SetActive(true);
+        cancelSelectKartButton.SetActive(false);
+        reserveButton.SetActive(true);
+    }
+
+    private void DisableKartSelection()
+    {
+        selectKartButton.SetActive(false);
+        selectKartLeftButton.SetActive(false);
+        selectKartRightButton.SetActive(false);
+        cancelSelectKartButton.SetActive(true);
+        reserveButton.SetActive(false);
+    }
+
+    private bool CheckIfAllSelected()
+    {
+        foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+        {
+            if (!playerInfo.kartSelected)
+                return false;
+        }
+        return true;
+    }
+
+    private void ChangeKartPreview()
+    {
+        if (GetLocalPlayerInfo() != null)
+        {
+            selectedKartText.text = GetLocalPlayerInfo().currentSelectedKart.ToString();
         }
     }
 }
