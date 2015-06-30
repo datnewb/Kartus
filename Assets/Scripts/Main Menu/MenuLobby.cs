@@ -89,14 +89,14 @@ public class MenuLobby : MonoBehaviour
         SetIPAddress();
         SetPlayerListView();
 
+        EnableKartSelection();
+        EnableNonKartSelectionButtons();
+        EnableTeamSelection();
+
         if (Network.isServer)
             startGameButton.SetActive(true);
         else if (Network.isClient)
             startGameButton.SetActive(false);
-
-        EnableKartSelection();
-        EnableNonKartSelectionButtons();
-        EnableTeamSelection();
 
         kartPreview = null;
         previousKartVariation = 0;
@@ -114,12 +114,12 @@ public class MenuLobby : MonoBehaviour
             switch (FindObjectOfType<GameModeHandler>().teams)
             {
                 case GameModeTeams.None:
-                    if (GetLocalPlayerInfo() != null)
-                        GetLocalPlayerInfo().kartVariation = FindKartMatches(GetLocalPlayerInfo());
+                    if (GetLocalPlayerInfo() != null && !GetLocalPlayerInfo().kartSelected)
+                        GetLocalPlayerInfo().kartVariation = FindKartMatches(GetLocalPlayerInfo()) < 2 ? FindKartMatches(GetLocalPlayerInfo()) : 0;
                     UpdatePlayerList(playerListNoTeamText, lobbyManager.playerInfos);
                     break;
                 case GameModeTeams.Two:
-                    if (GetLocalPlayerInfo() != null)
+                    if (GetLocalPlayerInfo() != null && !GetLocalPlayerInfo().kartSelected)
                         GetLocalPlayerInfo().kartVariation = (int)(GetLocalPlayerInfo().GetComponent<CharacterTeam>().team);
                     UpdatePlayerListTeam(playerListWithTeamText, lobbyManager.playerInfos);
                     break;
@@ -297,10 +297,10 @@ public class MenuLobby : MonoBehaviour
 
     IEnumerator CountDownToStart()
     {
-        DisableTeamSelection();
-        DisableNonKartSelectionButtons();
-        cancelSelectKartButton.SetActive(false);
-        for (int currentTime = 1; currentTime >= 0; currentTime--)
+        GetComponent<NetworkView>().RPC("DisableTeamSelection", RPCMode.All);
+        GetComponent<NetworkView>().RPC("DisableNonKartSelectionButtons", RPCMode.All);
+        GetComponent<NetworkView>().RPC("DisableKartCancelButton", RPCMode.All);        
+        for (int currentTime = 5; currentTime >= 0; currentTime--)
         {
             GetComponent<NetworkView>().RPC("UpdateTimerText", RPCMode.All, "GAME STARTS IN " + currentTime);
             yield return new WaitForSeconds(1.0f);
@@ -598,10 +598,6 @@ public class MenuLobby : MonoBehaviour
         selectKartRightButton.SetActive(true);
         cancelSelectKartButton.SetActive(false);
 
-        speedsterButton.enabled = true;
-        roadkillButton.enabled = true;
-        reserveButton.SetActive(true);
-
         maleButton.SetActive(true);
         femaleButton.SetActive(true);
         genderText.SetActive(true);
@@ -621,27 +617,34 @@ public class MenuLobby : MonoBehaviour
 
     private void EnableTeamSelection()
     {
-        if (FindObjectOfType<GameModeHandler>().teams == GameModeTeams.Two)
+        if (FindObjectOfType<GameModeHandler>() != null)
         {
-            speedsterButton.enabled = true;
-            roadkillButton.enabled = true;
-            reserveButton.SetActive(true);
-        }
-        else
-        {
-            speedsterButton.enabled = false;
-            roadkillButton.enabled = false;
-            reserveButton.SetActive(false);
+            if (FindObjectOfType<GameModeHandler>().teams == GameModeTeams.Two)
+            {
+                speedsterButton.enabled = true;
+                roadkillButton.enabled = true;
+                reserveButton.SetActive(true);
+            }
+            else
+            {
+                speedsterButton.enabled = false;
+                roadkillButton.enabled = false;
+                reserveButton.SetActive(false);
+            }
         }
     }
 
+    [RPC]
     private void DisableTeamSelection()
     {
-        if (FindObjectOfType<GameModeHandler>().teams == GameModeTeams.Two)
+        if (FindObjectOfType<GameModeHandler>() != null)
         {
-            speedsterButton.enabled = false;
-            roadkillButton.enabled = false;
-            reserveButton.SetActive(false);
+            if (FindObjectOfType<GameModeHandler>().teams == GameModeTeams.Two)
+            {
+                speedsterButton.enabled = false;
+                roadkillButton.enabled = false;
+                reserveButton.SetActive(false);
+            }
         }
     }
 
@@ -651,10 +654,17 @@ public class MenuLobby : MonoBehaviour
         startGameButton.SetActive(true);
     }
 
+    [RPC]
     private void DisableNonKartSelectionButtons()
     {
         backButton.SetActive(false);
         startGameButton.SetActive(false);
+    }
+
+    [RPC]
+    private void DisableKartCancelButton()
+    {
+        cancelSelectKartButton.SetActive(false);
     }
 
     private bool CheckIfAllSelected()
