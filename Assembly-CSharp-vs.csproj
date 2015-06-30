@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Character\CharacterShield.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterTeam.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Kart\Driver.cs" />
      <Compile Include="Assets\Scripts\Kart\KartCamera.cs" />
      <Compile Include="Assets\Scripts\Kart\KartController.cs" />
      <Compile Include="Assets\Scripts\Kart\KartGun.cs" />

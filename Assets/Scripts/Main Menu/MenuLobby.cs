@@ -216,6 +216,7 @@ public class MenuLobby : MonoBehaviour
         if (myPlayerInfo.gender != Gender.Male)
         {
             myPlayerInfo.gender = Gender.Male;
+            ChangeDriver();
         }
     }
 
@@ -225,6 +226,7 @@ public class MenuLobby : MonoBehaviour
         if (myPlayerInfo.gender != Gender.Female)
         {
             myPlayerInfo.gender = Gender.Female;
+            ChangeDriver();
         }
     }
 
@@ -677,6 +679,7 @@ public class MenuLobby : MonoBehaviour
                     if (kart.kartEnumValue == GetLocalPlayerInfo().currentSelectedKart)
                     {
                         kartPreview = Instantiate(kart.variations[GetLocalPlayerInfo().kartVariation], kartPreviewTransform.position, kartPreviewTransform.rotation) as GameObject;
+                        ChangeDriver();
                         RemoveComponentsFromPreview();
                         ObjectRotator rotator = kartPreview.AddComponent<ObjectRotator>();
                         rotator.Y = true;
@@ -688,12 +691,26 @@ public class MenuLobby : MonoBehaviour
         }
     }
 
+    private void ChangeDriver()
+    {
+        Destroy(kartPreview.GetComponent<Driver>().driverInstance);
+        if (FindObjectOfType<CharacterList>() != null)
+        {
+            kartPreview.GetComponent<Driver>().driverInstance = Instantiate(
+                FindObjectOfType<CharacterList>().drivers[(int)GetLocalPlayerInfo().gender],
+                kartPreview.transform.position,
+                kartPreview.transform.rotation) as GameObject;
+            kartPreview.GetComponent<Driver>().driverSeat = kartPreview.transform;
+        }
+    }
+
     private void RemoveComponentsFromPreview()
     {
         Destroy(kartPreview.GetComponent<KartCamera>().GetCameraRigRoot().gameObject);
         foreach (MonoBehaviour script in kartPreview.GetComponents<MonoBehaviour>())
         {
-            if (script.GetType() != typeof(KartGun))
+            if (script.GetType() != typeof(KartGun) &&
+                script.GetType() != typeof(Driver))
                 Destroy(script);
         }
         Destroy(kartPreview.GetComponent<KartGun>());

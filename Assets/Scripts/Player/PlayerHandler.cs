@@ -35,6 +35,8 @@ public class PlayerHandler : MonoBehaviour
             {
                 kartInstance = Network.Instantiate(kart, spawnPoint.transform.position, spawnPoint.transform.rotation, 0) as GameObject;
                 kartInstance.GetComponent<CharacterTeam>().team = spawnPoint.GetComponent<CharacterTeam>().team;
+                kartInstance.GetComponent<Driver>().driverInstance = Instantiate(driver, kartInstance.transform.position, kartInstance.transform.rotation) as GameObject;
+                kartInstance.GetComponent<Driver>().driverSeat = kartInstance.transform;
             }
 
             if (!spawnPoint.IsAssigned())
