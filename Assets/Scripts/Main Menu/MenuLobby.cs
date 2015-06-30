@@ -44,15 +44,26 @@ public class MenuLobby : MonoBehaviour
     [SerializeField]
     internal GameObject selectKartRightButton;
     [SerializeField]
+    internal GameObject maleButton;
+    [SerializeField]
+    internal GameObject femaleButton;
+    [SerializeField]
+    internal GameObject genderText;
+    [SerializeField]
     internal GameObject cancelSelectKartButton;
     [SerializeField]
     internal Text selectedKartText;
+    [SerializeField]
+    internal GameObject backButton;
+
+    [SerializeField]
+    private Transform kartPreviewTransform;
+    private GameObject kartPreview;
 
     private MainMenuHandler mainMenuHandler;
     private Canvas lobbyCanvas;
     private LobbyManager lobbyManager;
-
-    internal bool leftGame;
+    private int previousKartVariation;
 
     void Start()
     {
@@ -84,8 +95,16 @@ public class MenuLobby : MonoBehaviour
             startGameButton.SetActive(false);
 
         EnableKartSelection();
+        EnableNonKartSelectionButtons();
+        EnableTeamSelection();
 
-        leftGame = false;
+        kartPreview = null;
+        previousKartVariation = 0;
+    }
+
+    void OnDisable()
+    {
+        Destroy(kartPreview);
     }
 
     void Update()
@@ -95,21 +114,13 @@ public class MenuLobby : MonoBehaviour
             switch (FindObjectOfType<GameModeHandler>().teams)
             {
                 case GameModeTeams.None:
-                    if (GetLocalPlayerInfo() != null &&
-                        GetLocalPlayerInfo().kartSelected)
-                    {
-                        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-                        myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
-                    }
+                    if (GetLocalPlayerInfo() != null)
+                        GetLocalPlayerInfo().kartVariation = FindKartMatches(GetLocalPlayerInfo());
                     UpdatePlayerList(playerListNoTeamText, lobbyManager.playerInfos);
                     break;
                 case GameModeTeams.Two:
-                    if (GetLocalPlayerInfo() != null &&
-                        GetLocalPlayerInfo().kartSelected)
-                    {
-                        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-                        myPlayerInfo.kartVariation = (int)(myPlayerInfo.GetComponent<CharacterTeam>().team);
-                    }
+                    if (GetLocalPlayerInfo() != null)
+                        GetLocalPlayerInfo().kartVariation = (int)(GetLocalPlayerInfo().GetComponent<CharacterTeam>().team);
                     UpdatePlayerListTeam(playerListWithTeamText, lobbyManager.playerInfos);
                     break;
             }
@@ -118,7 +129,209 @@ public class MenuLobby : MonoBehaviour
         SetPlayerListView();
         SetPlayerTeam();
 
+        if (GetLocalPlayerInfo() != null)
+        {
+            if (GetLocalPlayerInfo().kartVariation != previousKartVariation)
+            {
+                Destroy(kartPreview);
+                previousKartVariation = GetLocalPlayerInfo().kartVariation;
+            }
+        }
         ChangeKartPreview();
+    }
+
+    public void StartButton()
+    {
+        if (ReservesCount() > 0)
+        {
+            ErrorTeamNotSelected();
+            return;
+        }
+        if (!CheckIfAllSelected())
+        {
+            ErrorKartNotSelected();
+            return;
+        }
+
+        MainMenuHandler.DisableInputReceive();
+        StartCoroutine(CountDownToStart());
+    }
+
+    public void BackButton()
+    {
+        string title = "LEAVE GAME";
+        string message = "Do you really want to leave this game?";
+        if (Network.isServer)
+            message += " The server will be closed and all other players will automatically be kicked out of the server.";
+        UnityAction yesAction = BackConfirm;
+        UnityAction noAction = BackDecline;
+
+        mainMenuHandler.ShowConfirmDialog(title, message, yesAction, noAction);
+    }
+
+    public void BackConfirm()
+    {
+        lobbyManager.leftGame = true;
+        mainMenuHandler.GoToMainMenu();
+        BackDecline();
+
+        if (Network.isServer)
+        {
+            foreach (NetworkPlayer player in GetComponent<LobbyManager>().players)
+            {
+                if (player != Network.player)
+                    Network.CloseConnection(player, true);
+            }
+        }
+        Network.Disconnect(200);
+    }
+
+    public void BackDecline()
+    {
+        Destroy(mainMenuHandler.dialogInstance);
+        MainMenuHandler.EnableInputReceive();
+    }
+
+    public void ChangeTeamSpeedster()
+    {
+        ChangeTeam(Team.Speedster, 1, 2);
+    }
+
+    public void ChangeTeamRoadkill()
+    {
+        ChangeTeam(Team.Roadkill, 3, 4);
+    }
+
+    public void ChangeTeamReserve()
+    {
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        myPlayerInfo.position = 0;
+
+        UpdateReserveText();
+    }
+
+    public void ChangeGenderMale()
+    {
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if (myPlayerInfo.gender != Gender.Male)
+        {
+            myPlayerInfo.gender = Gender.Male;
+        }
+    }
+
+    public void ChangeGenderFemale()
+    {
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if (myPlayerInfo.gender != Gender.Female)
+        {
+            myPlayerInfo.gender = Gender.Female;
+        }
+    }
+
+    public void SelectKart()
+    {
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+
+        if (FindObjectOfType<GameModeHandler>() != null)
+        {
+            switch (FindObjectOfType<GameModeHandler>().teams)
+            {
+                case GameModeTeams.None:
+                    if (FindKartMatches(myPlayerInfo) < 2)
+                    {
+                        myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
+                        myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
+                        goto default;
+                    }
+                    else
+                        ErrorTooManyOfSameKart(FindObjectOfType<GameModeHandler>().teams);
+                    break;
+                case GameModeTeams.Two:
+                    if (FindKartMatches(myPlayerInfo, myPlayerInfo.GetComponent<CharacterTeam>().team) < 1)
+                    {
+                        myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
+                        myPlayerInfo.kartVariation = (int)(myPlayerInfo.GetComponent<CharacterTeam>().team);
+                        goto default;
+                    }
+                    else
+                        ErrorTooManyOfSameKart(FindObjectOfType<GameModeHandler>().teams);
+                    break;
+                default:
+                    myPlayerInfo.kartSelected = true;
+                    DisableTeamSelection();
+                    DisableKartSelection();
+                    break;
+            }
+        }
+    }
+
+    public void CancelSelectKart()
+    {
+        GetLocalPlayerInfo().kartSelected = false;
+        EnableKartSelection();
+    }
+
+    public void SelectKartLeft()
+    {
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if (myPlayerInfo.currentSelectedKart > 0)
+            myPlayerInfo.currentSelectedKart--;
+        else
+            myPlayerInfo.currentSelectedKart = (KartEnum)(System.Enum.GetValues(typeof(KartEnum)).Length - 1);
+        Destroy(kartPreview);
+        ChangeKartPreview();
+    }
+
+    public void SelectKartRight()
+    {
+        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+        if ((int)(myPlayerInfo.currentSelectedKart) < System.Enum.GetValues(typeof(KartEnum)).Length - 1)
+            myPlayerInfo.currentSelectedKart++;
+        else
+            myPlayerInfo.currentSelectedKart = 0;
+        Destroy(kartPreview);
+        ChangeKartPreview();
+    }
+
+    IEnumerator CountDownToStart()
+    {
+        DisableTeamSelection();
+        DisableNonKartSelectionButtons();
+        cancelSelectKartButton.SetActive(false);
+        for (int currentTime = 1; currentTime >= 0; currentTime--)
+        {
+            GetComponent<NetworkView>().RPC("UpdateTimerText", RPCMode.All, "GAME STARTS IN " + currentTime);
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        string levelToLoad = "";
+        int levelPrefix = 0;
+        if (FindObjectOfType<GameModeHandler>() != null)
+        {
+            switch (FindObjectOfType<GameModeHandler>().gameMode)
+            {
+                case GameMode.TeamDeathmatch:
+                    levelToLoad = "TeamDeathmatch";
+                    levelPrefix = 1;
+                    break;
+                case GameMode.Deathmatch:
+                    levelToLoad = "Deathmatch";
+                    levelPrefix = 2;
+                    break;
+                case GameMode.PowerInsurgent:
+                    levelToLoad = "Power Insurgent";
+                    levelPrefix = 3;
+                    break;
+            }
+        }
+
+        FindObjectOfType<GameManager>().GetComponent<NetworkView>().RPC("NetworkLoadLevel", RPCMode.All, levelToLoad, levelPrefix);
+    }
+
+    [RPC]
+    private void UpdateTimerText(string text)
+    {
+        countdownText.text = text;
     }
 
     private void SetGameMode()
@@ -183,112 +396,6 @@ public class MenuLobby : MonoBehaviour
                     playerInfo.GetComponent<CharacterTeam>().team = Team.NeutralHostile;
             }
         }
-    }
-
-    public void StartButton()
-    {
-        if (ReservesCount() > 0)
-        {
-            string title = "ERROR";
-            string message = "Not all players are in a team. Wait for them to choose a team.";
-            UnityAction okAction = () =>
-            {
-                MainMenuHandler.EnableInputReceive();
-                Destroy(mainMenuHandler.dialogInstance);
-            };
-
-            mainMenuHandler.ShowErrorDialog(title, message, okAction);
-            return;
-        }
-        if (!CheckIfAllSelected())
-        {
-            string title = "ERROR";
-            string message = "Not all players have selected a kart. Wait for them to choose a kart.";
-            UnityAction okAction = () =>
-            {
-                MainMenuHandler.EnableInputReceive();
-                Destroy(mainMenuHandler.dialogInstance);
-            };
-
-            mainMenuHandler.ShowErrorDialog(title, message, okAction);
-            return;
-        }
-
-        MainMenuHandler.DisableInputReceive();
-        StartCoroutine(CountDownToStart());
-    }
-
-    IEnumerator CountDownToStart()
-    {
-        for (int currentTime = 1; currentTime >= 0; currentTime--)
-        {
-            GetComponent<NetworkView>().RPC("UpdateTimerText", RPCMode.All, "GAME STARTS IN " + currentTime);
-            yield return new WaitForSeconds(1.0f);
-        }
-
-        string levelToLoad = "";
-        int levelPrefix = 0;
-        if (FindObjectOfType<GameModeHandler>() != null)
-        {
-            switch (FindObjectOfType<GameModeHandler>().gameMode)
-            {
-                case GameMode.TeamDeathmatch:
-                    levelToLoad = "TeamDeathmatch";
-                    levelPrefix = 1;
-                    break;
-                case GameMode.Deathmatch:
-                    levelToLoad = "Deathmatch";
-                    levelPrefix = 2;
-                    break;
-                case GameMode.PowerInsurgent:
-                    levelToLoad = "Power Insurgent";
-                    levelPrefix = 3;
-                    break;
-            }
-        }
-
-        FindObjectOfType<GameManager>().GetComponent<NetworkView>().RPC("NetworkLoadLevel", RPCMode.All, levelToLoad, levelPrefix);
-    }
-
-    [RPC]
-    private void UpdateTimerText(string text)
-    {
-        countdownText.text = text;
-    }
-
-    public void BackButton()
-    {
-        string title = "LEAVE GAME";
-        string message = "Do you really want to leave this game?";
-        if (Network.isServer)
-            message += " The server will be closed and all other players will automatically be kicked out of the server.";
-        UnityAction yesAction = BackConfirm;
-        UnityAction noAction = BackDecline;
-
-        mainMenuHandler.ShowConfirmDialog(title, message, yesAction, noAction);
-    }
-
-    public void BackConfirm()
-    {
-        lobbyManager.leftGame = true;
-        mainMenuHandler.GoToMainMenu();
-        BackDecline();
-
-        if (Network.isServer)
-        {
-            foreach (NetworkPlayer player in GetComponent<LobbyManager>().players)
-            {
-                if (player != Network.player)
-                    Network.CloseConnection(player, true);
-            }
-        }
-        Network.Disconnect(200);
-    }
-
-    public void BackDecline()
-    {
-        Destroy(mainMenuHandler.dialogInstance);
-        MainMenuHandler.EnableInputReceive();
     }
 
     private void ClearPlayerList(List<Text> playerList)
@@ -376,16 +483,6 @@ public class MenuLobby : MonoBehaviour
         }
     }
 
-    public void ChangeTeamSpeedster()
-    {
-        ChangeTeam(Team.Speedster, 1, 2);
-    }
-
-    public void ChangeTeamRoadkill()
-    {
-        ChangeTeam(Team.Roadkill, 3, 4);
-    }
-
     private void ChangeTeam(Team team, int firstPosition, int secondPosition)
     {
         int playersInTeam = 0;
@@ -424,14 +521,6 @@ public class MenuLobby : MonoBehaviour
         UpdateReserveText();
     }
 
-    public void ChangeTeamReserve()
-    {
-        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-        myPlayerInfo.position = 0;
-
-        UpdateReserveText();
-    }
-
     private int ReservesCount()
     {
         int reserves = 0;
@@ -451,62 +540,6 @@ public class MenuLobby : MonoBehaviour
             reservePlayersText.text = ReservesCount() + " player in reserve.";
         else
             reservePlayersText.text = "";
-    }
-
-    public void ChangeGenderMale()
-    {
-        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-        if (myPlayerInfo.gender != Gender.Male)
-        {
-            myPlayerInfo.gender = Gender.Male;
-        }
-    }
-
-    public void ChangeGenderFemale()
-    {
-        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-        if (myPlayerInfo.gender != Gender.Female)
-        {
-            myPlayerInfo.gender = Gender.Female;
-        }
-    }
-
-    public void SelectKart()
-    {
-        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-
-        if (FindObjectOfType<GameModeHandler>() != null)
-        {
-            switch (FindObjectOfType<GameModeHandler>().teams)
-            {
-                case GameModeTeams.None:
-                    if (FindKartMatches(myPlayerInfo) < 2)
-                    {
-                        myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
-                        myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
-                        goto default;
-                    }
-                    break;
-                case GameModeTeams.Two:
-                    if (FindKartMatches(myPlayerInfo, myPlayerInfo.GetComponent<CharacterTeam>().team) < 1)
-                    {
-                        myPlayerInfo.kart = myPlayerInfo.currentSelectedKart;
-                        myPlayerInfo.kartVariation = (int)(myPlayerInfo.GetComponent<CharacterTeam>().team);
-                        goto default;
-                    }
-                    break;
-                default:
-                    myPlayerInfo.kartSelected = true;
-                    DisableKartSelection();
-                    break;
-            }
-        }
-    }
-
-    public void CancelSelectKart()
-    {
-        GetLocalPlayerInfo().kartSelected = false;
-        EnableKartSelection();
     }
 
     private int FindKartMatches(PlayerInfo myPlayerInfo)
@@ -531,7 +564,7 @@ public class MenuLobby : MonoBehaviour
 
         foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
         {
-            if (playerInfo != myPlayerInfo && 
+            if (playerInfo != myPlayerInfo &&
                 playerInfo.GetComponent<CharacterTeam>().team == myPlayerInfo.GetComponent<CharacterTeam>().team)
             {
                 if (playerInfo.kart == myPlayerInfo.currentSelectedKart)
@@ -540,26 +573,6 @@ public class MenuLobby : MonoBehaviour
         }
 
         return matches;
-    }
-
-    public void SelectKartLeft()
-    {
-        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-        if (myPlayerInfo.currentSelectedKart > 0)
-            myPlayerInfo.currentSelectedKart--;
-        else
-            myPlayerInfo.currentSelectedKart = (KartEnum)(System.Enum.GetValues(typeof(KartEnum)).Length - 1);
-        ChangeKartPreview();
-    }
-
-    public void SelectKartRight()
-    {
-        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-        if ((int)(myPlayerInfo.currentSelectedKart) < System.Enum.GetValues(typeof(KartEnum)).Length - 1)
-            myPlayerInfo.currentSelectedKart++;
-        else
-            myPlayerInfo.currentSelectedKart = 0;
-        ChangeKartPreview();
     }
 
     private PlayerInfo GetLocalPlayerInfo()
@@ -582,7 +595,14 @@ public class MenuLobby : MonoBehaviour
         selectKartLeftButton.SetActive(true);
         selectKartRightButton.SetActive(true);
         cancelSelectKartButton.SetActive(false);
+
+        speedsterButton.enabled = true;
+        roadkillButton.enabled = true;
         reserveButton.SetActive(true);
+
+        maleButton.SetActive(true);
+        femaleButton.SetActive(true);
+        genderText.SetActive(true);
     }
 
     private void DisableKartSelection()
@@ -591,7 +611,48 @@ public class MenuLobby : MonoBehaviour
         selectKartLeftButton.SetActive(false);
         selectKartRightButton.SetActive(false);
         cancelSelectKartButton.SetActive(true);
-        reserveButton.SetActive(false);
+
+        maleButton.SetActive(false);
+        femaleButton.SetActive(false);
+        genderText.SetActive(false);
+    }
+
+    private void EnableTeamSelection()
+    {
+        if (FindObjectOfType<GameModeHandler>().teams == GameModeTeams.Two)
+        {
+            speedsterButton.enabled = true;
+            roadkillButton.enabled = true;
+            reserveButton.SetActive(true);
+        }
+        else
+        {
+            speedsterButton.enabled = false;
+            roadkillButton.enabled = false;
+            reserveButton.SetActive(false);
+        }
+    }
+
+    private void DisableTeamSelection()
+    {
+        if (FindObjectOfType<GameModeHandler>().teams == GameModeTeams.Two)
+        {
+            speedsterButton.enabled = false;
+            roadkillButton.enabled = false;
+            reserveButton.SetActive(false);
+        }
+    }
+
+    private void EnableNonKartSelectionButtons()
+    {
+        backButton.SetActive(true);
+        startGameButton.SetActive(true);
+    }
+
+    private void DisableNonKartSelectionButtons()
+    {
+        backButton.SetActive(false);
+        startGameButton.SetActive(false);
     }
 
     private bool CheckIfAllSelected()
@@ -609,6 +670,88 @@ public class MenuLobby : MonoBehaviour
         if (GetLocalPlayerInfo() != null)
         {
             selectedKartText.text = GetLocalPlayerInfo().currentSelectedKart.ToString();
+            if (kartPreview == null)
+            {
+                foreach (Kart kart in FindObjectOfType<CharacterList>().karts)
+                {
+                    if (kart.kartEnumValue == GetLocalPlayerInfo().currentSelectedKart)
+                    {
+                        kartPreview = Instantiate(kart.variations[GetLocalPlayerInfo().kartVariation], kartPreviewTransform.position, kartPreviewTransform.rotation) as GameObject;
+                        RemoveComponentsFromPreview();
+                        ObjectRotator rotator = kartPreview.AddComponent<ObjectRotator>();
+                        rotator.Y = true;
+                        rotator.anglePerSecond = -3;
+                        break;
+                    }
+                }
+            }
         }
+    }
+
+    private void RemoveComponentsFromPreview()
+    {
+        Destroy(kartPreview.GetComponent<KartCamera>().GetCameraRigRoot().gameObject);
+        foreach (MonoBehaviour script in kartPreview.GetComponents<MonoBehaviour>())
+        {
+            if (script.GetType() != typeof(KartGun))
+                Destroy(script);
+        }
+        Destroy(kartPreview.GetComponent<KartGun>());
+        foreach (NetworkView networkView in kartPreview.GetComponents<NetworkView>())
+            Destroy(networkView);
+        foreach (NetworkView networkView in kartPreview.GetComponentsInChildren<NetworkView>())
+            Destroy(networkView);
+        foreach (WheelCollider wheelCollider in kartPreview.GetComponentsInChildren<WheelCollider>())
+            Destroy(wheelCollider);
+        Destroy(kartPreview.GetComponent<Rigidbody>());
+        Destroy(kartPreview.GetComponentInChildren<NavMeshObstacle>());
+    }
+
+    private void ErrorKartNotSelected()
+    {
+        string title = "ERROR";
+        string message = "Not all players have selected a kart. Wait for them to choose a kart.";
+        UnityAction okAction = () =>
+        {
+            MainMenuHandler.EnableInputReceive();
+            Destroy(mainMenuHandler.dialogInstance);
+        };
+
+        mainMenuHandler.ShowErrorDialog(title, message, okAction);
+    }
+
+    private void ErrorTeamNotSelected()
+    {
+        string title = "ERROR";
+        string message = "Not all players are in a team. Wait for them to choose a team.";
+        UnityAction okAction = () =>
+        {
+            MainMenuHandler.EnableInputReceive();
+            Destroy(mainMenuHandler.dialogInstance);
+        };
+
+        mainMenuHandler.ShowErrorDialog(title, message, okAction);
+    }
+
+    private void ErrorTooManyOfSameKart(GameModeTeams teams)
+    {
+        string title = "ERROR";
+        string message = "";
+        switch (teams)
+        {
+            case GameModeTeams.None:
+                message = "Two other players have already selected this kart. Choose something else.";
+                break;
+            case GameModeTeams.Two:
+                message = "Your teammate has already selected this kart. Choose something else.";
+                break;
+        }
+        UnityAction okAction = () =>
+        {
+            MainMenuHandler.EnableInputReceive();
+            Destroy(mainMenuHandler.dialogInstance);
+        };
+
+        mainMenuHandler.ShowErrorDialog(title, message, okAction);
     }
 }

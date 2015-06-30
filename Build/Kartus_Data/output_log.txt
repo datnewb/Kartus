@@ -14,7 +14,28 @@ Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly
 Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.040 seconds
+- Completed reload, in  0.038 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Initialize engine version: 5.0.3f2 (c28c7860811c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960M     (ID=0x139b)
+    Vendor:   NVIDIA
+    VRAM:     4014 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.039 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -22,16 +43,70 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: e44 -> priority: 1 
-  Thread -> id: 6b4 -> priority: 1 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-Shader 'Nature/Terrain/Specular': fallback shader 'Nature/Terrain/Diffuse' not found
-Shader 'Nature/Terrain/Standard': fallback shader 'Nature/Terrain/Diffuse' not found
-UnloadTime: 2.745543 ms
+  Thread -> id: 1cf8 -> priority: 1 
+  Thread -> id: 10c0 -> priority: 1 
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1d5c -> priority: 1 
-  Thread -> id: 1dc4 -> priority: 1 
+  Thread -> id: 1ce4 -> priority: 1 
+  Thread -> id: 106c -> priority: 1 
+Couldn't send RPC function 'UpdateName' to server
 
-Unloading 203 unused Assets to reduce memory usage. Loaded Objects now: 2482.
-Total: 0.876758 ms (FindLiveObjects: 0.097900 ms CreateObjectMapping: 0.100663 ms MarkObjects: 0.570425 ms  DeleteObjects: 0.107374 ms)
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function 'UpdateName' to server
+
+ 
+(Filename:  Line: 2472)
 
