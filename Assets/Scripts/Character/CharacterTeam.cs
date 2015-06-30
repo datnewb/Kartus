@@ -2,8 +2,8 @@
 
 public enum Team
 {
-    Roadkill,
     Speedster,
+    Roadkill,
     NeutralHostile,
     NeutralFriendly
 }

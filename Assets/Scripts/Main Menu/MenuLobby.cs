@@ -95,19 +95,26 @@ public class MenuLobby : MonoBehaviour
             switch (FindObjectOfType<GameModeHandler>().teams)
             {
                 case GameModeTeams.None:
+                    if (GetLocalPlayerInfo() != null &&
+                        GetLocalPlayerInfo().kartSelected)
+                    {
+                        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+                        myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
+                    }
                     UpdatePlayerList(playerListNoTeamText, lobbyManager.playerInfos);
                     break;
                 case GameModeTeams.Two:
+                    if (GetLocalPlayerInfo() != null &&
+                        GetLocalPlayerInfo().kartSelected)
+                    {
+                        PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
+                        myPlayerInfo.kartVariation = (int)(myPlayerInfo.GetComponent<CharacterTeam>().team);
+                    }
                     UpdatePlayerListTeam(playerListWithTeamText, lobbyManager.playerInfos);
                     break;
             }
         }
-        if (GetLocalPlayerInfo() != null &&
-            GetLocalPlayerInfo().kartSelected)
-        {
-            PlayerInfo myPlayerInfo = GetLocalPlayerInfo();
-            myPlayerInfo.kartVariation = FindKartMatches(myPlayerInfo);
-        }
+
         SetPlayerListView();
         SetPlayerTeam();
 
