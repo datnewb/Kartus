@@ -8,6 +8,8 @@ public class CharacterHealth : MonoBehaviour
     public float maxHealth;
     internal float currentHealth;
 
+    public bool isInvulnerable;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -16,12 +18,15 @@ public class CharacterHealth : MonoBehaviour
     [RPC]
     public void Damage(float value)
     {
-        currentHealth -= value;
-        if (currentHealth <= 0)
+        if (!isInvulnerable)
         {
-            if (destroyEffect != null)
-                Instantiate(destroyEffect, transform.position, transform.rotation);
-            Network.Destroy(gameObject);
+            currentHealth -= value;
+            if (currentHealth <= 0)
+            {
+                if (destroyEffect != null)
+                    Instantiate(destroyEffect, transform.position, transform.rotation);
+                Network.Destroy(gameObject);
+            }
         }
     }
 

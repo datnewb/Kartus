@@ -5,6 +5,10 @@ using UnityEngine.UI;
 public class MenuMain : MonoBehaviour
 {
     [SerializeField]
+    private GameModeButton powerInsurgent;
+    [SerializeField]
+    private GameObject gameModeHandler;
+    [SerializeField]
     public Text playerNameText;
     [SerializeField]
     private Text nameChangeText;
@@ -25,6 +29,16 @@ public class MenuMain : MonoBehaviour
         mainMenuCanvas = mainMenuHandler.mainMenuCanvas;
         MainMenuHandler.DisableAllCanvases();
         mainMenuCanvas.enabled = true;
+    }
+
+    public void CreateGame()
+    {
+        Network.InitializeServer(3, NetworkManager.portNumber, false);
+    }
+
+    public void Tutorial()
+    {
+        FindObjectOfType<GameManager>().LoadLevel("Tutorial 1", 4);
     }
 
     private void CheckPlayerName()
@@ -119,4 +133,12 @@ public class MenuMain : MonoBehaviour
         GetComponent<MenuJoinGame>().enabled = true;
     }
 
+    void OnServerInitialized()
+    {
+        enabled = false;
+        GameObject gameModeHandlerInstance = Network.Instantiate(gameModeHandler, Vector3.zero, Quaternion.identity, 0) as GameObject;
+        gameModeHandlerInstance.GetComponent<GameModeHandler>().gameMode = GameMode.PowerInsurgent;
+        GetComponent<MenuLobby>().enabled = true;
+        Network.Instantiate(mainMenuHandler.playerInfoPrefab, Vector3.zero, Quaternion.identity, 0);
+    }
 }

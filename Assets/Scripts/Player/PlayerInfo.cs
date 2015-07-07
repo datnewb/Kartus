@@ -20,7 +20,24 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         myView = GetComponent<NetworkView>();
-        position = FindObjectsOfType<PlayerInfo>().Length;
+        position = 0;
+        for (int testPosition = 1; testPosition <= 4; testPosition++)
+        {
+            bool matchFound = false;
+            foreach (PlayerInfo playerInfo in FindObjectsOfType<PlayerInfo>())
+            {
+                if (testPosition == playerInfo.position)
+                {
+                    matchFound = true;
+                    break;
+                }
+            }
+            if (!matchFound)
+            {
+                position = testPosition;
+                break;
+            }
+        }
         loadingFinished = false;
         kartSelected = false;
         DontDestroyOnLoad(this);
@@ -95,6 +112,9 @@ public class PlayerInfo : MonoBehaviour
             }
         }
         playerHandler.driver = FindObjectOfType<CharacterList>().drivers[(int)gender];
+        NetworkView playerHandlerNetworkView = gameObject.AddComponent<NetworkView>();
+        playerHandlerNetworkView.stateSynchronization = NetworkStateSynchronization.Unreliable;
+        playerHandlerNetworkView.observed = playerHandler;
     }
 
     [RPC]

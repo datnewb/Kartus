@@ -18,7 +18,7 @@ public class KartController : MonoBehaviour
     internal float inputVerticalValue;
     internal bool isInputVerticalPressed;
 
-    private float averageWheelSpeed;
+    internal float averageWheelSpeed;
 
     void Start()
     {

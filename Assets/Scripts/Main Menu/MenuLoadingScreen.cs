@@ -17,6 +17,8 @@ public class MenuLoadingScreen : MonoBehaviour
     void OnEnable()
     {
         waitingForOthersText.text = "";
+        if (GetComponent<MenuLobby>().kartPreview != null)
+            Destroy(GetComponent<MenuLobby>().kartPreview);
     }
 
     public void SetProgressBar(AsyncOperation asyncOp)

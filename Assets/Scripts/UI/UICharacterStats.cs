@@ -50,29 +50,67 @@ public class UICharacterStats : MonoBehaviour
 
     private void GetStats()
     {
-        if (playerHandler.kartInstance != null)
+        if (playerHandler != null)
         {
-            shield = playerHandler.kartInstance.GetComponent<CharacterShield>();
-            health = playerHandler.kartInstance.GetComponent<CharacterHealth>();
-            ammo = playerHandler.kartInstance.GetComponent<CharacterAmmo>();
+            if (playerHandler.kartInstance != null)
+            {
+                shield = playerHandler.kartInstance.GetComponent<CharacterShield>();
+                health = playerHandler.kartInstance.GetComponent<CharacterHealth>();
+                ammo = playerHandler.kartInstance.GetComponent<CharacterAmmo>();
+            }
         }
         else
-        {
-            shield = playerHandler.kart.GetComponent<CharacterShield>();
-            health = playerHandler.kart.GetComponent<CharacterHealth>();
-            ammo = playerHandler.kart.GetComponent<CharacterAmmo>();
-        }
+            LookForPlayerHandler();
     }
 
     private void SetValues()
     {
-        shieldBar.value = shield.currentShield / shield.maxShield;
-        shieldValueText.text = Mathf.RoundToInt(shield.currentShield) + " / " + shield.maxShield;
+        if (shield != null)
+        {
+            shieldBar.transform.parent.gameObject.SetActive(true);
+            shieldBar.gameObject.SetActive(true);
+            shieldValueText.gameObject.SetActive(true);
 
-        healthBar.value = health.currentHealth / health.maxHealth;
-        healthValueText.text = Mathf.RoundToInt(health.currentHealth) + " / " + health.maxHealth;
+            shieldBar.value = shield.currentShield / shield.maxShield;
+            shieldValueText.text = Mathf.RoundToInt(shield.currentShield) + " / " + shield.maxShield;
+        }
+        else
+        {
+            shieldBar.transform.parent.gameObject.SetActive(false);
+            shieldBar.gameObject.SetActive(false);
+            shieldValueText.gameObject.SetActive(false);
+        }
 
-        ammoBar.value = ammo.currentAmmo / ammo.maxAmmo;
-        ammoValueText.text = Mathf.RoundToInt(ammo.currentAmmo) + " / " + ammo.maxAmmo;
+        if (health != null)
+        {
+            healthBar.transform.parent.gameObject.SetActive(true);
+            healthBar.gameObject.SetActive(true);
+            healthValueText.gameObject.SetActive(true);
+
+            healthBar.value = health.currentHealth / health.maxHealth;
+            healthValueText.text = Mathf.RoundToInt(health.currentHealth) + " / " + health.maxHealth;
+        }
+        else
+        {
+            healthBar.transform.parent.gameObject.SetActive(false);
+            healthBar.gameObject.SetActive(false);
+            healthValueText.gameObject.SetActive(false);
+        }
+
+        if (ammo != null)
+        {
+            ammoBar.transform.parent.gameObject.SetActive(true);
+            ammoBar.gameObject.SetActive(true);
+            ammoValueText.gameObject.SetActive(true);
+
+            ammoBar.value = ammo.currentAmmo / ammo.maxAmmo;
+            ammoValueText.text = Mathf.RoundToInt(ammo.currentAmmo) + " / " + ammo.maxAmmo;
+        }
+        else
+        {
+            ammoBar.transform.parent.gameObject.SetActive(false);
+            ammoBar.gameObject.SetActive(false);
+            ammoValueText.gameObject.SetActive(false);
+        }
     }
 }

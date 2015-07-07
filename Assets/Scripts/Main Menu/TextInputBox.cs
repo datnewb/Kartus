@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class TextInputBox : MonoBehaviour
+public class TextInputBox : MessageBox
 {
-    [SerializeField]
-    internal Text title;
-    [SerializeField]
-    internal Text message;
     [SerializeField]
     internal Button okButton;
     [SerializeField]

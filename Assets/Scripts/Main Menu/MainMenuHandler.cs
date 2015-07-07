@@ -16,6 +16,8 @@ public class MainMenuHandler : MonoBehaviour
     internal Canvas loadingScreenCanvas;
 
     [SerializeField]
+    private GameObject messageDialog;
+    [SerializeField]
     private GameObject confirmDialog;
     [SerializeField]
     private GameObject errorDialog;
@@ -67,8 +69,20 @@ public class MainMenuHandler : MonoBehaviour
         }
     }
 
+    public void ShowMessageDialog(string title, string message)
+    {
+        Destroy(dialogInstance);
+        DisableInputReceive();
+        dialogInstance = Instantiate(messageDialog);
+
+        MessageBox messageBoxInfo = dialogInstance.GetComponent<MessageBox>();
+        messageBoxInfo.title.text = title;
+        messageBoxInfo.message.text = message;
+    }
+
     public void ShowConfirmDialog(string title, string message, UnityAction yesAction, UnityAction noAction)
     {
+        Destroy(dialogInstance);
         DisableInputReceive();
         dialogInstance = Instantiate(confirmDialog);
 
@@ -81,6 +95,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void ShowErrorDialog(string title, string message, UnityAction okAction)
     {
+        Destroy(dialogInstance);
         DisableInputReceive();
         dialogInstance = Instantiate(errorDialog);
 
@@ -92,6 +107,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void ShowTextInputDialog(string title, string message, UnityAction okAction)
     {
+        Destroy(dialogInstance);
         DisableInputReceive();
         dialogInstance = Instantiate(textInputDialog);
 
@@ -103,6 +119,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void ShowTextInputNotReqDialog(string title, string message, UnityAction okAction, UnityAction cancelAction)
     {
+        Destroy(dialogInstance);
         DisableInputReceive();
         dialogInstance = Instantiate(textInputNotReqDialog);
 

@@ -58,7 +58,7 @@ public class MenuLobby : MonoBehaviour
 
     [SerializeField]
     private Transform kartPreviewTransform;
-    private GameObject kartPreview;
+    internal GameObject kartPreview;
 
     private MainMenuHandler mainMenuHandler;
     private Canvas lobbyCanvas;
@@ -115,12 +115,37 @@ public class MenuLobby : MonoBehaviour
             {
                 case GameModeTeams.None:
                     if (GetLocalPlayerInfo() != null && !GetLocalPlayerInfo().kartSelected)
-                        GetLocalPlayerInfo().kartVariation = FindKartMatches(GetLocalPlayerInfo()) < 2 ? FindKartMatches(GetLocalPlayerInfo()) : 0;
+                    {
+                        if (FindKartMatches(GetLocalPlayerInfo()) > 0)
+                        {
+                            foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
+                            {
+                                if (playerInfo == GetLocalPlayerInfo())
+                                    continue;
+                                if (playerInfo.position > GetLocalPlayerInfo().position)
+                                    GetLocalPlayerInfo().kartVariation = 0;
+                                else
+                                    GetLocalPlayerInfo().kartVariation = 1;
+                            }
+                        }
+                        else
+                            GetLocalPlayerInfo().kartVariation = 0;
+                    }
                     UpdatePlayerList(playerListNoTeamText, lobbyManager.playerInfos);
                     break;
                 case GameModeTeams.Two:
-                    if (GetLocalPlayerInfo() != null && !GetLocalPlayerInfo().kartSelected)
-                        GetLocalPlayerInfo().kartVariation = (int)(GetLocalPlayerInfo().GetComponent<CharacterTeam>().team);
+                    if (GetLocalPlayerInfo() != null)
+                    {
+                        if (!GetLocalPlayerInfo().kartSelected)
+                        {
+                            EnableTeamSelection();
+                            if (GetLocalPlayerInfo().GetComponent<CharacterTeam>().team == Team.Speedster)
+                                GetLocalPlayerInfo().kartVariation = 0;
+                            else
+                                GetLocalPlayerInfo().kartVariation = 1;
+                        }
+                    }
+
                     UpdatePlayerListTeam(playerListWithTeamText, lobbyManager.playerInfos);
                     break;
             }
@@ -270,6 +295,7 @@ public class MenuLobby : MonoBehaviour
     public void CancelSelectKart()
     {
         GetLocalPlayerInfo().kartSelected = false;
+        EnableTeamSelection();
         EnableKartSelection();
     }
 
@@ -386,17 +412,14 @@ public class MenuLobby : MonoBehaviour
 
     private void SetPlayerTeam()
     {
-        if (Network.isServer)
+        if (GetLocalPlayerInfo() != null)
         {
-            foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
-            {
-                if (playerInfo.position == 1 || playerInfo.position == 2)
-                    playerInfo.GetComponent<CharacterTeam>().team = Team.Speedster;
-                else if (playerInfo.position == 3 || playerInfo.position == 4)
-                    playerInfo.GetComponent<CharacterTeam>().team = Team.Roadkill;
-                else
-                    playerInfo.GetComponent<CharacterTeam>().team = Team.NeutralHostile;
-            }
+            if (GetLocalPlayerInfo().position == 1 || GetLocalPlayerInfo().position == 2)
+                GetLocalPlayerInfo().GetComponent<CharacterTeam>().team = Team.Speedster;
+            else if (GetLocalPlayerInfo().position == 3 || GetLocalPlayerInfo().position == 4)
+                GetLocalPlayerInfo().GetComponent<CharacterTeam>().team = Team.Roadkill;
+            else
+                GetLocalPlayerInfo().GetComponent<CharacterTeam>().team = Team.NeutralHostile;
         }
     }
 
@@ -517,6 +540,8 @@ public class MenuLobby : MonoBehaviour
                 }
             }
         }
+        else
+            return;
         myPlayerInfo.GetComponent<CharacterTeam>().team = team;
 
         UpdatePlayerListTeam(playerListWithTeamText, lobbyManager.playerInfos);
@@ -552,7 +577,7 @@ public class MenuLobby : MonoBehaviour
         {
             if (playerInfo != myPlayerInfo)
             {
-                if (playerInfo.kart == myPlayerInfo.currentSelectedKart)
+                if (playerInfo.kart == myPlayerInfo.currentSelectedKart && playerInfo.kartSelected)
                     matches++;
             }
         }
@@ -567,7 +592,8 @@ public class MenuLobby : MonoBehaviour
         foreach (PlayerInfo playerInfo in lobbyManager.playerInfos)
         {
             if (playerInfo != myPlayerInfo &&
-                playerInfo.GetComponent<CharacterTeam>().team == myPlayerInfo.GetComponent<CharacterTeam>().team)
+                playerInfo.GetComponent<CharacterTeam>().team == myPlayerInfo.GetComponent<CharacterTeam>().team
+                 && playerInfo.kartSelected)
             {
                 if (playerInfo.kart == myPlayerInfo.currentSelectedKart)
                     matches++;
@@ -694,6 +720,8 @@ public class MenuLobby : MonoBehaviour
                         ObjectRotator rotator = kartPreview.AddComponent<ObjectRotator>();
                         rotator.Y = true;
                         rotator.anglePerSecond = -3;
+                        if (FindObjectOfType<GameModeHandler>().teams == GameModeTeams.Two)
+                            GetLocalPlayerInfo().kartVariation = (int)(GetLocalPlayerInfo().GetComponent<CharacterTeam>().team);
                         break;
                     }
                 }
@@ -711,6 +739,7 @@ public class MenuLobby : MonoBehaviour
                 kartPreview.transform.position,
                 kartPreview.transform.rotation) as GameObject;
             kartPreview.GetComponent<Driver>().driverSeat = kartPreview.transform;
+            kartPreview.GetComponent<Driver>().driverInstance.transform.parent = kartPreview.transform;
         }
     }
 

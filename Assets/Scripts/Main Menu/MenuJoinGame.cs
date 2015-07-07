@@ -27,6 +27,7 @@ public class MenuJoinGame : MonoBehaviour
     public void JoinGame()
     {
         Network.Connect(ipAddressField.text, NetworkManager.portNumber);
+        mainMenuHandler.ShowMessageDialog("CONNECTING", "Trying to connect to " + (ipAddressField.text == "" ? "127.0.0.1" : ipAddressField.text));
     }
 
     public void ConnectionFailedConfirm()
@@ -37,6 +38,9 @@ public class MenuJoinGame : MonoBehaviour
 
     void OnConnectedToServer()
     {
+        Destroy(mainMenuHandler.dialogInstance);
+        MainMenuHandler.EnableInputReceive();
+
         enabled = false;
         GetComponent<LobbyManager>().enabled = true;
         GetComponent<MenuLobby>().enabled = true;

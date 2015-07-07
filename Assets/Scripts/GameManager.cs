@@ -26,8 +26,31 @@ public class GameManager : MonoBehaviour
         else
             currentGameState = GameState.MainMenu;
 
+
         if (currentGameState != previousGameState)
+        {
+            DestroyOtherGameManagers();
+            if (currentGameState == GameState.Game)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            }
             previousGameState = currentGameState;
+        }
+    }
+
+    private void DestroyOtherGameManagers()
+    {
+        foreach (GameManager gameManager in FindObjectsOfType<GameManager>())
+        {
+            if (gameManager != this)
+                Destroy(gameManager.gameObject);
+        }
     }
 
     [RPC]
@@ -35,6 +58,11 @@ public class GameManager : MonoBehaviour
     {
         Network.SetLevelPrefix(levelPrefix);
 
+        LoadLevel(level, levelPrefix);
+    }
+
+    public void LoadLevel(string level, int levelPrefix)
+    {
         StartCoroutine(AsyncLoadLevel(level, levelPrefix));
     }
 

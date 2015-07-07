@@ -41,9 +41,12 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        InputShoot();
-        InputDrive();
-        InputAim();
+        if (allowInput)
+        {
+            InputShoot();
+            InputDrive();
+            InputAim();
+        }
     }
 
     private void InputShoot()

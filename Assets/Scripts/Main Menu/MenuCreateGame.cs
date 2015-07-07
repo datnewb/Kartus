@@ -56,25 +56,25 @@ public class MenuCreateGame : MonoBehaviour
         MainMenuHandler.EnableInputReceive();
     }
 
-    void OnServerInitialized()
-    {
-        enabled = false;
-        GameObject gameModeHandlerInstance = Network.Instantiate(gameModeHandler, Vector3.zero, Quaternion.identity, 0) as GameObject;
-        switch (selectedGameMode.title)
-        {
-            case "Team Deathmatch":
-                gameModeHandlerInstance.GetComponent<GameModeHandler>().gameMode = GameMode.TeamDeathmatch;
-                break;
-            case "Deathmatch":
-                gameModeHandlerInstance.GetComponent<GameModeHandler>().gameMode = GameMode.Deathmatch;
-                break;
-            case "Power Insurgent":
-                gameModeHandlerInstance.GetComponent<GameModeHandler>().gameMode = GameMode.PowerInsurgent;
-                break;
-        }
+    //void OnServerInitialized()
+    //{
+    //    enabled = false;
+    //    GameObject gameModeHandlerInstance = Network.Instantiate(gameModeHandler, Vector3.zero, Quaternion.identity, 0) as GameObject;
+    //    switch (selectedGameMode.title)
+    //    {
+    //        case "Team Deathmatch":
+    //            gameModeHandlerInstance.GetComponent<GameModeHandler>().gameMode = GameMode.TeamDeathmatch;
+    //            break;
+    //        case "Deathmatch":
+    //            gameModeHandlerInstance.GetComponent<GameModeHandler>().gameMode = GameMode.Deathmatch;
+    //            break;
+    //        case "Power Insurgent":
+    //            gameModeHandlerInstance.GetComponent<GameModeHandler>().gameMode = GameMode.PowerInsurgent;
+    //            break;
+    //    }
 
-        GetComponent<MenuLobby>().enabled = true;
+    //    GetComponent<MenuLobby>().enabled = true;
 
-        Network.Instantiate(mainMenuHandler.playerInfoPrefab, Vector3.zero, Quaternion.identity, 0);
-    }
+    //    Network.Instantiate(mainMenuHandler.playerInfoPrefab, Vector3.zero, Quaternion.identity, 0);
+    //}
 }

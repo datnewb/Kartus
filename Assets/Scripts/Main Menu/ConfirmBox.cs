@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ConfirmBox : MonoBehaviour
+public class ConfirmBox : MessageBox
 {
-    [SerializeField]
-    internal Text title;
-    [SerializeField]
-    internal Text message;
     [SerializeField]
     internal Button yesButton;
     [SerializeField]

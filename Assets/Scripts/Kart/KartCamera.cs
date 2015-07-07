@@ -89,7 +89,7 @@ public class KartCamera : MonoBehaviour
         {
             if (hitInfo.transform.gameObject == gameObject &&
                 Mathf.InverseLerp(0, 16, currentCameraDistance * currentCameraDistance) > 0.9f)
-                transparentEffect.SetTransparency(0.9f);
+                transparentEffect.SetTransparency(0.5f);
             else
                 transparentEffect.SetTransparency(Mathf.InverseLerp(0, 16, currentCameraDistance * currentCameraDistance));
         }

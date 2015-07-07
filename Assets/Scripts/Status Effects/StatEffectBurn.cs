@@ -6,6 +6,9 @@ public class StatEffectBurn : StatEffect
 
     internal override void Effect()
     {
-        GetComponent<NetworkView>().RPC("Damage", RPCMode.All, damagePerSecond * Time.deltaTime);
+        if (GetComponent<CharacterShield>() != null)
+            GetComponent<NetworkView>().RPC("DamageShield", RPCMode.All, damagePerSecond * Time.deltaTime);
+        else
+            GetComponent<NetworkView>().RPC("Damage", RPCMode.All, damagePerSecond * Time.deltaTime);
     }
 }
