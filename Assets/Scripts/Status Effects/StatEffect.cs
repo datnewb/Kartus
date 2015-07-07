@@ -7,6 +7,9 @@ public class StatEffect : MonoBehaviour
     public bool isStacking;
     internal bool isCarrier;
 
+    public GameObject statVisual;
+    internal GameObject statVisualInstance;
+
     internal NetworkView netView;
 
     internal virtual void Start()
@@ -20,6 +23,9 @@ public class StatEffect : MonoBehaviour
 
         netView = gameObject.AddComponent<NetworkView>();
         netView.observed = this;
+
+        if (!isCarrier)
+            GetComponent<NetworkView>().RPC("CreateVisuals", RPCMode.All);
     }
 
     void Update()
@@ -34,6 +40,23 @@ public class StatEffect : MonoBehaviour
         }
     }
 
+    [RPC]
+    internal void CreateVisuals()
+    {
+        if (statVisual != null)
+        {
+            statVisualInstance = Instantiate(statVisual, transform.position, transform.rotation) as GameObject;
+            statVisualInstance.transform.SetParent(transform);
+        }
+    }
+
+    [RPC]
+    internal void DestroyVisuals()
+    {
+        if (statVisualInstance != null)
+            Destroy(statVisualInstance);
+    }
+
     internal virtual void Effect()
     {
 
@@ -41,6 +64,7 @@ public class StatEffect : MonoBehaviour
 
     internal virtual void OnDestroy()
     {
+        GetComponent<NetworkView>().RPC("DestroyVisuals", RPCMode.All);
         Destroy(netView);
     }
 

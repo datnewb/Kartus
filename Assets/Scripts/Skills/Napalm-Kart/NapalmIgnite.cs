@@ -6,6 +6,8 @@ public class NapalmIgnite : Skill
     public float damagePerSecond;
     public float duration;
 
+    public GameObject burnVisual;
+
     internal override void PassiveEffect()
     {
         if (GetComponent<KartShoot>().shotBullet != null)
@@ -15,6 +17,7 @@ public class NapalmIgnite : Skill
                 StatEffectBurn burnEffect = GetComponent<KartShoot>().shotBullet.AddComponent<StatEffectBurn>();
                 burnEffect.damagePerSecond = damagePerSecond;
                 burnEffect.duration = duration;
+                burnEffect.statVisual = burnVisual;
             }
         }
     }

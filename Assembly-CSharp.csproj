@@ -89,12 +89,16 @@
      <Compile Include="Assets\Scripts\Player\PlayerInfo.cs" />
      <Compile Include="Assets\Scripts\Prototype\Prototype_NetSpawn.cs" />
      <Compile Include="Assets\Scripts\Prototype\Prototype_NetStarter.cs" />
-     <Compile Include="Assets\Scripts\Scene\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Shader Effects\TransparentEffect.cs" />
+     <Compile Include="Assets\Scripts\Skills\Adventure-Kart\AdventureNaturesBlessing.cs" />
+     <Compile Include="Assets\Scripts\Skills\Genocide-Kart\GenocideOverheat.cs" />
+     <Compile Include="Assets\Scripts\Skills\HighTech-Kart\HighTechAmmoFactory.cs" />
      <Compile Include="Assets\Scripts\Skills\Napalm-Kart\NapalmIgnite.cs" />
      <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+     <Compile Include="Assets\Scripts\Spawn Point\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Status Effects\StatEffect.cs" />
      <Compile Include="Assets\Scripts\Status Effects\StatEffectBurn.cs" />
+     <Compile Include="Assets\Scripts\Status Effects\StatEffectNaturesBlessing.cs" />
      <Compile Include="Assets\Scripts\Tutorial\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Tutorial\TutorialMovement.cs" />
      <Compile Include="Assets\Scripts\Tutorial\TutorialShooting.cs" />

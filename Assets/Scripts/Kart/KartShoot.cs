@@ -12,7 +12,7 @@ public class KartShoot : MonoBehaviour
     [SerializeField]
     private float bulletSpeed;
     [SerializeField]
-    private float shootCooldownTime;
+    internal float shootCooldownTime;
     internal bool canShoot;
 
     internal GameObject shotBullet;

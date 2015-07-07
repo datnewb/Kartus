@@ -60,19 +60,21 @@ public class Bullet : MonoBehaviour
             {
                 if (statEffect.GetType() == typeof(StatEffectBurn))
                 {
-                    if (statEffect.isStacking)
+                    StatEffectBurn burnEffect = null;
+                    if (!statEffect.isStacking &&
+                        target.GetComponent<StatEffectBurn>() != null)
                     {
-                        StatEffectBurn burnEffect = target.GetComponent<StatEffectBurn>();
-                        if (burnEffect == null)
-                            burnEffect = target.AddComponent<StatEffectBurn>();
-                        burnEffect.duration = statEffect.duration;
-                        burnEffect.damagePerSecond = ((StatEffectBurn)statEffect).damagePerSecond;
+                        burnEffect = target.GetComponent<StatEffectBurn>();
                     }
                     else
                     {
-                        StatEffectBurn burnEffect = target.AddComponent<StatEffectBurn>();
+                        burnEffect = target.AddComponent<StatEffectBurn>();
+                    }
+                    if (burnEffect != null)
+                    {
                         burnEffect.duration = statEffect.duration;
                         burnEffect.damagePerSecond = ((StatEffectBurn)statEffect).damagePerSecond;
+                        burnEffect.statVisual = statEffect.statVisual;
                     }
                 }
             }

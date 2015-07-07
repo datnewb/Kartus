@@ -5,9 +5,21 @@ public class CharacterAmmo : MonoBehaviour
     public float maxAmmo;
     internal float currentAmmo;
 
+    public float ammoRegenRate;
+
     void Start()
     {
         currentAmmo = maxAmmo;
+    }
+
+    void Update()
+    {
+        RegenerateAmmo();
+    }
+
+    private void RegenerateAmmo()
+    {
+        currentAmmo += ammoRegenRate * Time.deltaTime;
     }
 
     public bool UseAmmo(float ammoCost)
@@ -33,22 +45,27 @@ public class CharacterAmmo : MonoBehaviour
     {
         float net_currentAmmo = 0;
         float net_maxAmmo = 0;
+        float net_ammoRegenRate = 0;
 
         if (stream.isWriting)
         {
             net_currentAmmo = currentAmmo;
             net_maxAmmo = maxAmmo;
+            net_ammoRegenRate = ammoRegenRate;
 
             stream.Serialize(ref net_currentAmmo);
             stream.Serialize(ref net_maxAmmo);
+            stream.Serialize(ref net_ammoRegenRate);
         }
         else if (stream.isReading)
         {
             stream.Serialize(ref net_currentAmmo);
             stream.Serialize(ref net_maxAmmo);
+            stream.Serialize(ref net_ammoRegenRate);
 
             currentAmmo = net_currentAmmo;
             maxAmmo = net_maxAmmo;
+            ammoRegenRate = net_ammoRegenRate;
         }
     }
 }

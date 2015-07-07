@@ -4,11 +4,11 @@ using System.Collections.Generic;
 public class KartController : MonoBehaviour 
 {
     [SerializeField]
-    private float motorTorque;
+    internal float motorTorque;
     [SerializeField]
     private float brakeTorque;
     [SerializeField]
-    private float topSpeed;
+    internal float topSpeed;
     [SerializeField]
     private float steerAngle;
     [SerializeField]
