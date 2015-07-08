@@ -3,7 +3,7 @@
 public class TowerDetection : MonoBehaviour 
 {
     private Tower tower;
-    private int maskIgnoreBullet = ~((1 << 9) | (1 << 11));
+    private int maskIgnoreBulletDetectionTower = ~((1 << 9) | (1 << 11) | (1 << 12));
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class TowerDetection : MonoBehaviour
                             (rootObject.transform.position - tower.lightningSource.position) / Vector3.Distance(rootObject.transform.position, tower.lightningSource.position),
                             out hitInfo,
                             float.MaxValue,
-                            maskIgnoreBullet))
+                            maskIgnoreBulletDetectionTower))
                         {
                             if (hitInfo.transform.gameObject == rootObject)
                                 tower.targetEnemy = rootObject;
@@ -44,7 +44,7 @@ public class TowerDetection : MonoBehaviour
                     (tower.targetEnemy.transform.position - tower.lightningSource.position) / Vector3.Distance(tower.targetEnemy.transform.position, tower.lightningSource.position),
                     out hitInfo,
                     float.MaxValue,
-                    maskIgnoreBullet))
+                    maskIgnoreBulletDetectionTower))
                 {
                     if (hitInfo.transform.gameObject != tower.targetEnemy)
                         tower.targetEnemy = null;

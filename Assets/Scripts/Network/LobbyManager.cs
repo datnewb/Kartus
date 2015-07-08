@@ -6,7 +6,6 @@ public class LobbyManager : MonoBehaviour
 {
     private MainMenuHandler mainMenuHandler;
     internal List<PlayerInfo> playerInfos;
-    internal List<NetworkPlayer> players;
 
     internal bool leftGame;
 
@@ -18,7 +17,6 @@ public class LobbyManager : MonoBehaviour
     void OnEnable()
     {
         playerInfos = new List<PlayerInfo>();
-        players = new List<NetworkPlayer>();
 
         leftGame = false;
     }
@@ -36,11 +34,6 @@ public class LobbyManager : MonoBehaviour
             if (!playerInfos.Contains(playerInfo))
                 playerInfos.Add(playerInfo);
         }
-    }
-
-    void OnPlayerConnected(NetworkPlayer player)
-    {
-        players.Add(player);
     }
 
     void OnPlayerDisconnected(NetworkPlayer player)

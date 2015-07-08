@@ -199,15 +199,6 @@ public class MenuLobby : MonoBehaviour
         lobbyManager.leftGame = true;
         mainMenuHandler.GoToMainMenu();
         BackDecline();
-
-        if (Network.isServer)
-        {
-            foreach (NetworkPlayer player in GetComponent<LobbyManager>().players)
-            {
-                if (player != Network.player)
-                    Network.CloseConnection(player, true);
-            }
-        }
         Network.Disconnect(200);
     }
 

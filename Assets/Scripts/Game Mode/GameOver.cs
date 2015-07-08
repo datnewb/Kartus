@@ -10,6 +10,7 @@ public class GameOver : MonoBehaviour
             CleanUp();
             StopAllMinions();
             StopAllMinionSpawners();
+            StopAllTowers();
         }
         DisableInput();
         RemoveKartScripts();
@@ -48,6 +49,12 @@ public class GameOver : MonoBehaviour
             minion.StopMinionLogic();
             minion.GetComponent<NavMeshAgent>().Stop();
         }    
+    }
+
+    private void StopAllTowers()
+    {
+        foreach (Tower tower in FindObjectsOfType<Tower>())
+            tower.StopTowerLogic();
     }
 
     private void DisableInput()

@@ -73,7 +73,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void StopTowerLogic()
+    internal void StopTowerLogic()
     {
         StopCoroutine(towerCoroutine);
     }
