@@ -30,6 +30,7 @@ public class Skill : MonoBehaviour
     public float ammoCost;
     public float toggleAmmoCostPerSecond;
     public float coolDown;
+    public bool needsSlider;
 
     internal CharacterAmmo characterAmmo;
     internal float currentCoolDown;
@@ -38,6 +39,7 @@ public class Skill : MonoBehaviour
     internal bool isAiming;
     internal bool isToggled;
     internal bool toggleAmmoUsed;
+    internal float sliderValue;
 
     internal virtual void Start()
     {

@@ -6,6 +6,8 @@ public class UICharacterSkills : MonoBehaviour
 {
     [SerializeField]
     private Image skillPassiveImage;
+    [SerializeField]
+    private GameObject skillPassiveSlider;
 
     [SerializeField]
     private List<ActiveSkillUI> skillActiveUI;
@@ -31,6 +33,13 @@ public class UICharacterSkills : MonoBehaviour
                     {
                         case SkillPosition.Passive:
                             skillPassiveImage.sprite = skill.skillIcon;
+                            if (skill.needsSlider)
+                            {
+                                skillPassiveSlider.SetActive(true);
+                                skillPassiveSlider.GetComponent<Slider>().value = skill.sliderValue;
+                            }
+                            else
+                                skillPassiveSlider.SetActive(false);
                             break;
                         case SkillPosition.First:
                             skillActiveUI[0].skill = skill;
@@ -49,6 +58,13 @@ public class UICharacterSkills : MonoBehaviour
                     {
                         case SkillPosition.Passive:
                             skillPassiveImage.sprite = skill.skillIcon;
+                            if (skill.needsSlider)
+                            {
+                                skillPassiveSlider.SetActive(true);
+                                skillPassiveSlider.GetComponent<Slider>().value = skill.sliderValue;
+                            }
+                            else
+                                skillPassiveSlider.SetActive(false);
                             break;
                         case SkillPosition.First:
                             skillActiveUI[0].skill = skill;

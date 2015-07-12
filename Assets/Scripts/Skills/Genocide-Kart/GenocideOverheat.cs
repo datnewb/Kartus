@@ -40,6 +40,7 @@ public class GenocideOverheat : Skill
             GunCooldown();
         }
         kartShoot.shootCooldownTime = currentShootCooldown;
+        sliderValue = Mathf.InverseLerp(originalShootCooldown, shootCooldownLimit, currentShootCooldown);
     }
 
     private void DisableShooting()
