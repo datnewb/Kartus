@@ -90,6 +90,6 @@ public class TutorialShooting : MonoBehaviour
 
     private void LoadLevel()
     {
-        Application.LoadLevel(0);
+        FindObjectOfType<GameManager>().LoadLevel("Main Menu", 0);
     }
 }
