@@ -54,6 +54,8 @@ public class TutorialMovement : MonoBehaviour
     {
         FindObjectOfType<InputManager>().allowShoot = false;
 
+        MovePlayerToCenter();
+
         if (!moveForwardComplete)
         {
             tutorialText.text = moveForwardMessage;
@@ -103,7 +105,7 @@ public class TutorialMovement : MonoBehaviour
         else if (!checkPointsComplete)
         {
             tutorialText.text = checkPointMessage;
-            progressText.text = "CHECKPOINTS";
+            progressText.text = acquiredCheckpoints + "/" + checkpoints.Count;
             foreach (Checkpoint checkpoint in checkpoints)
             {
                 if (checkpoint.acquired)
@@ -131,8 +133,24 @@ public class TutorialMovement : MonoBehaviour
         }
     }
 
+    private void MovePlayerToCenter()
+    {
+        Transform player = FindObjectOfType<InputManager>().transform;
+        Vector3 newPosition = Vector3.zero;
+        float distance = 75;
+        if (player.position.x > distance)
+            newPosition.x = -distance;
+        else if (player.position.x < -distance)
+            newPosition.x = distance;
+        if (player.position.z > distance)
+            newPosition.z = -distance;
+        else if (player.position.z < -distance)
+            newPosition.z = distance;
+        player.transform.position += newPosition;
+    }
+
     private void LoadLevel()
     {
-        Application.LoadLevel(5);
+        FindObjectOfType<GameManager>().LoadLevel("Tutorial 2", 5);
     }
 }

@@ -18,6 +18,11 @@ public class UICharacterStats : MonoBehaviour
     [SerializeField]
     private Text ammoValueText;
 
+    [SerializeField]
+    private Text killsText;
+    [SerializeField]
+    private Text deathsText;
+
     PlayerHandler playerHandler;
     CharacterShield shield;
     CharacterHealth health;
@@ -58,6 +63,8 @@ public class UICharacterStats : MonoBehaviour
                 health = playerHandler.kartInstance.GetComponent<CharacterHealth>();
                 ammo = playerHandler.kartInstance.GetComponent<CharacterAmmo>();
             }
+            killsText.text = "K : " + playerHandler.kills;
+            deathsText.text = "D : " + playerHandler.deaths;
         }
         else
             LookForPlayerHandler();

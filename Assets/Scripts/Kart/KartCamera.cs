@@ -85,7 +85,7 @@ public class KartCamera : MonoBehaviour
             transparentEffect = GetComponent<TransparentEffect>();
 
         RaycastHit hitInfo;
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hitInfo))
+        if (Physics.SphereCast(cameraTransform.position, 0.25f, cameraTransform.forward, out hitInfo))
         {
             if (hitInfo.transform.gameObject == gameObject &&
                 Mathf.InverseLerp(0, 16, currentCameraDistance * currentCameraDistance) > 0.9f)

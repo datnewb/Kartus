@@ -22,6 +22,8 @@ public enum SkillCastMode
 
 public class Skill : MonoBehaviour
 {
+    public string skillName;
+    public Sprite skillIcon;
     public SkillType type;
     public SkillCastMode castMode;
     public SkillPosition position;
@@ -50,7 +52,7 @@ public class Skill : MonoBehaviour
         if (position == SkillPosition.First)
             hotKey = KeyCode.LeftShift;
         else if (position == SkillPosition.Second)
-            hotKey = KeyCode.LeftControl;
+            hotKey = KeyCode.Space;
 
         currentCoolDown = 0;
         isInCoolDown = false;

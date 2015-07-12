@@ -62,10 +62,11 @@ public class StatEffect : MonoBehaviour
 
     }
 
-    internal virtual void OnDestroy()
+    internal virtual void EndEffect()
     {
         GetComponent<NetworkView>().RPC("DestroyVisuals", RPCMode.All);
         Destroy(netView);
+        Destroy(this);
     }
 
     internal void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)

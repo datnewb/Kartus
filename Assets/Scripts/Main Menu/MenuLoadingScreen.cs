@@ -27,4 +27,9 @@ public class MenuLoadingScreen : MonoBehaviour
         if (progressBar.value >= 0.9)
             waitingForOthersText.text = "WAITING FOR OTHER PLAYERS";
     }
+
+    void OnDisable()
+    {
+        GetComponent<MainMenuHandler>().loadingScreenCanvas.enabled = false;
+    }
 }

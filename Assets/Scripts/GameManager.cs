@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum GameState
 {
@@ -21,15 +22,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Application.loadedLevel > 0)
-            currentGameState = GameState.Game;
-        else
-            currentGameState = GameState.MainMenu;
-
-
         if (currentGameState != previousGameState)
         {
-            DestroyOtherGameManagers();
+            if (previousGameState == GameState.Game)
+                Destroy(this);
             if (currentGameState == GameState.Game)
             {
                 Cursor.lockState = CursorLockMode.Locked;
@@ -41,15 +37,6 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
             }
             previousGameState = currentGameState;
-        }
-    }
-
-    private void DestroyOtherGameManagers()
-    {
-        foreach (GameManager gameManager in FindObjectsOfType<GameManager>())
-        {
-            if (gameManager != this)
-                Destroy(gameManager.gameObject);
         }
     }
 
@@ -70,14 +57,19 @@ public class GameManager : MonoBehaviour
     {
         AsyncOperation loadLevel = Application.LoadLevelAsync(levelPrefix);
         loadLevel.allowSceneActivation = false;
-        FindObjectOfType<MainMenuHandler>().loadingScreenCanvas.enabled = true;
-        FindObjectOfType<MainMenuHandler>().lobbyCanvas.enabled = false;
-        while (loadLevel.progress < 0.9f)
+        if (FindObjectOfType<MainMenuHandler>() != null)
         {
-            yield return loadLevel.isDone;
-            if (FindObjectOfType<MenuLoadingScreen>() != null)
-                FindObjectOfType<MenuLoadingScreen>().SetProgressBar(loadLevel);
+            MainMenuHandler.DisableAllCanvases();
+            FindObjectOfType<MainMenuHandler>().loadingScreenCanvas.enabled = true;
+            FindObjectOfType<MainMenuHandler>().lobbyCanvas.enabled = false;
+            while (loadLevel.progress < 0.9f)
+            {
+                yield return loadLevel.isDone;
+                if (FindObjectOfType<MenuLoadingScreen>() != null)
+                    FindObjectOfType<MenuLoadingScreen>().SetProgressBar(loadLevel);
+            }
         }
+
         foreach (PlayerInfo playerInfo in FindObjectsOfType<PlayerInfo>())
         {
             if (playerInfo.GetComponent<NetworkView>().isMine)
@@ -86,17 +78,28 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-        while (!FindObjectOfType<MenuLoadingScreen>().allFinished)
+        if (FindObjectOfType<MainMenuHandler>() != null)
         {
-            yield return null;
-            bool allFinished = true;
-            foreach (PlayerInfo playerInfo in FindObjectsOfType<PlayerInfo>())
+            while (!FindObjectOfType<MenuLoadingScreen>().allFinished)
             {
-                if (!playerInfo.loadingFinished)
-                    allFinished = false;
+                yield return null;
+                bool allFinished = true;
+                foreach (PlayerInfo playerInfo in FindObjectsOfType<PlayerInfo>())
+                {
+                    if (!playerInfo.loadingFinished)
+                        allFinished = false;
+                }
+                FindObjectOfType<MenuLoadingScreen>().allFinished = allFinished;
             }
-            FindObjectOfType<MenuLoadingScreen>().allFinished = allFinished;
         }
+
         loadLevel.allowSceneActivation = true;
+
+        if (levelPrefix > 0)
+            currentGameState = GameState.Game;
+        else
+            currentGameState = GameState.MainMenu;
+        if (FindObjectOfType<MainMenuHandler>() != null)
+            FindObjectOfType<MenuLoadingScreen>().enabled = false;
     }
 }

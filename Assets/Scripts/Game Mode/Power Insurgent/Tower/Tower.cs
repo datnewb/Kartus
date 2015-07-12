@@ -43,14 +43,31 @@ public class Tower : MonoBehaviour
         GameObject lightningInstance = Network.Instantiate(lightning, Vector3.zero, Quaternion.identity, 0) as GameObject;
         CreateLightning(lightningInstance.GetComponent<LineRenderer>(), lightningSource.position, targetEnemy.transform.position);
 
-        string damageFunction = "DamageShield";
-        if (targetEnemy.GetComponent<CharacterShield>() == null)
-            damageFunction = "Damage";
-
+        float finalDamage = 0;
         if (targetEnemy.GetComponent<KartInfo>() != null)
-            targetEnemy.GetComponent<NetworkView>().RPC(damageFunction, RPCMode.All, damage * 1.5f);
+            finalDamage = damage * 1.5f;
         else
-            targetEnemy.GetComponent<NetworkView>().RPC(damageFunction, RPCMode.All, damage);
+            finalDamage = damage;
+
+        if (targetEnemy.GetComponent<CharacterShield>() != null)
+            targetEnemy.GetComponent<NetworkView>().RPC("DamageShield", RPCMode.All, finalDamage);
+        else if (targetEnemy.GetComponent<CharacterHealth>() != null)
+            targetEnemy.GetComponent<NetworkView>().RPC("Damage", RPCMode.All, finalDamage);
+
+        if (targetEnemy.GetComponent<CharacterHealth>().currentHealth <= 0)
+        {
+            if (targetEnemy.GetComponent<KartInfo>() != null)
+            {
+                foreach (PlayerHandler playerHandler in FindObjectsOfType<PlayerHandler>())
+                {
+                    if (playerHandler.GetComponent<NetworkView>().owner == targetEnemy.GetComponent<NetworkView>().owner)
+                    {
+                        playerHandler.deaths++;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     private void CreateLightning(LineRenderer lineRenderer, Vector3 startPos, Vector3 endPos)

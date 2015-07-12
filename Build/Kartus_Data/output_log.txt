@@ -14,7 +14,7 @@ Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly
 Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.057 seconds
+- Completed reload, in  0.040 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -22,253 +22,345 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 4e0 -> priority: 1 
-  Thread -> id: 48c -> priority: 1 
+  Thread -> id: 2394 -> priority: 1 
+  Thread -> id: 2664 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
 Shader 'Nature/Terrain/Specular': fallback shader 'Nature/Terrain/Diffuse' not found
-UnloadTime: 3.260296 ms
+UnloadTime: 3.120947 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1754 -> priority: 1 
-  Thread -> id: 2104 -> priority: 1 
+  Thread -> id: 27e4 -> priority: 1 
+  Thread -> id: 9c0 -> priority: 1 
 
-Unloading 229 unused Assets to reduce memory usage. Loaded Objects now: 3794.
-Total: 1.306250 ms (FindLiveObjects: 0.139743 ms CreateObjectMapping: 0.121190 ms MarkObjects: 0.844779 ms  DeleteObjects: 0.199746 ms)
+Unloading 229 unused Assets to reduce memory usage. Loaded Objects now: 3922.
+Total: 1.100187 ms (FindLiveObjects: 0.196983 ms CreateObjectMapping: 0.112110 ms MarkObjects: 0.674244 ms  DeleteObjects: 0.116058 ms)
 
-RPC call failed because the function 'CreateVisuals' does not exist in any script attached to'Adventurer-Kart-Blue(Clone)'
+Look rotation viewing vector is zero
  
-(Filename:  Line: 134)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 330 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 362 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 57 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 57' could not be located.
+Look rotation viewing vector is zero
  
-(Filename:  Line: 2472)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 57 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 57' doesn't exist
+Look rotation viewing vector is zero
  
-(Filename:  Line: 2483)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 394 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 402 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 406 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 422 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
 
 View ID AllocatedID: 53 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 53' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 61 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 61' doesn't exist
+Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 53' doesn't exist
  
 (Filename:  Line: 2483)
 
-View ID AllocatedID: 454 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 462 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 506 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 514 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
+(Filename:  Line: 71)
 
-Couldn't destroy object because the associate network view was not found
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
-View ID AllocatedID: 542 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
  
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 550 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 45 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 45' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 45 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 45' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 33 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 33' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 33 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 33' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 590 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 594 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 634 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 638 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 658 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 662 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 49 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 49' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 694 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 698 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
+(Filename:  Line: 71)
 
 View ID AllocatedID: 41 not found during lookup. Strange behaviour may occur
  
@@ -278,1284 +370,40 @@ Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 4
  
 (Filename:  Line: 2472)
 
-View ID AllocatedID: 734 not found during lookup. Strange behaviour may occur
+View ID AllocatedID: 41 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 746 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 778 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 874 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 20 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 20' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 886 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 819 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 819' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 65 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 65' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 4 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 4' doesn't exist
+Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 41' doesn't exist
  
 (Filename:  Line: 2483)
 
-View ID AllocatedID: 4 not found during lookup. Strange behaviour may occur
+View ID AllocatedID: 61 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 
-Could't invoke RPC function 'DamageShield' because the networkView 'AllocatedID: 4' doesn't exist
+Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 61' doesn't exist
  
 (Filename:  Line: 2483)
 
-View ID AllocatedID: 4 not found during lookup. Strange behaviour may occur
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerHandler.OnDisconnectedFromServer () [0x00000] in <filename unknown>:0 
  
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 4' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 4 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 4' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 827 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 827' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 811 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 811' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 811 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 811' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 25 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 25' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 25 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 25' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 815 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 815' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 815 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 815' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 799 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 799' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 786 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 786' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 786 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 786' doesn't exist
- 
-(Filename:  Line: 2483)
-
-"Resume" can only be called on an active agent that has been placed on a NavMesh.
- 
-(Filename:  Line: 766)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 807 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 807' could not be located.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 795 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 795' could not be located.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-"Stop" can only be called on an active agent that has been placed on a NavMesh.
- 
-(Filename:  Line: 760)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 74 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 74' doesn't exist
- 
-(Filename:  Line: 2483)
-
-View ID AllocatedID: 74 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 74' could not be located.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 1607 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 845 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 845' could not be located.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 845 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 845' doesn't exist
- 
-(Filename:  Line: 2483)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 1686 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 1703 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-View ID AllocatedID: 1756 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Couldn't destroy object because the associate network view was not found
- 
-(Filename:  Line: 1398)
-
-View ID AllocatedID: 1070 not found during lookup. Strange behaviour may occur
- 
-(Filename:  Line: 1690)
-
-Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 1070' doesn't exist
- 
-(Filename:  Line: 2483)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Network View synchronization of  €§÷ is not supported. Pack the state manually from a script.
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function '__RPCNetworkInstantiate'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function '__RPCNetworkInstantiate'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'Damage'
-
- 
-(Filename:  Line: 2472)
+(Filename:  Line: -1)
 
 Couldn't send RPC function '__RPCNetworkDestroy'
 
  
 (Filename:  Line: 2472)
 
-Couldn't send RPC function 'UpdateName'
-
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.RectTransform:INTERNAL_set_anchorMin (UnityEngine.Vector2&)
+  at UnityEngine.RectTransform.set_anchorMin (Vector2 value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Slider.UpdateVisuals () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Slider.OnRectTransformDimensionsChange () [0x00000] in <filename unknown>:0 
+UnityEngine.Canvas:set_scaleFactor(Single)
+UnityEngine.UI.CanvasScaler:SetScaleFactor(Single)
+UnityEngine.UI.CanvasScaler:OnDisable()
  
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'Damage'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function '__RPCNetworkDestroy'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function '__RPCNetworkInstantiate'
-
- 
-(Filename:  Line: 2472)
-
-Couldn't send RPC function 'UpdateName'
-
- 
-(Filename:  Line: 2472)
+(Filename:  Line: -1)
 

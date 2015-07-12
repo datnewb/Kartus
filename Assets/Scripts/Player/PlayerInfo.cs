@@ -8,6 +8,7 @@ public class PlayerInfo : MonoBehaviour
     internal KartEnum kart;
     internal Gender gender;
     internal int position;
+    internal int queueNumber;
     internal int kartVariation;
     internal bool kartSelected;
 
@@ -38,6 +39,9 @@ public class PlayerInfo : MonoBehaviour
                 break;
             }
         }
+
+        queueNumber = position;
+
         loadingFinished = false;
         kartSelected = false;
         DontDestroyOnLoad(this);
@@ -62,6 +66,7 @@ public class PlayerInfo : MonoBehaviour
         int net_currentSelectedKart = 0;
         int net_gender = 0;
         int net_position = 0;
+        int net_queueNumber = 0;
         bool net_kartSelected = false;
         bool net_loadingFinished = false;
 
@@ -71,6 +76,7 @@ public class PlayerInfo : MonoBehaviour
             net_currentSelectedKart = (int)currentSelectedKart;
             net_gender = (int)gender;
             net_position = position;
+            net_queueNumber = queueNumber;
             net_kartSelected = kartSelected;
             net_loadingFinished = loadingFinished;
 
@@ -80,6 +86,7 @@ public class PlayerInfo : MonoBehaviour
             stream.Serialize(ref net_position);
             stream.Serialize(ref net_kartSelected);
             stream.Serialize(ref net_loadingFinished);
+            stream.Serialize(ref net_queueNumber);
         }
         else if (stream.isReading)
         {
@@ -89,11 +96,13 @@ public class PlayerInfo : MonoBehaviour
             stream.Serialize(ref net_position);
             stream.Serialize(ref net_kartSelected);
             stream.Serialize(ref net_loadingFinished);
+            stream.Serialize(ref net_queueNumber);
 
             kart = (KartEnum)net_kart;
             currentSelectedKart = (KartEnum)net_currentSelectedKart;
             gender = (Gender)net_gender;
             position = net_position;
+            queueNumber = net_queueNumber;
             kartSelected = net_kartSelected;
             loadingFinished = net_loadingFinished;
         }

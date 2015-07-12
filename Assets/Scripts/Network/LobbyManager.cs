@@ -23,16 +23,21 @@ public class LobbyManager : MonoBehaviour
 
     void Update()
     {
-        UpdatePlayerInfoList();
+        UpdatePlayerInfoList();   
     }
 
     private void UpdatePlayerInfoList()
     {
         playerInfos.Clear();
         foreach (PlayerInfo playerInfo in FindObjectsOfType<PlayerInfo>())
+            playerInfos.Add(playerInfo);
+
+        if (Network.isServer)
         {
-            if (!playerInfos.Contains(playerInfo))
-                playerInfos.Add(playerInfo);
+            playerInfos.Sort((x, y) => x.queueNumber.CompareTo(y.queueNumber));
+            int currentQueueNumber = 0;
+            foreach (PlayerInfo playerInfo in playerInfos)
+                playerInfo.queueNumber = currentQueueNumber++;
         }
     }
 

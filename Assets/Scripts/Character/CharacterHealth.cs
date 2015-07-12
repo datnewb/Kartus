@@ -40,6 +40,14 @@ public class CharacterHealth : MonoBehaviour
         }
     }
 
+    [RPC]
+    public void Heal(float value)
+    {
+        currentHealth += value;
+        if (currentHealth >= maxHealth)
+            currentHealth = maxHealth;
+    }
+
     private void Targeted()
     {
         isTargeted = true;

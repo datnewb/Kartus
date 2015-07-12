@@ -15,6 +15,29 @@ public class PlayerHandler : MonoBehaviour
 
     void Start()
     {
+        kills = 0;
+        deaths = 0;
+
+        LookForSpawnPoint();
+    }
+
+    void Update()
+    {
+        if (GetComponent<NetworkView>().isMine)
+        {
+            if (spawnPoint == null)
+            {
+                LookForSpawnPoint();
+            }
+            else
+            {
+                SpawnKart();
+            }
+        }
+    }
+
+    private void LookForSpawnPoint()
+    {
         foreach (SpawnPoint spawnPoint in FindObjectsOfType<SpawnPoint>())
         {
             if (spawnPoint.position == playerInfo.position)
@@ -23,16 +46,6 @@ public class PlayerHandler : MonoBehaviour
                 spawnPoint.Assign();
                 break;
             }
-        }
-    }
-
-    void Update()
-    {
-        if (GetComponent<NetworkView>().isMine)
-        {
-            SpawnKart();
-            if (!spawnPoint.IsAssigned())
-                Destroy(this);
         }
     }
 

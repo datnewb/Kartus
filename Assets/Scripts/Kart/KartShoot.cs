@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+enum KartType
+{
+    Player,
+    Minion
+}
+
 [RequireComponent(typeof(KartGun))]
 public class KartShoot : MonoBehaviour 
 {
@@ -30,6 +36,10 @@ public class KartShoot : MonoBehaviour
         shotBullet = Network.Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation, 0) as GameObject;
         shotBullet.GetComponent<CharacterTeam>().team = GetComponent<CharacterTeam>().team;
         shotBullet.GetComponent<Bullet>().SetDamage(Random.Range(bulletDamageMin, bulletDamageMax));
+        if (GetComponent<Minion>() != null)
+            shotBullet.GetComponent<Bullet>().ownerKartType = KartType.Minion;
+        else
+            shotBullet.GetComponent<Bullet>().ownerKartType = KartType.Player;
         shotBullet.GetComponent<Rigidbody>().AddForce(shotBullet.transform.forward * bulletSpeed, ForceMode.VelocityChange);
 
         canShoot = false;
