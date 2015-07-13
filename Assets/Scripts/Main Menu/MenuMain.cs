@@ -21,6 +21,9 @@ public class MenuMain : MonoBehaviour
     {
         OnEnable();
         CheckPlayerName();
+
+        foreach (PlayerInfo playerInfo in FindObjectsOfType<PlayerInfo>())
+            Destroy(playerInfo.gameObject);
     }
 
     void OnEnable()

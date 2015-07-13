@@ -60,14 +60,6 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    void OnDisconnectedFromServer()
-    {
-        if (kartInstance != null)
-            Network.Destroy(kartInstance);
-
-        spawnPoint.Unassign();
-    }
-
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
         int net_kills = 0;

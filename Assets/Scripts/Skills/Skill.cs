@@ -72,7 +72,7 @@ public class Skill : MonoBehaviour
         prevIsToggled = false;
     }
 
-    void Update()
+    internal virtual void Update()
     {
         switch (type)
         {

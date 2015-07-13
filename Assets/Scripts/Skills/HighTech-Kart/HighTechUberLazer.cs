@@ -3,11 +3,32 @@
 public class HighTechUberLazer : Skill 
 {
     public GameObject lazerLineObject;
+    private GameObject lazerInstance;
     public float damagePerSecond;
+
+    internal override void Update()
+    {
+        base.Update();
+
+        if (castConfirmed)
+        {
+            if (lazerInstance == null)
+                lazerInstance = Network.Instantiate(lazerLineObject, Vector3.zero, Quaternion.identity, 0) as GameObject;
+        }
+        else
+        {
+            if (lazerInstance != null)
+            {
+                Network.Destroy(lazerInstance);
+                lazerInstance = null;
+            }
+        }
+    }
 
     internal override void ActiveEffect()
     {
-        lazerLineObject.GetComponent<LineRenderer>().SetPosition(0, GetComponent<KartGun>().bulletSpawnPoint.position);
+        if (lazerInstance != null)
+            lazerInstance.GetComponent<LineRenderer>().SetPosition(0, GetComponent<KartGun>().bulletSpawnPoint.position);
 
         RaycastHit hitInfo;
         if (Physics.Raycast(GetComponent<KartGun>().bulletSpawnPoint.position, GetComponent<KartGun>().bulletSpawnPoint.forward, out hitInfo))
@@ -23,12 +44,14 @@ public class HighTechUberLazer : Skill
                         hitObject.GetComponent<NetworkView>().RPC("Damage", RPCMode.All, damagePerSecond * Time.deltaTime);
                 }
             }
-            
-            lazerLineObject.GetComponent<LineRenderer>().SetPosition(1, hitInfo.point);
+
+            if (lazerInstance != null)
+                lazerInstance.GetComponent<LineRenderer>().SetPosition(1, hitInfo.point);
         }
         else
         {
-            lazerLineObject.GetComponent<LineRenderer>().SetPosition(1, GetComponent<KartGun>().bulletSpawnPoint.position + GetComponent<KartGun>().bulletSpawnPoint.forward * 1000);
+            if (lazerInstance != null)
+                lazerInstance.GetComponent<LineRenderer>().SetPosition(1, GetComponent<KartGun>().bulletSpawnPoint.position + GetComponent<KartGun>().bulletSpawnPoint.forward * 1000);
         }
     }
 }
