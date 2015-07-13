@@ -27,12 +27,8 @@ public class KartCamera : MonoBehaviour
 
     void Update()
     {
-        //camera rotation
         SetCameraRigRotation();
-        //camera position
         SetCameraRigPosition();
-        //fade kart if the camera is near the kart
-        //or if kart is blocking camera
         FadeKart();
     }
 

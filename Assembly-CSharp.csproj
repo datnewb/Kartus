@@ -114,6 +114,7 @@
      <Compile Include="Assets\Scripts\Tutorial\TutorialShooting.cs" />
      <Compile Include="Assets\Scripts\UI\UICharacterSkills.cs" />
      <Compile Include="Assets\Scripts\UI\UICharacterStats.cs" />
+     <Compile Include="Assets\Scripts\UI\UICrossHair.cs" />
      <Compile Include="Assets\Scripts\UI\UIGameOverScreen.cs" />
      <Compile Include="Assets\Scripts\UI\UIGeneratorStats.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />

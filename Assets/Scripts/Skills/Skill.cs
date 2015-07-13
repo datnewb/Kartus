@@ -36,9 +36,13 @@ public class Skill : MonoBehaviour
     internal float currentCoolDown;
     internal KeyCode hotKey;
     internal bool isInCoolDown;
+
     internal bool isAiming;
+    private bool prevIsAiming;
+
     internal bool isToggled;
-    internal bool toggleAmmoUsed;
+    private bool prevIsToggled;
+
     internal float sliderValue;
 
     internal virtual void Start()
@@ -59,8 +63,9 @@ public class Skill : MonoBehaviour
         currentCoolDown = 0;
         isInCoolDown = false;
         isAiming = false;
+        prevIsAiming = false;
         isToggled = false;
-        toggleAmmoUsed = false;
+        prevIsToggled = false;
     }
 
     void Update()
@@ -70,81 +75,57 @@ public class Skill : MonoBehaviour
             case SkillType.Active:
                 if (!isInCoolDown)
                 {
-                    if (Input.GetKeyDown(hotKey))
-                    {
-                        switch (castMode)
-                        {
-                            case SkillCastMode.Aim:
-                                if (!isAiming)
-                                {
-                                    if (characterAmmo.CheckAmmo(ammoCost))
-                                    {
-                                        isAiming = true;
-                                        return;
-                                    }    
-                                }
-                                else
-                                    isAiming = false;
-                                break;
-                            case SkillCastMode.Toggle:
-                                if (!isToggled)
-                                {
-                                    if (characterAmmo.UseAmmo(ammoCost))
-                                    {
-                                        isToggled = true;
-                                        return;
-                                    }
-                                }
-                                break;
-                            case SkillCastMode.Instant:
-                                if (characterAmmo.UseAmmo(ammoCost))
-                                {
-                                    SetCoolDown();
-                                    ActiveEffect();
-                                }
-                                break;
-                        }
-                    }
-
                     if (isToggled)
                     {
-                        if (characterAmmo.UseAmmo(toggleAmmoCostPerSecond  * Time.deltaTime))
-                            ActiveEffect();
+                        if (!prevIsToggled)
+                        {
+                            if (characterAmmo.CheckAmmo(ammoCost))
+                                prevIsToggled = true;
+                            else
+                                isToggled = false;
+                        }
                         else
                         {
-                            isToggled = false;
-                            SetCoolDown();
-                        }
-
-                        if (Input.GetKeyDown(hotKey))
-                        {
-                            isToggled = false;
-                            SetCoolDown();
-                        }
-                    }
-                    else if (isAiming)
-                    {
-                        if (characterAmmo.CheckAmmo(ammoCost))
-                        {
-                            if (Input.GetMouseButtonDown(0))
-                            {
-                                characterAmmo.UseAmmo(ammoCost);
+                            if (characterAmmo.UseAmmo(toggleAmmoCostPerSecond * Time.deltaTime))
                                 ActiveEffect();
-                                isAiming = false;
+                            else
+                            {
+                                isToggled = false;
                                 SetCoolDown();
                             }
                         }
-                        else
-                        {
-                            isAiming = false;
-                        }
 
-                        if (Input.GetKeyDown(hotKey))
-                            isAiming = false;
+                        prevIsToggled = true;
+                    }
+                    else
+                    {
+                        if (prevIsToggled)
+                            SetCoolDown();
+                        prevIsToggled = false;
+                    }
+
+                    if (isAiming)
+                    {
+                        if (!prevIsAiming)
+                        {
+                            if (characterAmmo.CheckAmmo(ammoCost))
+                                prevIsAiming = true;
+                            else
+                                isAiming = false;
+                        }
+                    }
+                    else
+                    {
+                        prevIsAiming = false;
                     }
                 }
                 else
                 {
+                    isAiming = false;
+                    prevIsAiming = false;
+                    isToggled = false;
+                    prevIsToggled = false;
+
                     CoolDown();
                 }
                 break;
@@ -163,6 +144,32 @@ public class Skill : MonoBehaviour
     internal virtual void ActiveEffect()
     {
         
+    }
+
+    internal void ReadyActiveEffect()
+    {
+        if (characterAmmo.CheckAmmo(ammoCost))
+        {
+            if (castMode == SkillCastMode.Aim)
+            {
+                characterAmmo.UseAmmo(ammoCost);
+                ActiveEffect();
+                isAiming = false;
+                prevIsAiming = false;
+                SetCoolDown();
+            }
+            else if (castMode == SkillCastMode.Instant)
+            {
+                characterAmmo.UseAmmo(ammoCost);
+                ActiveEffect();
+                SetCoolDown();
+            }
+        }
+        else
+        {
+            isAiming = false;
+            prevIsAiming = false;
+        }
     }
 
     internal void CoolDown()

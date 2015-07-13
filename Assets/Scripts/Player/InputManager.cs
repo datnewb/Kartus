@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     internal bool allowShoot;
     internal bool allowDriving;
     internal bool allowAiming;
+    internal bool allowSkillUsage;
 
     internal Camera playerCamera;
 
@@ -29,6 +30,7 @@ public class InputManager : MonoBehaviour
         allowShoot = true;
         allowDriving = true;
         allowAiming = true;
+        allowSkillUsage = true;
 
         kartController = GetComponent<KartController>();
         kartShoot = GetComponent<KartShoot>();
@@ -46,6 +48,7 @@ public class InputManager : MonoBehaviour
             InputShoot();
             InputDrive();
             InputAim();
+            InputSkill();
         }
     }
 
@@ -86,6 +89,43 @@ public class InputManager : MonoBehaviour
                 kartGun.AimAtPoint(hitInfo.point);
             else
                 kartGun.AimAtPoint(playerCamera.transform.forward * 100000f + playerCamera.transform.position);
+        }
+    }
+
+    private void InputSkill()
+    {
+        if (allowSkillUsage)
+        {
+            foreach (Skill skill in GetComponents<Skill>())
+            {
+                if (skill.type == SkillType.Passive)
+                    continue;
+                else
+                {
+                    if (Input.GetKeyDown(skill.hotKey))
+                    {
+                        switch (skill.castMode)
+                        {
+                            case SkillCastMode.Aim:
+                                skill.isAiming = !skill.isAiming;
+                                return;
+                            case SkillCastMode.Instant:
+                                skill.ReadyActiveEffect();
+                                break;
+                            case SkillCastMode.Toggle:
+                                skill.isToggled = !skill.isToggled;
+                                return;
+                        }
+                    }
+
+                    if (skill.isAiming)
+                    {
+                        allowShoot = false;
+                        if (Input.GetMouseButtonDown(0))
+                            skill.ReadyActiveEffect();
+                    }
+                }
+            }
         }
     }
 }
