@@ -31,11 +31,15 @@ public class Skill : MonoBehaviour
     public float toggleAmmoCostPerSecond;
     public float coolDown;
     public bool needsSlider;
+    public bool isChanneling;
+    public float channelTime;
 
     internal CharacterAmmo characterAmmo;
-    internal float currentCoolDown;
     internal KeyCode hotKey;
+    internal float currentCoolDown;
     internal bool isInCoolDown;
+    internal float currentChannelTime;
+    internal bool castConfirmed;
 
     internal bool isAiming;
     private bool prevIsAiming;
@@ -118,6 +122,29 @@ public class Skill : MonoBehaviour
                     {
                         prevIsAiming = false;
                     }
+
+                    if (castConfirmed)
+                    {
+                        if (isChanneling)
+                        {
+                            if (currentChannelTime <= 0)
+                                characterAmmo.UseAmmo(ammoCost);
+                            ActiveEffect();
+                            isAiming = false;
+                            prevIsAiming = false;
+                            currentChannelTime += Time.deltaTime;
+                            if (currentChannelTime >= channelTime)
+                                SetCoolDown();
+                        }
+                        else
+                        {
+                            characterAmmo.UseAmmo(ammoCost);
+                            ActiveEffect();
+                            isAiming = false;
+                            prevIsAiming = false;
+                            SetCoolDown();
+                        }
+                    }
                 }
                 else
                 {
@@ -150,20 +177,8 @@ public class Skill : MonoBehaviour
     {
         if (characterAmmo.CheckAmmo(ammoCost))
         {
-            if (castMode == SkillCastMode.Aim)
-            {
-                characterAmmo.UseAmmo(ammoCost);
-                ActiveEffect();
-                isAiming = false;
-                prevIsAiming = false;
-                SetCoolDown();
-            }
-            else if (castMode == SkillCastMode.Instant)
-            {
-                characterAmmo.UseAmmo(ammoCost);
-                ActiveEffect();
-                SetCoolDown();
-            }
+            castConfirmed = true;
+            currentChannelTime = 0;
         }
         else
         {
@@ -186,5 +201,6 @@ public class Skill : MonoBehaviour
     {
         currentCoolDown = coolDown;
         isInCoolDown = true;
+        castConfirmed = false;
     }
 }

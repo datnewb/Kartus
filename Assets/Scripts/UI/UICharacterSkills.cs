@@ -78,7 +78,18 @@ public class UICharacterSkills : MonoBehaviour
 
             foreach (ActiveSkillUI activeSkill in skillActiveUI)
             {
-                activeSkill.UpdateActiveSkillUI();
+                if (activeSkill.skill.isChanneling && activeSkill.skill.castConfirmed)
+                {
+                    foreach (ActiveSkillUI activeSkill1 in skillActiveUI)
+                    {
+                        if (activeSkill1 == activeSkill)
+                            continue;
+                        else
+                            activeSkill1.skillImage.color = Color.gray;
+                    }
+                }
+                else
+                    activeSkill.UpdateActiveSkillUI();
             }
         }
     }
