@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour 
 {
     [SerializeField]
     private float damage;
     internal float bulletLife = 1;
+
+    [SerializeField]
+    internal bool isExplosive;
+    [SerializeField]
+    internal float blastRadius;
 
     internal KartType ownerKartType;
 
@@ -79,8 +85,57 @@ public class Bullet : MonoBehaviour
 
     private void DestroyBullet()
     {
+        if (isExplosive)
+        {
+            if (GetComponent<NetworkView>().isMine)
+                Explode();
+        }
+
         if (GetComponent<NetworkView>().isMine)
             Network.Destroy(gameObject);
+    }
+
+    private void Explode()
+    {
+        Collider[] collidersInBlastRadius = Physics.OverlapSphere(transform.position, blastRadius);
+        List<GameObject> damagedObjects = new List<GameObject>();
+        foreach (Collider collider in collidersInBlastRadius)
+        {
+            if (collider.transform.root.gameObject.GetComponent<CharacterTeam>() != null &&
+                collider.transform.root.gameObject.GetComponent<CharacterTeam>().team != GetComponent<CharacterTeam>().team)
+            {
+                bool isDamaged = false;
+                foreach (GameObject go in damagedObjects)
+                {
+                    if (collider.transform.root.gameObject == go)
+                    {
+                        isDamaged = true;
+                        break;
+                    }
+                }
+                if (!isDamaged)
+                {
+                    GameObject hitObject = collider.transform.root.gameObject;
+                    RaycastHit hitInfo;
+                    if (Physics.Raycast(
+                        transform.position,
+                        (hitObject.transform.position - transform.position) / (hitObject.transform.position - transform.position).magnitude,
+                        out hitInfo))
+                    {
+                        if (hitInfo.transform.root.gameObject == hitObject)
+                        {
+                            if (hitObject.GetComponent<CharacterShield>() != null)
+                                hitObject.GetComponent<NetworkView>().RPC("DamageShield", RPCMode.All, damage);
+                            else if (hitObject.GetComponent<CharacterHealth>() != null)
+                                hitObject.GetComponent<NetworkView>().RPC("Damage", RPCMode.All, damage);
+                            ApplyStatEffect(hitObject);
+                            KillConfirm(hitObject);
+                            damagedObjects.Add(hitObject);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     internal void ApplyStatEffect(GameObject target)
@@ -106,6 +161,44 @@ public class Bullet : MonoBehaviour
                         burnEffect.duration = statEffect.duration;
                         burnEffect.damagePerSecond = ((StatEffectBurn)statEffect).damagePerSecond;
                         burnEffect.statVisual = statEffect.statVisual;
+                    }
+                }
+                else if (statEffect.GetType() == typeof(StatEffectSlow))
+                {
+                    StatEffectSlow slow = null;
+                    if (!statEffect.isStacking &&
+                        target.GetComponent<StatEffectSlow>() != null)
+                    {
+                        slow = target.GetComponent<StatEffectSlow>();
+                    }
+                    else
+                    {
+                        slow = target.AddComponent<StatEffectSlow>();
+                    }
+                    if (slow != null)
+                    {
+                        slow.duration = statEffect.duration;
+                        slow.torqueDecrease = ((StatEffectSlow)statEffect).torqueDecrease;
+                        slow.topSpeedDecrease = ((StatEffectSlow)statEffect).topSpeedDecrease;
+                        slow.statVisual = statEffect.statVisual;
+                    }
+                }
+                else if (statEffect.GetType() == typeof(StatEffectSkillDisable))
+                {
+                    StatEffectSkillDisable skillDisable = null;
+                    if (!statEffect.isStacking &&
+                        target.GetComponent<StatEffectSkillDisable>() != null)
+                    {
+                        skillDisable = target.GetComponent<StatEffectSkillDisable>();
+                    }
+                    else
+                    {
+                        skillDisable = target.AddComponent<StatEffectSkillDisable>();
+                    }
+                    if (skillDisable != null)
+                    {
+                        skillDisable.duration = statEffect.duration;
+                        skillDisable.statVisual = statEffect.statVisual;
                     }
                 }
             }

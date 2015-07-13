@@ -107,6 +107,7 @@
      <Compile Include="Assets\Scripts\Status Effects\StatEffect.cs" />
      <Compile Include="Assets\Scripts\Status Effects\StatEffectBurn.cs" />
      <Compile Include="Assets\Scripts\Status Effects\StatEffectNaturesBlessing.cs" />
+     <Compile Include="Assets\Scripts\Status Effects\StatEffectSkillDisable.cs" />
      <Compile Include="Assets\Scripts\Status Effects\StatEffectSlow.cs" />
      <Compile Include="Assets\Scripts\Status Effects\StatEffectSpeedBoost.cs" />
      <Compile Include="Assets\Scripts\Tutorial\Checkpoint.cs" />

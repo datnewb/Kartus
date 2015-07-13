@@ -20,6 +20,8 @@ public class CharacterAmmo : MonoBehaviour
     private void RegenerateAmmo()
     {
         currentAmmo += ammoRegenRate * Time.deltaTime;
+        if (currentAmmo >= maxAmmo)
+            currentAmmo = maxAmmo;
     }
 
     public bool UseAmmo(float ammoCost)
