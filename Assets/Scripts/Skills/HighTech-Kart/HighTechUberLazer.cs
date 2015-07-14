@@ -28,7 +28,7 @@ public class HighTechUberLazer : Skill
     internal override void ActiveEffect()
     {
         if (lazerInstance != null)
-            lazerInstance.GetComponent<LineRenderer>().SetPosition(0, GetComponent<KartGun>().bulletSpawnPoint.position);
+            lazerInstance.GetComponent<UberLazer>().startPoint = GetComponent<KartGun>().bulletSpawnPoint.position;
 
         RaycastHit hitInfo;
         if (Physics.Raycast(GetComponent<KartGun>().bulletSpawnPoint.position, GetComponent<KartGun>().bulletSpawnPoint.forward, out hitInfo))
@@ -46,12 +46,12 @@ public class HighTechUberLazer : Skill
             }
 
             if (lazerInstance != null)
-                lazerInstance.GetComponent<LineRenderer>().SetPosition(1, hitInfo.point);
+                lazerInstance.GetComponent<UberLazer>().endPoint = hitInfo.point;
         }
         else
         {
             if (lazerInstance != null)
-                lazerInstance.GetComponent<LineRenderer>().SetPosition(1, GetComponent<KartGun>().bulletSpawnPoint.position + GetComponent<KartGun>().bulletSpawnPoint.forward * 1000);
+                lazerInstance.GetComponent<UberLazer>().endPoint = GetComponent<KartGun>().bulletSpawnPoint.position + GetComponent<KartGun>().bulletSpawnPoint.forward * 1000;
         }
     }
 }

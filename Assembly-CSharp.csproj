@@ -99,6 +99,7 @@
      <Compile Include="Assets\Scripts\Skills\HighTech-Kart\HighTechAmmoFactory.cs" />
      <Compile Include="Assets\Scripts\Skills\HighTech-Kart\HighTechEMPMissile.cs" />
      <Compile Include="Assets\Scripts\Skills\HighTech-Kart\HighTechUberLazer.cs" />
+     <Compile Include="Assets\Scripts\Skills\HighTech-Kart\UberLazer.cs" />
      <Compile Include="Assets\Scripts\Skills\Napalm-Kart\NapalmIgnite.cs" />
      <Compile Include="Assets\Scripts\Skills\Napalm-Kart\NapalmInferno.cs" />
      <Compile Include="Assets\Scripts\Skills\Napalm-Kart\NapalmRockets.cs" />
