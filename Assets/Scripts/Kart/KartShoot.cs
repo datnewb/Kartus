@@ -44,7 +44,12 @@ public class KartShoot : MonoBehaviour
 
         canShoot = false;
 
-        Invoke("AllowShoot", shootCooldownTime);
+        ShootCooldown(shootCooldownTime);
+    }
+
+    internal void ShootCooldown(float time)
+    {
+        Invoke("AllowShoot", time);
     }
 
     private void AllowShoot()

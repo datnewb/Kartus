@@ -3,6 +3,7 @@
 public class HighTechEMPMissile : Skill 
 {
     public GameObject empMissile;
+    public Transform empMissileSpawnPoint;
     public float damage;
     public float empMissileSpeed;
 

@@ -13,7 +13,9 @@ public class InputManager : MonoBehaviour
     internal bool allowDriving;
     internal bool allowAiming;
     internal bool allowSkillUsage;
+
     internal bool skillChanneling;
+    internal bool skillAiming;
 
     internal Camera playerCamera;
 
@@ -32,7 +34,9 @@ public class InputManager : MonoBehaviour
         allowDriving = true;
         allowAiming = true;
         allowSkillUsage = true;
+
         skillChanneling = false;
+        skillAiming = false;
 
         kartController = GetComponent<KartController>();
         kartShoot = GetComponent<KartShoot>();
@@ -56,7 +60,7 @@ public class InputManager : MonoBehaviour
 
     private void InputShoot()
     {
-        if (allowShoot && !skillChanneling)
+        if (allowShoot && !skillChanneling && !skillAiming)
         {
             if (kartShoot.canShoot)
             {
@@ -97,13 +101,14 @@ public class InputManager : MonoBehaviour
     private void InputSkill()
     {
         skillChanneling = false;
+        skillAiming = false;
         foreach (Skill skill in GetComponents<Skill>())
         {
             if (skill.isChanneling && skill.castConfirmed)
-            {
                 skillChanneling = true;
-                break;
-            }
+            
+            if (skill.isAiming)
+                skillAiming = true;
         }
 
         if (allowSkillUsage && !skillChanneling)
@@ -132,9 +137,13 @@ public class InputManager : MonoBehaviour
 
                     if (skill.isAiming)
                     {
-                        allowShoot = false;
                         if (Input.GetMouseButtonDown(0))
+                        {
                             skill.ReadyActiveEffect();
+                            kartShoot.canShoot = false;
+                            kartShoot.ShootCooldown(1);
+                            skillAiming = false;
+                        }
                     }
                 }
             }
