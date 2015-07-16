@@ -25,7 +25,7 @@ public class StatEffect : MonoBehaviour
         netView.observed = this;
 
         if (!isCarrier)
-            GetComponent<NetworkView>().RPC("CreateVisuals", RPCMode.All);
+            CreateVisuals();
     }
 
     void Update()
@@ -36,25 +36,24 @@ public class StatEffect : MonoBehaviour
             if (currentDuration > 0)
                 Effect();
             else
-                Destroy(this);
+                EndEffect();
         }
     }
 
-    [RPC]
     internal void CreateVisuals()
     {
         if (statVisual != null)
         {
-            statVisualInstance = Instantiate(statVisual, transform.position, transform.rotation) as GameObject;
+            statVisualInstance = Network.Instantiate(statVisual, transform.position, transform.rotation, 0) as GameObject;
+            statVisualInstance.AddComponent<NetworkView>().observed = statVisualInstance.transform;
             statVisualInstance.transform.SetParent(transform);
         }
     }
 
-    [RPC]
     internal void DestroyVisuals()
     {
         if (statVisualInstance != null)
-            Destroy(statVisualInstance);
+            Network.Destroy(statVisualInstance);
     }
 
     internal virtual void Effect()
@@ -64,7 +63,7 @@ public class StatEffect : MonoBehaviour
 
     internal virtual void EndEffect()
     {
-        GetComponent<NetworkView>().RPC("DestroyVisuals", RPCMode.All);
+        DestroyVisuals();
         Destroy(netView);
         Destroy(this);
     }
@@ -72,16 +71,21 @@ public class StatEffect : MonoBehaviour
     internal void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
         float net_currentDuration = 0;
+        float net_duration = 0;
 
         if (stream.isWriting)
         {
             net_currentDuration = currentDuration;
+            net_duration = duration;
             stream.Serialize(ref net_currentDuration);
+            stream.Serialize(ref net_duration);
         }
         else
         {
             stream.Serialize(ref net_currentDuration);
+            stream.Serialize(ref net_duration);
             currentDuration = net_currentDuration;
+            duration = net_duration;
         }
     }
 }

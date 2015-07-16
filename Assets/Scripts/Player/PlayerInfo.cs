@@ -51,11 +51,14 @@ public class PlayerInfo : MonoBehaviour
     {
         if (myView.isMine)
             myView.RPC("UpdateName", RPCMode.All, PlayerPrefs.GetString("playerName"));
-        if (FindObjectOfType<GameManager>().currentGameState == GameState.Game)
+        if (FindObjectOfType<GameManager>() != null)
         {
-            if (playerHandler == null)
+            if (FindObjectOfType<GameManager>().currentGameState == GameState.Game)
             {
-                CreatePlayerHandler();
+                if (playerHandler == null)
+                {
+                    CreatePlayerHandler();
+                }
             }
         }
     }

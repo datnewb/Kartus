@@ -9,6 +9,7 @@ public class StatEffectSlow : StatEffect
     internal float originalTopSpeed;
 
     internal KartController kartController = null;
+    internal NavMeshAgent minionAgent = null;
 
     internal override void Start()
     {
@@ -28,6 +29,20 @@ public class StatEffectSlow : StatEffect
             if (kartController.topSpeed <= 0)
                 kartController.topSpeed = 0;
         }
+        else if (GetComponent<NavMeshAgent>() != null)
+        {
+            minionAgent = GetComponent<NavMeshAgent>();
+            originalTorque = minionAgent.acceleration;
+            originalTopSpeed = minionAgent.speed;
+
+            minionAgent.acceleration -= torqueDecrease;
+            if (minionAgent.acceleration <= 0)
+                minionAgent.acceleration = 0;
+
+            minionAgent.speed -= topSpeedDecrease;
+            if (minionAgent.speed <= 0)
+                minionAgent.speed = 0;
+        }
     }
 
     internal override void EndEffect()
@@ -36,6 +51,11 @@ public class StatEffectSlow : StatEffect
         {
             kartController.motorTorque = originalTorque;
             kartController.topSpeed = originalTopSpeed;
+        }
+        else if (minionAgent != null)
+        {
+            minionAgent.acceleration = originalTorque;
+            minionAgent.speed = originalTopSpeed;
         }
 
         base.EndEffect();

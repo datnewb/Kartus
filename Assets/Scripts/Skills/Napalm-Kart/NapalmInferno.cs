@@ -47,6 +47,7 @@ public class NapalmInferno : Skill
             }
         }
 
-        Network.Instantiate(blastVisual, transform.position, Quaternion.identity, 0);
+        if (blastVisual != null)
+            Network.Instantiate(blastVisual, transform.position, Quaternion.identity, 0);
     }
 }

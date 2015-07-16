@@ -14,7 +14,7 @@ Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly
 Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.051 seconds
+- Completed reload, in  0.037 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -22,18 +22,194 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Projects\Unity 5\Kartus\Build\Kartus_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: d4 -> priority: 1 
-  Thread -> id: a08 -> priority: 1 
+  Thread -> id: 584 -> priority: 1 
+  Thread -> id: 144c -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.979226 ms
+UnloadTime: 3.466750 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1f64 -> priority: 1 
-  Thread -> id: 1714 -> priority: 1 
+  Thread -> id: 111c -> priority: 1 
+  Thread -> id: 1ca0 -> priority: 1 
 
-Unloading 229 unused Assets to reduce memory usage. Loaded Objects now: 4111.
-Total: 1.216639 ms (FindLiveObjects: 0.169745 ms CreateObjectMapping: 0.140138 ms MarkObjects: 0.797407 ms  DeleteObjects: 0.108952 ms)
+Unloading 185 unused Assets to reduce memory usage. Loaded Objects now: 4745.
+Total: 1.245061 ms (FindLiveObjects: 0.180403 ms CreateObjectMapping: 0.144086 ms MarkObjects: 0.817540 ms  DeleteObjects: 0.102241 ms)
 
-View ID AllocatedID: 61 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+View ID AllocatedID: 1564 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 1564' could not be located.
+ 
+(Filename:  Line: 2472)
+
+View ID AllocatedID: 1564 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 1564' could not be located.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+View ID AllocatedID: 152 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 152' doesn't exist
+ 
+(Filename:  Line: 2483)
+
+View ID AllocatedID: 152 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 152' could not be located.
+ 
+(Filename:  Line: 2472)
+
+View ID AllocatedID: 152 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 152' doesn't exist
+ 
+(Filename:  Line: 2483)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+Network View synchronization of  €7ö is not supported. Pack the state manually from a script.
+ 
+(Filename:  Line: 2472)
+
+View ID AllocatedID: 1621 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Couldn't perform remote Network.Destroy because the network view 'AllocatedID: 1621' could not be located.
+ 
+(Filename:  Line: 2472)
+
+View ID AllocatedID: 1786 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 
@@ -41,7 +217,345 @@ Couldn't destroy object because the associate network view was not found
  
 (Filename:  Line: 1398)
 
-View ID AllocatedID: 800 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Couldn't send RPC function 'Damage'
+
+ 
+(Filename:  Line: 2472)
+
+Couldn't send RPC function '__RPCNetworkDestroy'
+
+ 
+(Filename:  Line: 2472)
+
+No objects for the given player ID were deleted 1
+ 
+(Filename:  Line: 1382)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+View ID AllocatedID: 1935 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 1935' doesn't exist
+ 
+(Filename:  Line: 2483)
+
+View ID AllocatedID: 1935 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Could't invoke RPC function 'Damage' because the networkView 'AllocatedID: 1935' doesn't exist
+ 
+(Filename:  Line: 2483)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+View ID AllocatedID: 3008 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 
@@ -49,7 +563,15 @@ Couldn't destroy object because the associate network view was not found
  
 (Filename:  Line: 1398)
 
-View ID AllocatedID: 820 not found during lookup. Strange behaviour may occur
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+Look rotation viewing vector is zero
+ 
+(Filename:  Line: 71)
+
+View ID AllocatedID: 3048 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 
@@ -57,7 +579,27 @@ Couldn't destroy object because the associate network view was not found
  
 (Filename:  Line: 1398)
 
-View ID AllocatedID: 1083 not found during lookup. Strange behaviour may occur
+stopping Fire Effect(Clone)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+stopping Fire Effect(Clone)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+stopping Fire Effect(Clone)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+stopping Fire Effect(Clone)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+stopping Fire Effect(Clone)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+View ID AllocatedID: 3388 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 
@@ -65,7 +607,15 @@ Couldn't destroy object because the associate network view was not found
  
 (Filename:  Line: 1398)
 
-View ID AllocatedID: 897 not found during lookup. Strange behaviour may occur
+View ID AllocatedID: 3508 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1690)
+
+Couldn't destroy object because the associate network view was not found
+ 
+(Filename:  Line: 1398)
+
+View ID AllocatedID: 3680 not found during lookup. Strange behaviour may occur
  
 (Filename:  Line: 1690)
 

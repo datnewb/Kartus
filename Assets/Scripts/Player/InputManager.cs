@@ -25,6 +25,7 @@ public class InputManager : MonoBehaviour
     private KartShoot kartShoot;
     private KartCamera kartCamera;
     private KartGun kartGun;
+    private UIPauseMenu pauseMenu;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class InputManager : MonoBehaviour
         kartShoot = GetComponent<KartShoot>();
         kartGun = GetComponent<KartGun>();
         kartCamera = GetComponent<KartCamera>();
+        pauseMenu = FindObjectOfType<UIPauseMenu>();
             
         playerCamera = kartCamera.GetCamera();
 
@@ -49,13 +51,27 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (allowInput)
+        InputPause();
+        if (!pauseMenu.inPauseMenu)
         {
-            InputShoot();
-            InputDrive();
-            InputAim();
-            InputSkill();
+            if (allowInput)
+            {
+                InputShoot();
+                InputDrive();
+                InputAim();
+                InputSkill();
+            }
         }
+        else
+        {
+            StopAim();
+        }
+    }
+
+    private void InputPause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            pauseMenu.inPauseMenu = !pauseMenu.inPauseMenu;
     }
 
     private void InputShoot()
@@ -96,6 +112,12 @@ public class InputManager : MonoBehaviour
             else
                 kartGun.AimAtPoint(playerCamera.transform.forward * 100000f + playerCamera.transform.position);
         }
+    }
+
+    private void StopAim()
+    {
+        kartCamera.mouseHorizontal = 0;
+        kartCamera.mouseVertical = 0;
     }
 
     private void InputSkill()

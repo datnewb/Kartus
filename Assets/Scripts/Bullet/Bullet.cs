@@ -12,6 +12,9 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     internal float blastRadius;
 
+    [SerializeField]
+    private GameObject hitVisualEffect;
+
     internal KartType ownerKartType;
 
     void Start()
@@ -26,18 +29,26 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter (Collision collision)
     {
-        if (collision.gameObject.GetComponent<CharacterTeam>() != null &&
-            collision.gameObject.GetComponent<CharacterTeam>().team != GetComponent<CharacterTeam>().team)
+        if (GetComponent<NetworkView>().isMine)
         {
-            if (collision.gameObject.GetComponent<CharacterShield>() != null)
-                collision.gameObject.GetComponent<NetworkView>().RPC("DamageShield", RPCMode.All, damage);
-            else if (collision.gameObject.GetComponent<CharacterHealth>() != null)
-                collision.gameObject.GetComponent<NetworkView>().RPC("Damage", RPCMode.All, damage);
-            ApplyStatEffect(collision.gameObject);
-            KillConfirm(collision.gameObject);
-        }
+            if (collision.gameObject.GetComponent<CharacterTeam>() != null &&
+    collision.gameObject.GetComponent<CharacterTeam>().team != GetComponent<CharacterTeam>().team)
+            {
+                if (collision.gameObject.GetComponent<CharacterShield>() != null)
+                    collision.gameObject.GetComponent<NetworkView>().RPC("DamageShield", RPCMode.All, damage);
+                else if (collision.gameObject.GetComponent<CharacterHealth>() != null)
+                    collision.gameObject.GetComponent<NetworkView>().RPC("Damage", RPCMode.All, damage);
+                ApplyStatEffect(collision.gameObject);
+                KillConfirm(collision.gameObject);
+            }
 
-        DestroyBullet();
+            if (hitVisualEffect != null)
+            {
+                Network.Instantiate(hitVisualEffect, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal), 0);
+            }
+
+            DestroyBullet();
+        }
     }
 
     private void KillConfirm(GameObject target)
@@ -85,14 +96,12 @@ public class Bullet : MonoBehaviour
 
     private void DestroyBullet()
     {
-        if (isExplosive)
-        {
-            if (GetComponent<NetworkView>().isMine)
-                Explode();
-        }
-
         if (GetComponent<NetworkView>().isMine)
+        {
+            if (isExplosive)
+                Explode();
             Network.Destroy(gameObject);
+        }
     }
 
     private void Explode()

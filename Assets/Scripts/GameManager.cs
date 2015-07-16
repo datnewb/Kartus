@@ -24,8 +24,6 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState != previousGameState)
         {
-            if (previousGameState == GameState.Game)
-                Destroy(this);
             if (currentGameState == GameState.Game)
             {
                 Cursor.lockState = CursorLockMode.Locked;
@@ -101,5 +99,11 @@ public class GameManager : MonoBehaviour
             currentGameState = GameState.MainMenu;
         if (FindObjectOfType<MainMenuHandler>() != null)
             FindObjectOfType<MenuLoadingScreen>().enabled = false;
+
+        foreach (GameManager gameManager in FindObjectsOfType<GameManager>())
+        {
+            if (gameManager != this)
+                Destroy(gameManager);
+        }
     }
 }

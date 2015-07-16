@@ -21,6 +21,9 @@ public class KartShoot : MonoBehaviour
     internal float shootCooldownTime;
     internal bool canShoot;
 
+    [SerializeField]
+    private GameObject shootVisualEffects;
+
     internal GameObject shotBullet;
 
     private Transform bulletSpawnPoint;
@@ -43,6 +46,9 @@ public class KartShoot : MonoBehaviour
         shotBullet.GetComponent<Rigidbody>().AddForce(shotBullet.transform.forward * bulletSpeed, ForceMode.VelocityChange);
 
         canShoot = false;
+
+        if (shootVisualEffects != null)
+            Network.Instantiate(shootVisualEffects, bulletSpawnPoint.position, bulletSpawnPoint.rotation, 0);
 
         ShootCooldown(shootCooldownTime);
     }

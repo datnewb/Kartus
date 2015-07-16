@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 2d664eeb5816e4f4bb6b55ada00fbc5c
+timeCreated: 1436944461
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: brokenPost_1
+    100004: brokenPost_2
+    100006: brokenPost_3
+    100008: brokenPost_4
+    100010: floor_a_2
+    100012: floor_b_1
+    100014: floor_c_1
+    100016: floor_d_1
+    100018: floor_d_2
+    100020: floor_d_3
+    100022: post_1
+    100024: post_10
+    100026: post_11
+    100028: post_2
+    100030: post_3
+    100032: post_4
+    100034: post_5
+    100036: post_6
+    100038: post_7
+    100040: post_8
+    100042: post_9
+    400000: //RootNode
+    400002: brokenPost_1
+    400004: brokenPost_2
+    400006: brokenPost_3
+    400008: brokenPost_4
+    400010: floor_a_2
+    400012: floor_b_1
+    400014: floor_c_1
+    400016: floor_d_1
+    400018: floor_d_2
+    400020: floor_d_3
+    400022: post_1
+    400024: post_10
+    400026: post_11
+    400028: post_2
+    400030: post_3
+    400032: post_4
+    400034: post_5
+    400036: post_6
+    400038: post_7
+    400040: post_8
+    400042: post_9
+    2300000: //RootNode
+    2300002: brokenPost_1
+    2300004: brokenPost_2
+    2300006: brokenPost_3
+    2300008: brokenPost_4
+    2300010: floor_a_2
+    2300012: floor_b_1
+    2300014: floor_c_1
+    2300016: floor_d_1
+    2300018: floor_d_2
+    2300020: floor_d_3
+    2300022: post_1
+    2300024: post_10
+    2300026: post_11
+    2300028: post_2
+    2300030: post_3
+    2300032: post_4
+    2300034: post_5
+    2300036: post_6
+    2300038: post_7
+    2300040: post_8
+    2300042: post_9
+    3300000: //RootNode
+    3300002: brokenPost_1
+    3300004: brokenPost_2
+    3300006: brokenPost_3
+    3300008: brokenPost_4
+    3300010: floor_a_2
+    3300012: floor_b_1
+    3300014: floor_c_1
+    3300016: floor_d_1
+    3300018: floor_d_2
+    3300020: floor_d_3
+    3300022: post_1
+    3300024: post_10
+    3300026: post_11
+    3300028: post_2
+    3300030: post_3
+    3300032: post_4
+    3300034: post_5
+    3300036: post_6
+    3300038: post_7
+    3300040: post_8
+    3300042: post_9
+    4300000: floor_a_1
+    4300002: floor_a_2
+    4300004: floor_b_1
+    4300006: floor_c_1
+    4300008: floor_d_1
+    4300010: floor_d_2
+    4300012: floor_d_3
+    4300014: post_1
+    4300016: post_2
+    4300018: post_3
+    4300020: post_4
+    4300022: post_5
+    4300024: post_6
+    4300026: post_7
+    4300028: post_8
+    4300030: post_9
+    4300032: post_10
+    4300034: post_11
+    4300036: brokenPost_1
+    4300038: brokenPost_2
+    4300040: brokenPost_3
+    4300042: brokenPost_4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

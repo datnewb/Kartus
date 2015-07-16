@@ -58,47 +58,56 @@ public class TutorialMovement : MonoBehaviour
 
         if (!moveForwardComplete)
         {
-            tutorialText.text = moveForwardMessage;
-            progressBar.value = currentTime / time;
-            progressText.text = "TIME";
-            if (Input.GetAxis("Vertical") > 0)
+            if (!FindObjectOfType<UIPauseMenu>().inPauseMenu)
             {
-                currentTime += Time.deltaTime;
-                if (currentTime >= time)
+                tutorialText.text = moveForwardMessage;
+                progressBar.value = currentTime / time;
+                progressText.text = "TIME";
+                if (Input.GetAxis("Vertical") > 0)
                 {
-                    currentTime = 0;
-                    moveForwardComplete = true;
+                    currentTime += Time.deltaTime;
+                    if (currentTime >= time)
+                    {
+                        currentTime = 0;
+                        moveForwardComplete = true;
+                    }
                 }
             }
         }
         else if (!moveBackwardComplete)
         {
-            tutorialText.text = moveBackwardMessage;
-            progressBar.value = currentTime / time;
-            progressText.text = "TIME";
-            if (Input.GetAxis("Vertical") < 0)
+            if (!FindObjectOfType<UIPauseMenu>().inPauseMenu)
             {
-                currentTime += Time.deltaTime;
-                if (currentTime >= time)
+                tutorialText.text = moveBackwardMessage;
+                progressBar.value = currentTime / time;
+                progressText.text = "TIME";
+                if (Input.GetAxis("Vertical") < 0)
                 {
-                    currentTime = 0;
-                    moveBackwardComplete = true;
+                    currentTime += Time.deltaTime;
+                    if (currentTime >= time)
+                    {
+                        currentTime = 0;
+                        moveBackwardComplete = true;
+                    }
                 }
             }
         }
         else if (!steeringComplete)
         {
-            tutorialText.text = steeringMessage;
-            progressBar.value = currentTime / time;
-            progressText.text = "TIME";
-            if (Input.GetAxis("Horizontal") != 0)
+            if (!FindObjectOfType<UIPauseMenu>().inPauseMenu)
             {
-                currentTime += Time.deltaTime;
-                if (currentTime >= time)
+                tutorialText.text = steeringMessage;
+                progressBar.value = currentTime / time;
+                progressText.text = "TIME";
+                if (Input.GetAxis("Horizontal") != 0)
                 {
-                    currentTime = 0;
-                    steeringComplete = true;
-                    checkpoints[0].gameObject.SetActive(true);
+                    currentTime += Time.deltaTime;
+                    if (currentTime >= time)
+                    {
+                        currentTime = 0;
+                        steeringComplete = true;
+                        checkpoints[0].gameObject.SetActive(true);
+                    }
                 }
             }
         }

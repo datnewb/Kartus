@@ -76,7 +76,7 @@ public class TutorialShooting : MonoBehaviour
                         currentDummies++;
                 }
                 progressBar.value = (originalTargetNumber - currentDummies) / originalTargetNumber;
-                progressBarText.text = "TARGETS";
+                progressBarText.text = (originalTargetNumber - currentDummies) + "/" + originalTargetNumber;
 
                 if (currentDummies <= 0)
                     shootGalleryComplete = true;
