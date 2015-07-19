@@ -19,28 +19,34 @@ public class GenocideOverheat : Skill
         inputManager = GetComponent<InputManager>();
         kartShoot = GetComponent<KartShoot>();
         originalShootCooldown = kartShoot.shootCooldownTime;
+
+        skillDescription = "The longer the kart shoots, the hotter the kart's gun gets, which leads to an attack speed decrease of up to " + (shootCooldownLimit - originalShootCooldown)
+            + " shots per second. When the kart reaches the limit, the kart will not be able to shoot until the kart's gun has fully cooled down.";
     }
 
     internal override void PassiveEffect()
     {
-        currentShootCooldown = kartShoot.shootCooldownTime;
-        if (inputManager.allowShoot)
+        if (kartShoot != null)
         {
-            if (Input.GetMouseButton(0))
+            currentShootCooldown = kartShoot.shootCooldownTime;
+            if (inputManager.allowShoot)
             {
-                GunHeatup();
+                if (Input.GetMouseButton(0))
+                {
+                    GunHeatup();
+                }
+                else
+                {
+                    GunCooldown();
+                }
             }
             else
             {
                 GunCooldown();
             }
+            kartShoot.shootCooldownTime = currentShootCooldown;
+            sliderValue = Mathf.InverseLerp(originalShootCooldown, shootCooldownLimit, currentShootCooldown);
         }
-        else
-        {
-            GunCooldown();
-        }
-        kartShoot.shootCooldownTime = currentShootCooldown;
-        sliderValue = Mathf.InverseLerp(originalShootCooldown, shootCooldownLimit, currentShootCooldown);
     }
 
     private void DisableShooting()

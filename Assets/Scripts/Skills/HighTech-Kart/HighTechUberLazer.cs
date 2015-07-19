@@ -6,6 +6,13 @@ public class HighTechUberLazer : Skill
     private GameObject lazerInstance;
     public float damagePerSecond;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "Shoots a very powerful lazer for " + channelTime + " seconds which deals " + damagePerSecond + " damage per second to hit enemy.";
+    }
+
     internal override void Update()
     {
         base.Update();

@@ -6,6 +6,13 @@ public class AdventureDeathArrow : Skill
     public float damage;
     public float deathArrowSpeed;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "Shoot a very powerful arrow that deals " + damage + " damage to an enemy that's hit.";
+    }
+
     internal override void ActiveEffect()
     {
         GameObject deathArrowInstance = Network.Instantiate(deathArrow, GetComponent<KartGun>().bulletSpawnPoint.position, GetComponent<KartGun>().bulletSpawnPoint.rotation, 0) as GameObject;

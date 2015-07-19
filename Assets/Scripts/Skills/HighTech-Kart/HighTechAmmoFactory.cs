@@ -10,10 +10,14 @@ public class HighTechAmmoFactory : Skill
     {
         base.Start();
         originalAmmoRegenRate = GetComponent<CharacterAmmo>().ammoRegenRate;
+
+        skillDescription = "Gives increased ammo regeneration. Instead of " + originalAmmoRegenRate + " ammo per second regeneration, the High-Tech kart has "
+            + (originalAmmoRegenRate * ammoRegenRateMultiplier) + " ammo per second regeneration.";
     }
 
     internal override void PassiveEffect()
     {
-        GetComponent<CharacterAmmo>().ammoRegenRate = originalAmmoRegenRate * ammoRegenRateMultiplier;
+        if (GetComponent<CharacterAmmo>() != null)
+            GetComponent<CharacterAmmo>().ammoRegenRate = originalAmmoRegenRate * ammoRegenRateMultiplier;
     }
 }

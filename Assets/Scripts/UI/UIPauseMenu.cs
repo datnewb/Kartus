@@ -11,7 +11,6 @@ public class UIPauseMenu : MonoBehaviour
 
     internal bool inPauseMenu;
 
-
     void Start()
     {
         confirmDialogInstance = null;
@@ -19,6 +18,12 @@ public class UIPauseMenu : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (confirmDialogInstance == null)
+                inPauseMenu = !inPauseMenu;
+        }
+
         if (inPauseMenu)
         {
             pauseCanvas.enabled = true;
@@ -59,6 +64,7 @@ public class UIPauseMenu : MonoBehaviour
         UnityAction noAction = () => 
         {
             Destroy(confirmDialogInstance);
+            confirmDialogInstance = null;
             MainMenuHandler.EnableInputReceive();
         };
 

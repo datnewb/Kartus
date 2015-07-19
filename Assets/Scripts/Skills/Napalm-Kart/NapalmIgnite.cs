@@ -8,9 +8,16 @@ public class NapalmIgnite : Skill
 
     public GameObject burnVisual;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "All attacks have burn damage which deals " + damagePerSecond + " damage per second for " + duration + " seconds.";
+    }
+
     internal override void PassiveEffect()
     {
-        if (GetComponent<KartShoot>().shotBullet != null)
+        if (GetComponent<KartShoot>() != null)
         {
             if (GetComponent<KartShoot>().shotBullet.GetComponent<StatEffectBurn>() == null)
             {

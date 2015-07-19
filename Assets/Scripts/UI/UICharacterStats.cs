@@ -78,7 +78,7 @@ public class UICharacterStats : MonoBehaviour
             shieldBar.gameObject.SetActive(true);
             shieldValueText.gameObject.SetActive(true);
 
-            shieldBar.value = shield.currentShield / shield.maxShield;
+            shieldBar.value = Mathf.Lerp(shieldBar.value, shield.currentShield / shield.maxShield, 0.25f);
             shieldValueText.text = Mathf.RoundToInt(shield.currentShield) + " / " + shield.maxShield;
         }
         else
@@ -94,7 +94,7 @@ public class UICharacterStats : MonoBehaviour
             healthBar.gameObject.SetActive(true);
             healthValueText.gameObject.SetActive(true);
 
-            healthBar.value = health.currentHealth / health.maxHealth;
+            healthBar.value = Mathf.Lerp(healthBar.value, health.currentHealth / health.maxHealth, 0.25f);
             healthValueText.text = Mathf.RoundToInt(health.currentHealth) + " / " + health.maxHealth;
         }
         else
@@ -110,7 +110,7 @@ public class UICharacterStats : MonoBehaviour
             ammoBar.gameObject.SetActive(true);
             ammoValueText.gameObject.SetActive(true);
 
-            ammoBar.value = ammo.currentAmmo / ammo.maxAmmo;
+            ammoBar.value = Mathf.Lerp(ammoBar.value, ammo.currentAmmo / ammo.maxAmmo, 0.25f);
             ammoValueText.text = Mathf.RoundToInt(ammo.currentAmmo) + " / " + ammo.maxAmmo;
         }
         else

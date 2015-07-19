@@ -4,17 +4,28 @@ using UnityEngine.UI;
 public class UIGeneratorStats : MonoBehaviour 
 {
     [SerializeField]
+    private Canvas powerInsurgentCanvas;
+
+    [SerializeField]
     private Slider speedsterGeneratorHealthBar;
     [SerializeField]
     private Slider roadkillGeneratorHealthBar;
 
     void Update()
     {
-        UpdateGeneratorHealthBar();
+        if (FindObjectOfType<GameManager>() != null)
+        {
+            if (FindObjectOfType<GameManager>().gameStarted)
+                UpdateGeneratorHealthBar();
+            else
+                powerInsurgentCanvas.enabled = false;
+        }
     }
 
     private void UpdateGeneratorHealthBar()
     {
+        powerInsurgentCanvas.enabled = true;
+
         if (FindObjectsOfType<Generator>() != null &&
             FindObjectsOfType<Generator>().Length > 1)
         {

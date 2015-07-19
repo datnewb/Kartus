@@ -51,7 +51,6 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        InputPause();
         if (!pauseMenu.inPauseMenu)
         {
             if (allowInput)
@@ -66,12 +65,6 @@ public class InputManager : MonoBehaviour
         {
             StopAim();
         }
-    }
-
-    private void InputPause()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            pauseMenu.inPauseMenu = !pauseMenu.inPauseMenu;
     }
 
     private void InputShoot()

@@ -26,14 +26,24 @@ public class MinionSpawner : MonoBehaviour
     void Start()
     {
         canSpawn = true;
+    }
+
+    void OnEnable()
+    {
         if (Network.isServer)
         {
             if (minion != null && targetTransform != null)
             {
-                spawnerCoroutine = Spawner();
+                if (spawnerCoroutine == null)
+                    spawnerCoroutine = Spawner();
                 StartCoroutine(spawnerCoroutine);
             }
         }
+    }
+
+    void OnDisable()
+    {
+        StopCoroutine(spawnerCoroutine);
     }
 
     IEnumerator Spawner()
@@ -55,6 +65,7 @@ public class MinionSpawner : MonoBehaviour
     {
         StopCoroutine(spawnerCoroutine);
     }
+
 
     internal void Spawn()
     {

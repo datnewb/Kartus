@@ -7,6 +7,13 @@ public class NapalmInferno : Skill
     public float blastRadius;
     public GameObject blastVisual;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "The kart releases a huge amount of heat, dealing " + damage + " damage to enemies within a " + blastRadius + " unit radius.";
+    }
+
     internal override void ActiveEffect()
     {
         Collider[] collidersInBlastRadius = Physics.OverlapSphere(transform.position, blastRadius);
@@ -40,6 +47,7 @@ public class NapalmInferno : Skill
                                 hitObject.GetComponent<NetworkView>().RPC("DamageShield", RPCMode.All, damage);
                             else if (hitObject.GetComponent<CharacterHealth>() != null)
                                 hitObject.GetComponent<NetworkView>().RPC("Damage", RPCMode.All, damage);
+
                             damagedObjects.Add(hitObject);
                         }
                     }

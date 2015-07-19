@@ -2,8 +2,6 @@
 
 public class PlayerInfo : MonoBehaviour
 {
-    public GameObject playerHandlerPrefab;
-
     internal string playerName;
     internal KartEnum kart;
     internal Gender gender;
@@ -41,26 +39,29 @@ public class PlayerInfo : MonoBehaviour
         }
 
         queueNumber = position;
+        playerHandler = null;
 
         loadingFinished = false;
         kartSelected = false;
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
         if (myView.isMine)
-            myView.RPC("UpdateName", RPCMode.All, PlayerPrefs.GetString("playerName"));
-        if (FindObjectOfType<GameManager>() != null)
         {
-            if (FindObjectOfType<GameManager>().currentGameState == GameState.Game)
+            myView.RPC("UpdateName", RPCMode.All, PlayerPrefs.GetString("playerName"));
+            if (FindObjectOfType<GameManager>() != null)
             {
-                if (playerHandler == null)
+                if (FindObjectOfType<GameManager>().currentGameState == GameState.Game)
                 {
-                    CreatePlayerHandler();
+                    if (FindObjectOfType<GameManager>().gameStarted &&
+                        playerHandler == null)
+                        CreatePlayerHandler();
                 }
             }
         }
+
     }
 
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
@@ -72,6 +73,7 @@ public class PlayerInfo : MonoBehaviour
         int net_queueNumber = 0;
         bool net_kartSelected = false;
         bool net_loadingFinished = false;
+        
 
         if (stream.isWriting)
         {
@@ -121,6 +123,7 @@ public class PlayerInfo : MonoBehaviour
             if (kart == kartObject.kartEnumValue)
             {
                 playerHandler.kart = kartObject.variations[kartVariation];
+                break;
             }
         }
         playerHandler.driver = FindObjectOfType<CharacterList>().drivers[(int)gender];

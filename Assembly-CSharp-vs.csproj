@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Game Mode\Power Insurgent\PowerInsurgent.cs" />
      <Compile Include="Assets\Scripts\Game Mode\Power Insurgent\Tower\Tower.cs" />
      <Compile Include="Assets\Scripts\Game Mode\Power Insurgent\Tower\TowerDetection.cs" />
+     <Compile Include="Assets\Scripts\Game Mode\PreviewCamera.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Kart\Driver.cs" />
      <Compile Include="Assets\Scripts\Kart\KartCamera.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\Main Menu\ConfirmBox.cs" />
      <Compile Include="Assets\Scripts\Main Menu\ErrorBox.cs" />
      <Compile Include="Assets\Scripts\Main Menu\GameModeButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu\LobbyCharacterInfo.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MainMenuHandler.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuCreateGame.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuJoinGame.cs" />
@@ -120,6 +122,7 @@
      <Compile Include="Assets\Scripts\UI\UIGameOverScreen.cs" />
      <Compile Include="Assets\Scripts\UI\UIGeneratorStats.cs" />
      <Compile Include="Assets\Scripts\UI\UIPauseMenu.cs" />
+     <Compile Include="Assets\Scripts\UI\UIPlayer.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

@@ -7,6 +7,11 @@ using System.Collections.Generic;
 public class MenuLobby : MonoBehaviour
 {
     [SerializeField]
+    private Canvas playerListCanvas;
+    [SerializeField]
+    private Canvas characterInfoCanvas;
+
+    [SerializeField]
     internal Text gameMode;
     [SerializeField]
     internal Text ipAddress;
@@ -39,6 +44,8 @@ public class MenuLobby : MonoBehaviour
 
     [SerializeField]
     internal GameObject selectKartButton;
+    [SerializeField]
+    internal GameObject kartHelpButton;
     [SerializeField]
     internal GameObject selectKartLeftButton;
     [SerializeField]
@@ -79,6 +86,7 @@ public class MenuLobby : MonoBehaviour
         MainMenuHandler.DisableAllCanvases();
         lobbyCanvas.enabled = true;
         lobbyManager.enabled = true;
+        KartHelpClose();
 
         countdownText.text = "";
         reservePlayersText.text = "";
@@ -278,9 +286,23 @@ public class MenuLobby : MonoBehaviour
                     myPlayerInfo.kartSelected = true;
                     DisableTeamSelection();
                     DisableKartSelection();
+                    characterInfoCanvas.enabled = false;
+                    playerListCanvas.enabled = true;
                     break;
             }
         }
+    }
+
+    public void KartHelpOpen()
+    {
+        characterInfoCanvas.enabled = true;
+        playerListCanvas.enabled = false;
+    }
+
+    public void KartHelpClose()
+    {
+        characterInfoCanvas.enabled = false;
+        playerListCanvas.enabled = true;
     }
 
     public void CancelSelectKart()
@@ -611,6 +633,7 @@ public class MenuLobby : MonoBehaviour
     private void EnableKartSelection()
     {
         selectKartButton.SetActive(true);
+        kartHelpButton.SetActive(true);
         selectKartLeftButton.SetActive(true);
         selectKartRightButton.SetActive(true);
         cancelSelectKartButton.SetActive(false);
@@ -623,6 +646,7 @@ public class MenuLobby : MonoBehaviour
     private void DisableKartSelection()
     {
         selectKartButton.SetActive(false);
+        kartHelpButton.SetActive(false);
         selectKartLeftButton.SetActive(false);
         selectKartRightButton.SetActive(false);
         cancelSelectKartButton.SetActive(true);
@@ -698,7 +722,6 @@ public class MenuLobby : MonoBehaviour
     {
         if (GetLocalPlayerInfo() != null)
         {
-            selectedKartText.text = GetLocalPlayerInfo().currentSelectedKart.ToString();
             if (kartPreview == null)
             {
                 foreach (Kart kart in FindObjectOfType<CharacterList>().karts)
@@ -706,6 +729,7 @@ public class MenuLobby : MonoBehaviour
                     if (kart.kartEnumValue == GetLocalPlayerInfo().currentSelectedKart)
                     {
                         kartPreview = Instantiate(kart.variations[GetLocalPlayerInfo().kartVariation], kartPreviewTransform.position, kartPreviewTransform.rotation) as GameObject;
+                        selectedKartText.text = kart.kartName;
                         ChangeDriver();
                         RemoveComponentsFromPreview();
                         ObjectRotator rotator = kartPreview.AddComponent<ObjectRotator>();
@@ -739,7 +763,8 @@ public class MenuLobby : MonoBehaviour
         Destroy(kartPreview.GetComponent<KartCamera>().GetCameraRigRoot().gameObject);
         foreach (MonoBehaviour script in kartPreview.GetComponents<MonoBehaviour>())
         {
-            if (script.GetType() != typeof(KartGun) &&
+            if (script.GetType().BaseType != typeof(Skill) &&
+                script.GetType() != typeof(KartGun) &&
                 script.GetType() != typeof(Driver))
                 Destroy(script);
         }

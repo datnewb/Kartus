@@ -7,22 +7,33 @@ public class AdventureNaturesBlessing : Skill
     public float topSpeedBoost;
     public float healthRegenRate;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "When out of combat, the Adventure kart gains the Nature's Blessing effect, which gives a torque increase of " 
+            + torqueBoost + ", a top speed increase of " + topSpeedBoost + ", and " + healthRegenRate + "health per second regeneration.";
+    }
+
     internal override void PassiveEffect()
     {
-        if (!GetComponent<CharacterHealth>().isTargeted)
+        if (GetComponent<CharacterHealth>() != null)
         {
-            if (GetComponent<StatEffectNaturesBlessing>() == null)
+            if (!GetComponent<CharacterHealth>().isTargeted)
             {
-                StatEffectNaturesBlessing naturesBlessing = gameObject.AddComponent<StatEffectNaturesBlessing>();
-                naturesBlessing.torqueBoost = torqueBoost;
-                naturesBlessing.topSpeedBoost = topSpeedBoost;
-                naturesBlessing.healthRegenRate = healthRegenRate;
+                if (GetComponent<StatEffectNaturesBlessing>() == null)
+                {
+                    StatEffectNaturesBlessing naturesBlessing = gameObject.AddComponent<StatEffectNaturesBlessing>();
+                    naturesBlessing.torqueBoost = torqueBoost;
+                    naturesBlessing.topSpeedBoost = topSpeedBoost;
+                    naturesBlessing.healthRegenRate = healthRegenRate;
+                }
             }
-        }
-        else
-        {
-            if (GetComponent<StatEffectNaturesBlessing>() != null)
-                Destroy(GetComponent<StatEffectNaturesBlessing>());
+            else
+            {
+                if (GetComponent<StatEffectNaturesBlessing>() != null)
+                    Destroy(GetComponent<StatEffectNaturesBlessing>());
+            }
         }
     }
 }

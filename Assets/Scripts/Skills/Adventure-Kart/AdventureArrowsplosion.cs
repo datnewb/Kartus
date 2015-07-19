@@ -8,6 +8,13 @@ public class AdventureArrowsplosion : Skill
     public float damage;
     public float arrowSpeed;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "Shoots 8 arrows dealing " + damage + " damage each in 8 directions (cardinal and intermediate directions based from the kart).";
+    }
+
     internal override void ActiveEffect()
     {
         foreach (Transform arrowSpawnPoint in arrowSpawnPoints)

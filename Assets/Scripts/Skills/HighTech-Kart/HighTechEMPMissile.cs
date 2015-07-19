@@ -12,6 +12,14 @@ public class HighTechEMPMissile : Skill
 
     public float effectDuration;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "Shoots a missile which deals " + damage + " explosive damage. Enemy player karts hit gets a skill disable effect, " + torqueDecrease + " torque decrease, and "
+            + topSpeedDecrease + " top speed decrease for " + effectDuration + " seconds.";
+    }
+
     internal override void ActiveEffect()
     {
         GameObject empMissileInstance = Network.Instantiate(empMissile, GetComponent<KartGun>().bulletSpawnPoint.position, GetComponent<KartGun>().bulletSpawnPoint.rotation, 0) as GameObject;

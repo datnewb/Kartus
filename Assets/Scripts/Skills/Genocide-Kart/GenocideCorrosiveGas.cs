@@ -10,6 +10,14 @@ public class GenocideCorrosiveGas : Skill
     public float topSpeedDecrease;
     public float effectDuration;
 
+    internal override void Start()
+    {
+        base.Start();
+
+        skillDescription = "The kart shoots a bomb filled with corrosive material which deals " + damage + " explosive damage. All enemies hit will get "
+            + torqueDecrease + " torque decrease, and " + topSpeedDecrease + " top speed decrease which lasts " + effectDuration + " seconds";
+    }
+
     internal override void ActiveEffect()
     {
         GameObject corrosiveBombInstance = Network.Instantiate(corrosiveBomb, GetComponent<KartGun>().bulletSpawnPoint.position, GetComponent<KartGun>().bulletSpawnPoint.rotation, 0) as GameObject;

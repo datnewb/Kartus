@@ -26,4 +26,8 @@ public class Kart
 {
     public KartEnum kartEnumValue;
     public List<GameObject> variations;
+
+    public string kartName;
+    [TextArea(3, 5)]
+    public string kartDescription;
 }

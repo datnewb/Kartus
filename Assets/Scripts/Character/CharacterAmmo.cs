@@ -5,7 +5,7 @@ public class CharacterAmmo : MonoBehaviour
     public float maxAmmo;
     internal float currentAmmo;
 
-    public float ammoRegenRate;
+    internal float ammoRegenRate = 2.0f;
 
     void Start()
     {
