@@ -13,6 +13,8 @@ public class MainMenuHandler : MonoBehaviour
     [SerializeField]
     internal Canvas lobbyCanvas;
     [SerializeField]
+    internal Canvas settingsCanvas;
+    [SerializeField]
     internal Canvas loadingScreenCanvas;
 
     [SerializeField]

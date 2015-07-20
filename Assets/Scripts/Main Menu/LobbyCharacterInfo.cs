@@ -14,18 +14,54 @@ public class LobbyCharacterInfo : MonoBehaviour
 
     void Update()
     {
-        if (FindObjectOfType<MenuLobby>().enabled && GetLocalPlayerInfo() != null)
+        if (GetLocalPlayerInfo() != null)
         {
-            foreach (Kart kart in FindObjectOfType<CharacterList>().karts)
+            if (FindObjectOfType<MenuLobby>() != null && FindObjectOfType<MenuLobby>().enabled)
             {
-                if (kart.kartEnumValue == GetLocalPlayerInfo().currentSelectedKart)
+                foreach (Kart kart in FindObjectOfType<CharacterList>().karts)
                 {
-                    kartNameText.text = kart.kartName;
-                    kartDescText.text = kart.kartDescription;
-
-                    if (FindObjectOfType<MenuLobby>().kartPreview != null)
+                    if (kart.kartEnumValue == GetLocalPlayerInfo().currentSelectedKart)
                     {
-                        Skill[] skills = FindObjectOfType<MenuLobby>().kartPreview.GetComponents<Skill>();
+                        kartNameText.text = kart.kartName;
+                        kartDescText.text = kart.kartDescription;
+
+                        if (FindObjectOfType<MenuLobby>().kartPreview != null)
+                        {
+                            Skill[] skills = FindObjectOfType<MenuLobby>().kartPreview.GetComponents<Skill>();
+                            for (int currentSkill = 0; currentSkill < skills.Length; currentSkill++)
+                            {
+                                skillInfoUIs[currentSkill].skillName.text = skills[currentSkill].skillName;
+                                skillInfoUIs[currentSkill].skillImage.sprite = skills[currentSkill].skillIcon;
+                                string skillType = "TYPE: " + skills[currentSkill].type;
+                                if (skills[currentSkill].type == SkillType.Active)
+                                {
+                                    skillType += "\nCAST MODE: " + skills[currentSkill].castMode;
+                                    skillType += "\nAMMO COST: " + skills[currentSkill].ammoCost;
+                                    skillType += "\nCOOLDOWN: " + skills[currentSkill].coolDown + "s";
+                                }
+                                skillInfoUIs[currentSkill].skillType.text = skillType;
+                                skillInfoUIs[currentSkill].skillDesc.text = skills[currentSkill].SkillDescription;
+                            }
+                        }
+                    }
+                }
+            }
+            else if (FindObjectOfType<GameManager>() != null)
+            {
+                if (FindObjectOfType<GameManager>().currentGameState == GameState.Game && FindObjectOfType<UIPauseMenu>().inPauseMenu)
+                {
+                    foreach (Kart kart in FindObjectOfType<CharacterList>().karts)
+                    {
+                        if (kart.kartEnumValue == GetLocalPlayerInfo().currentSelectedKart)
+                        {
+                            kartNameText.text = kart.kartName;
+                            break;
+                        }
+                    }
+
+                    if (GetLocalPlayerHandler() != null && GetLocalPlayerHandler().kart != null)
+                    {
+                        Skill[] skills = GetLocalPlayerHandler().kart.GetComponents<Skill>();
                         for (int currentSkill = 0; currentSkill < skills.Length; currentSkill++)
                         {
                             skillInfoUIs[currentSkill].skillName.text = skills[currentSkill].skillName;
@@ -38,7 +74,19 @@ public class LobbyCharacterInfo : MonoBehaviour
                                 skillType += "\nCOOLDOWN: " + skills[currentSkill].coolDown + "s";
                             }
                             skillInfoUIs[currentSkill].skillType.text = skillType;
-                            skillInfoUIs[currentSkill].skillDesc.text = skills[currentSkill].skillDescription;
+                            skillInfoUIs[currentSkill].skillDesc.text = skills[currentSkill].SkillDescription;
+                        }
+                    }
+                    else
+                    {
+                        kartNameText.text = "";
+                        foreach (SkillInfoUI skillInfoUI in skillInfoUIs)
+                        {
+                            skillInfoUI.skillDesc.text = "";
+                            skillInfoUI.skillImage.sprite = null;
+                            skillInfoUI.skillImage.color = new Color(0, 0, 0, 0);
+                            skillInfoUI.skillName.text = "";
+                            skillInfoUI.skillType.text = "";
                         }
                     }
                 }
@@ -52,6 +100,16 @@ public class LobbyCharacterInfo : MonoBehaviour
         {
             if (playerInfo.GetComponent<NetworkView>().isMine)
                 return playerInfo;
+        }
+        return null;
+    }
+
+    private PlayerHandler GetLocalPlayerHandler()
+    {
+        foreach (PlayerHandler playerHandler in FindObjectsOfType<PlayerHandler>())
+        {
+            if (playerHandler.GetComponent<NetworkView>().isMine)
+                return playerHandler;
         }
         return null;
     }

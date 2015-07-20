@@ -41,8 +41,6 @@ public class Skill : MonoBehaviour
     internal float currentChannelTime;
     internal bool castConfirmed;
 
-    internal string skillDescription;
-
     internal bool isAiming;
     private bool prevIsAiming;
 
@@ -204,5 +202,15 @@ public class Skill : MonoBehaviour
         currentCoolDown = coolDown;
         isInCoolDown = true;
         castConfirmed = false;
+    }
+
+    internal virtual string SkillDescription
+    {
+        set { }
+
+        get
+        {
+            return "";
+        }
     }
 }

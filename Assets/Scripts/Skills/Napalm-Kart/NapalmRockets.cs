@@ -18,9 +18,6 @@ public class NapalmRockets : Skill
 
         timeInterval = channelTime / ((float)numberOfRockets - 1.0f);
         rocketRoutine = null;
-
-        skillDescription = "Shoot " + numberOfRockets + " rockets, 1 rocket every " + timeInterval + " seconds, for " + channelTime + " seconds. Each rocket deals " + damage
-            + " explosive damage within a " + rocket.GetComponent<Bullet>().blastRadius + " unit radius.";
     }
 
     internal override void ActiveEffect()
@@ -46,5 +43,15 @@ public class NapalmRockets : Skill
         }
 
         rocketRoutine = null;
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "Shoot " + numberOfRockets + " rockets, 1 rocket every " + timeInterval + " seconds, for " + channelTime + " seconds. Each rocket deals " + damage
+                + " explosive damage within a " + rocket.GetComponent<Bullet>().blastRadius + " unit radius.";
+        }
+        set { }
     }
 }

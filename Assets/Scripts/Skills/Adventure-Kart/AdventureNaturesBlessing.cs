@@ -10,9 +10,6 @@ public class AdventureNaturesBlessing : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "When out of combat, the Adventure kart gains the Nature's Blessing effect, which gives a torque increase of " 
-            + torqueBoost + ", a top speed increase of " + topSpeedBoost + ", and " + healthRegenRate + "health per second regeneration.";
     }
 
     internal override void PassiveEffect()
@@ -35,5 +32,15 @@ public class AdventureNaturesBlessing : Skill
                     Destroy(GetComponent<StatEffectNaturesBlessing>());
             }
         }
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "When out of combat, the Adventure kart gains the Nature's Blessing effect, which gives a torque increase of "
+                + torqueBoost + ", a top speed increase of " + topSpeedBoost + ", and " + healthRegenRate + " health per second regeneration.";
+        }
+        set { }
     }
 }

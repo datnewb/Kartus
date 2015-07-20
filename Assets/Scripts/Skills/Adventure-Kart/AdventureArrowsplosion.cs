@@ -11,8 +11,6 @@ public class AdventureArrowsplosion : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "Shoots 8 arrows dealing " + damage + " damage each in 8 directions (cardinal and intermediate directions based from the kart).";
     }
 
     internal override void ActiveEffect()
@@ -25,5 +23,14 @@ public class AdventureArrowsplosion : Skill
             arrowInstance.GetComponent<Bullet>().ownerKartType = KartType.Player;
             arrowInstance.GetComponent<Rigidbody>().AddForce(arrowInstance.transform.forward * arrowSpeed, ForceMode.VelocityChange);
         }
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "Shoots 8 arrows dealing " + damage + " damage each in 8 directions (cardinal and intermediate directions based from the kart).";
+        }
+        set { }
     }
 }

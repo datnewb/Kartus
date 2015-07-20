@@ -9,8 +9,6 @@ public class HighTechUberLazer : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "Shoots a very powerful lazer for " + channelTime + " seconds which deals " + damagePerSecond + " damage per second to hit enemy.";
     }
 
     internal override void Update()
@@ -60,5 +58,14 @@ public class HighTechUberLazer : Skill
             if (lazerInstance != null)
                 lazerInstance.GetComponent<UberLazer>().endPoint = GetComponent<KartGun>().bulletSpawnPoint.position + GetComponent<KartGun>().bulletSpawnPoint.forward * 1000;
         }
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "Shoots a very powerful lazer for " + channelTime + " seconds which deals " + damagePerSecond + " damage per second to hit enemy.";
+        }
+        set { }
     }
 }

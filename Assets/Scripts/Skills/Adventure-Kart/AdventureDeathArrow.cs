@@ -9,8 +9,6 @@ public class AdventureDeathArrow : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "Shoot a very powerful arrow that deals " + damage + " damage to an enemy that's hit.";
     }
 
     internal override void ActiveEffect()
@@ -20,5 +18,14 @@ public class AdventureDeathArrow : Skill
         deathArrowInstance.GetComponent<Bullet>().SetDamage(damage);
         deathArrowInstance.GetComponent<Bullet>().ownerKartType = KartType.Player;
         deathArrowInstance.GetComponent<Rigidbody>().AddForce(deathArrowInstance.transform.forward * deathArrowSpeed, ForceMode.VelocityChange);
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "Shoot a very powerful arrow that deals " + damage + " damage to an enemy that's hit.";
+        }
+        set { }
     }
 }

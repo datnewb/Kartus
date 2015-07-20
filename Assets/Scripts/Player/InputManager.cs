@@ -46,7 +46,6 @@ public class InputManager : MonoBehaviour
         pauseMenu = FindObjectOfType<UIPauseMenu>();
             
         playerCamera = kartCamera.GetCamera();
-
     }
 
     void Update()
@@ -94,6 +93,7 @@ public class InputManager : MonoBehaviour
     {
         if (allowAiming)
         {
+            mouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity", 10.0f);
             kartCamera.mouseHorizontal = -Input.GetAxis("Mouse Y") * mouseSensitivity;
             kartCamera.mouseVertical = Input.GetAxis("Mouse X") * mouseSensitivity;
 

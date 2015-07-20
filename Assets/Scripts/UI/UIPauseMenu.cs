@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class UIPauseMenu : MonoBehaviour 
 {
     [SerializeField]
-    private Canvas pauseCanvas;
+    internal Canvas pauseCanvas;
     [SerializeField]
     private GameObject confirmDialogPrefab;
     private GameObject confirmDialogInstance;
@@ -14,23 +14,25 @@ public class UIPauseMenu : MonoBehaviour
     void Start()
     {
         confirmDialogInstance = null;
+        FindObjectOfType<MenuSettings>().settingsCanvas.enabled = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) &&
+            !FindObjectOfType<MenuSettings>().settingsCanvas.enabled)
         {
             if (confirmDialogInstance == null)
                 inPauseMenu = !inPauseMenu;
         }
 
-        if (inPauseMenu)
+        if (inPauseMenu && !FindObjectOfType<MenuSettings>().settingsCanvas.enabled)
         {
             pauseCanvas.enabled = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
         }
-        else
+        else if (!inPauseMenu)
         {
             pauseCanvas.enabled = false;
             Cursor.visible = false;
@@ -45,7 +47,8 @@ public class UIPauseMenu : MonoBehaviour
 
     public void Settings()
     {
-
+        FindObjectOfType<MenuSettings>().settingsCanvas.enabled = true;
+        pauseCanvas.enabled = false;
     }
 
     public void Quit()

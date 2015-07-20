@@ -13,9 +13,6 @@ public class GenocideCorrosiveGas : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "The kart shoots a bomb filled with corrosive material which deals " + damage + " explosive damage. All enemies hit will get "
-            + torqueDecrease + " torque decrease, and " + topSpeedDecrease + " top speed decrease which lasts " + effectDuration + " seconds";
     }
 
     internal override void ActiveEffect()
@@ -30,5 +27,15 @@ public class GenocideCorrosiveGas : Skill
         slow.torqueDecrease = torqueDecrease;
         slow.topSpeedDecrease = topSpeedDecrease;
         slow.duration = effectDuration;
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "The kart shoots a bomb filled with corrosive material which deals " + damage + " explosive damage. All enemies hit will get "
+                + torqueDecrease + " torque decrease, and " + topSpeedDecrease + " top speed decrease which lasts " + effectDuration + " seconds";
+        }
+        set { }
     }
 }

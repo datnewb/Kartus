@@ -136,6 +136,12 @@ public class MenuMain : MonoBehaviour
         GetComponent<MenuJoinGame>().enabled = true;
     }
 
+    public void GoToSettings()
+    {
+        enabled = false;
+        GetComponent<MenuSettings>().enabled = true;
+    }
+
     void OnServerInitialized()
     {
         enabled = false;

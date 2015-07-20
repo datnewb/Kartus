@@ -10,8 +10,6 @@ public class NapalmInferno : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "The kart releases a huge amount of heat, dealing " + damage + " damage to enemies within a " + blastRadius + " unit radius.";
     }
 
     internal override void ActiveEffect()
@@ -57,5 +55,14 @@ public class NapalmInferno : Skill
 
         if (blastVisual != null)
             Network.Instantiate(blastVisual, transform.position, Quaternion.identity, 0);
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "The kart releases a huge amount of heat, dealing " + damage + " damage to enemies within a " + blastRadius + " unit radius.";
+        }
+        set { }
     }
 }

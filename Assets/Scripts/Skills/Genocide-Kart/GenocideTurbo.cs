@@ -10,8 +10,6 @@ public class GenocideTurbo : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "Gives the kart " + torqueBoost + " torque boost and " + topSpeedBoost + " top speed boost.";
     }
 
     internal override void ActiveEffect()
@@ -19,5 +17,14 @@ public class GenocideTurbo : Skill
         StatEffectSpeedBoost speedBoost = gameObject.AddComponent<StatEffectSpeedBoost>();
         speedBoost.torqueBoost = torqueBoost;
         speedBoost.topSpeedBoost = topSpeedBoost;
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "Gives the kart " + torqueBoost + " torque boost and " + topSpeedBoost + " top speed boost.";
+        }
+        set { }
     }
 }

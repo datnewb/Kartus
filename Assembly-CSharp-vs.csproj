@@ -61,7 +61,8 @@
      <Compile Include="Assets\Scripts\Game Mode\Power Insurgent\Tower\Tower.cs" />
      <Compile Include="Assets\Scripts\Game Mode\Power Insurgent\Tower\TowerDetection.cs" />
      <Compile Include="Assets\Scripts\Game Mode\PreviewCamera.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Game\GameSettings.cs" />
      <Compile Include="Assets\Scripts\Kart\Driver.cs" />
      <Compile Include="Assets\Scripts\Kart\KartCamera.cs" />
      <Compile Include="Assets\Scripts\Kart\KartController.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\Scripts\Main Menu\MenuLoadingScreen.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuLobby.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuMain.cs" />
+     <Compile Include="Assets\Scripts\Main Menu\MenuSettings.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MessageBox.cs" />
      <Compile Include="Assets\Scripts\Main Menu\TextInputBox.cs" />
      <Compile Include="Assets\Scripts\Main Menu\TextInputNotReqBox.cs" />

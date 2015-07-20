@@ -15,9 +15,6 @@ public class HighTechEMPMissile : Skill
     internal override void Start()
     {
         base.Start();
-
-        skillDescription = "Shoots a missile which deals " + damage + " explosive damage. Enemy player karts hit gets a skill disable effect, " + torqueDecrease + " torque decrease, and "
-            + topSpeedDecrease + " top speed decrease for " + effectDuration + " seconds.";
     }
 
     internal override void ActiveEffect()
@@ -33,5 +30,15 @@ public class HighTechEMPMissile : Skill
 
         StatEffectSlow slow = empMissileInstance.AddComponent<StatEffectSlow>();
         slow.duration = effectDuration;
+    }
+
+    internal override string SkillDescription
+    {
+        get
+        {
+            return "Shoots a missile which deals " + damage + " explosive damage. Enemy player karts hit gets a skill disable effect, " + torqueDecrease + " torque decrease, and "
+                + topSpeedDecrease + " top speed decrease for " + effectDuration + " seconds.";
+        }
+        set { }
     }
 }

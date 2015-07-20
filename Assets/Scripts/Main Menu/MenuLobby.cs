@@ -366,6 +366,7 @@ public class MenuLobby : MonoBehaviour
             }
         }
 
+        Destroy(kartPreview);
         FindObjectOfType<GameManager>().GetComponent<NetworkView>().RPC("NetworkLoadLevel", RPCMode.All, levelToLoad, levelPrefix);
     }
 
