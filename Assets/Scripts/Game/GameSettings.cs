@@ -21,6 +21,9 @@ public class GameSettings : MonoBehaviour
     internal int currentAA;
     internal int previousAA;
 
+    internal bool currentMotionBlur;
+    internal bool previousMotionBlur;
+
     internal float currentMouseSensitivity;
     internal float previousMouseSensitivity;
 
@@ -58,6 +61,9 @@ public class GameSettings : MonoBehaviour
         currentAA = QualitySettings.antiAliasing;
         previousAA = currentAA;
 
+        currentMotionBlur = PlayerPrefs.GetInt("motionBlur", 1) == 1;
+        previousMotionBlur = currentMotionBlur;
+
         currentMouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity", 10.0f);
         previousMouseSensitivity = currentMouseSensitivity;
 
@@ -89,6 +95,10 @@ public class GameSettings : MonoBehaviour
                 valueChanged = true;
             }
             else if (currentAA != previousAA)
+            {
+                valueChanged = true;
+            }
+            else if (currentMotionBlur != previousMotionBlur)
             {
                 valueChanged = true;
             }
@@ -137,6 +147,14 @@ public class GameSettings : MonoBehaviour
             }
 
             if (currentAA == previousAA)
+                valueChanged = false;
+            else
+            {
+                valueChanged = true;
+                return;
+            }
+
+            if (currentMotionBlur == previousMotionBlur)
                 valueChanged = false;
             else
             {

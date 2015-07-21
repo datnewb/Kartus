@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 public class KartCamera : MonoBehaviour 
 {
@@ -13,6 +14,7 @@ public class KartCamera : MonoBehaviour
     private float currentCameraDistance;
     private Vector3 cameraDirection;
     private Vector3 desiredCameraPosition;
+    private CameraMotionBlur cameraMotionBlur;
 
     internal float mouseHorizontal;
     internal float mouseVertical;
@@ -23,13 +25,22 @@ public class KartCamera : MonoBehaviour
         currentCameraDistance = maxCameraDistance;
         cameraDirection = cameraTransform.localPosition.normalized;
         desiredCameraPosition = cameraRigRoot.TransformPoint(maxCameraDistance * cameraDirection);
+
+        cameraMotionBlur = cameraTransform.gameObject.GetComponent<CameraMotionBlur>();
     }
 
     void Update()
     {
+        ApplyMotionBlur();
         SetCameraRigRotation();
         SetCameraRigPosition();
         FadeKart();
+    }
+
+    private void ApplyMotionBlur()
+    {
+        if (FindObjectOfType<GameSettings>() != null)
+            cameraMotionBlur.enabled = FindObjectOfType<GameSettings>().currentMotionBlur;
     }
 
     private void SetCameraRigRotation()

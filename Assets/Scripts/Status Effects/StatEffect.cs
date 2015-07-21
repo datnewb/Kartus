@@ -53,7 +53,7 @@ public class StatEffect : MonoBehaviour
     internal void DestroyVisuals()
     {
         if (statVisualInstance != null)
-            Network.Destroy(statVisualInstance);
+            Destroy(statVisualInstance);
     }
 
     internal virtual void Effect()

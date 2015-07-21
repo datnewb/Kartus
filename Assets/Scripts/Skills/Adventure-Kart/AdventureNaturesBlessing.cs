@@ -6,6 +6,7 @@ public class AdventureNaturesBlessing : Skill
     public float torqueBoost;
     public float topSpeedBoost;
     public float healthRegenRate;
+    public GameObject visualEffect;
 
     internal override void Start()
     {
@@ -24,12 +25,13 @@ public class AdventureNaturesBlessing : Skill
                     naturesBlessing.torqueBoost = torqueBoost;
                     naturesBlessing.topSpeedBoost = topSpeedBoost;
                     naturesBlessing.healthRegenRate = healthRegenRate;
+                    naturesBlessing.statVisual = visualEffect;
                 }
             }
             else
             {
                 if (GetComponent<StatEffectNaturesBlessing>() != null)
-                    Destroy(GetComponent<StatEffectNaturesBlessing>());
+                    GetComponent<StatEffectNaturesBlessing>().EndEffect();
             }
         }
     }

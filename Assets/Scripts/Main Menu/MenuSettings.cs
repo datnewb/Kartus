@@ -17,6 +17,8 @@ public class MenuSettings : MonoBehaviour
     [SerializeField]
     private Text antiAliasingText;
     [SerializeField]
+    private Toggle motionBlurToggle;
+    [SerializeField]
     private Slider mouseSensitivitySlider;
     [SerializeField]
     private Text mouseSensitivityText;
@@ -51,6 +53,7 @@ public class MenuSettings : MonoBehaviour
         SetResolutionText();
         SetTextureQualityText();
         SetAntiAliasingText();
+        motionBlurToggle.isOn = gameSettings.currentMotionBlur;
 
         audioVolumeSlider.value = gameSettings.currentAudioVolume;
         SetAudioVolumeText();
@@ -94,6 +97,11 @@ public class MenuSettings : MonoBehaviour
     public void VsyncToggled()
     {
         gameSettings.currentVsync = vSyncToggle.isOn;
+    }
+
+    public void MotionBlurToggled()
+    {
+        gameSettings.currentMotionBlur = motionBlurToggle.isOn;
     }
 
     public void DecreaseTextureQuality()
@@ -209,6 +217,9 @@ public class MenuSettings : MonoBehaviour
         gameSettings.previousAA = gameSettings.currentAA;
         QualitySettings.antiAliasing = gameSettings.currentAA;
 
+        gameSettings.previousMotionBlur = gameSettings.currentMotionBlur;
+        PlayerPrefs.SetInt("motionBlur", gameSettings.previousMotionBlur ? 1 : 0);
+
         gameSettings.previousMouseSensitivity = gameSettings.currentMouseSensitivity;
         PlayerPrefs.SetFloat("mouseSensitivity", gameSettings.currentMouseSensitivity);
 
@@ -224,6 +235,7 @@ public class MenuSettings : MonoBehaviour
         gameSettings.currentVsync = gameSettings.previousVsync;
         gameSettings.currentTextureQuality = gameSettings.previousTextureQuality;
         gameSettings.currentAA = gameSettings.previousAA;
+        gameSettings.currentMotionBlur = gameSettings.previousMotionBlur;
         gameSettings.currentMouseSensitivity = gameSettings.previousMouseSensitivity;
         gameSettings.currentAudioVolume = gameSettings.previousAudioVolume;
     }
@@ -231,7 +243,10 @@ public class MenuSettings : MonoBehaviour
     public void AcceptSettings()
     {
         ApplySettings();
-        mainMenuHandler.GoToMainMenu();
+        if (mainMenuHandler != null)
+            mainMenuHandler.GoToMainMenu();
+        else
+            settingsCanvas.enabled = false;
     }
 
     public void BackToMainMenu()
