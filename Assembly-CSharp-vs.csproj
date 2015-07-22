@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Character\CharacterList.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterShield.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterTeam.cs" />
+     <Compile Include="Assets\Scripts\Character\PowerUpDropper.cs" />
      <Compile Include="Assets\Scripts\Game Mode\GameOver.cs" />
      <Compile Include="Assets\Scripts\Game Mode\Power Insurgent\Generator.cs" />
      <Compile Include="Assets\Scripts\Game Mode\Power Insurgent\Minion\Minion.cs" />
@@ -91,6 +92,10 @@
      <Compile Include="Assets\Scripts\Player\InputManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHandler.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerInfo.cs" />
+     <Compile Include="Assets\Scripts\Power Up\PowerUp.cs" />
+     <Compile Include="Assets\Scripts\Power Up\PowerUpAmmo.cs" />
+     <Compile Include="Assets\Scripts\Power Up\PowerUpHealth.cs" />
+     <Compile Include="Assets\Scripts\Power Up\PowerUpShield.cs" />
      <Compile Include="Assets\Scripts\Prototype\Prototype_NetSpawn.cs" />
      <Compile Include="Assets\Scripts\Prototype\Prototype_NetStarter.cs" />
      <Compile Include="Assets\Scripts\Shader Effects\TransparentEffect.cs" />

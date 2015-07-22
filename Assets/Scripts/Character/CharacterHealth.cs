@@ -33,11 +33,18 @@ public class CharacterHealth : MonoBehaviour
             Targeted();
             if (currentHealth <= 0)
             {
-                if (destroyEffect != null)
-                    Instantiate(destroyEffect, transform.position, transform.rotation);
-                Network.Destroy(gameObject);
+                Kill();
             }
         }
+    }
+
+    public void Kill()
+    {
+        if (destroyEffect != null)
+            Instantiate(destroyEffect, transform.position, transform.rotation);
+        if (GetComponent<PowerUpDropper>() != null)
+            GetComponent<PowerUpDropper>().DropPowerUp();
+        Network.Destroy(gameObject);
     }
 
     [RPC]

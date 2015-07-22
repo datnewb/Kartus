@@ -17,11 +17,16 @@ public class CharacterAmmo : MonoBehaviour
         RegenerateAmmo();
     }
 
-    private void RegenerateAmmo()
+    public void GainAmmo(float ammo)
     {
-        currentAmmo += ammoRegenRate * Time.deltaTime;
+        currentAmmo += ammo;
         if (currentAmmo >= maxAmmo)
             currentAmmo = maxAmmo;
+    }
+
+    private void RegenerateAmmo()
+    {
+        GainAmmo(ammoRegenRate * Time.deltaTime);
     }
 
     public bool UseAmmo(float ammoCost)

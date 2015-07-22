@@ -40,6 +40,14 @@ public class CharacterShield : MonoBehaviour
     }
 
     [RPC]
+    public void GainShield(float value)
+    {
+        currentShield += value;
+        if (currentShield >= maxShield)
+            currentShield = maxShield;
+    }
+
+    [RPC]
     public void DamageShield(float value)
     {
         currentShield -= value;
